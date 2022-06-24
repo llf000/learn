@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="../styles/多媒体与嵌入.css"> -->
+  <link rel="icon" href="../images/favicon.ico" type="x-icon">
+  <title>6.14</title>
+</head>
+
+<body>
+  <header>
+    <h1>多媒体与嵌入</h1>
+  </header>
+  <img src="../images/1.jpeg" alt="一朵花儿" width="500" height="400">
+  <img src="../images/1.jpeg" alt="向日葵" width="500px" height="400px" title="一朵美丽的向日葵">
+  <figure>
+    <img src="../images/2.jpeg" alt="飞翔的鸟" width="400px" heigt="250px">
+    <figcaption>一只飞翔的鸟儿</figcaption>
+  </figure>
+  <video src="../video/1.mp4" controls width="400" height="300">
+    <p>你的浏览器不支持 HTML5 视频。可点击<a href="../video/1.mp4">此链接</a>观看</p>
+  </video>
+  <video controls width="400" height="300" autoplay loop muted poster="../images/eason.jpeg">
+    <!-- autoplay loop muted 自动循环静音播放，最好不用 -->
+    <source src="../video/1.mp4" type="video/mp4">
+    <p>你的浏览器不支持 HTML5 视频。可点击<a href="../video/1.mp4">此链接</a>观看</p>
+  </video>
+  <audio controls>
+    <source src="../audio/1.mp3" type="audio/mp3">
+    <!-- <track kind="captions"> -->
+  </audio>
+  <!-- <iframe src="https://player.bilibili.com/player.html?aid=597406247&bvid=BV1yB4y1Q7YS&cid=745269215&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe> -->
+  <object data="../1.pdf" type="application/pdf" width="800" height="1200" typemustmatch>
+  </object>
+  <svg width="300" height="200">
+    <rect width="100%" height="100%" fill="green" />
+  </svg>
+  <svg version="1.1" baseProfile="full" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100%" height="100%" fill="black" />
+    <circle cx="150" cy="100" r="90" fill="blue" />
+    <img srcset="../images/fj.jpg 320w,
+    ../images/fj.jpg 480w,
+    ../images/fj.jpg 800w"
+    sizes="{max-width: 320px) 280px,
+      (max-width: 480px) 440px,
+      800px"
+    src="../images/fj.jpg" alt="beautiful picture">
+  </svg>
+</body>
+
+</html>
+<!-- iframe,srcset 图片编辑-->

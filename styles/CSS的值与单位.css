@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  width:500px;
+  background-color: green;
+  border-radius: 10px;
+  margin: 10px;
+}
+h2 {
+  width: 450px;
+  background-color: olive;
+  border-radius: 10px;
+  margin: 10px;
+}
+div {
+  margin: 10px;
+  border: 2px ridge rgb(28, 63, 28);
+}
+
+/* percent */
+.percentage {
+  border: 1px solid black;
+  margin: 10px;
+}
+.wrapper {
+  border: 2px solid black;
+  width: 400px;
+}
+.px {
+  width: 200px;
+}
+
+.percent {
+  width: 40%;
+}
+
+/* color */
+.color {
+  padding: 20px;
+  width: 400px;
+  background: url(../images/bj3.jpg);
+}
+.color h4 {
+  border-radius: 10px;
+  margin: 10px;
+}
+.rgb1 {
+  background-color: rgb(2,121,139);
+}
+.rgb2 {
+  background-color: rgb(197,93,161);
+}
+.rgb3 {
+  background-color: rgb(18,138,125);
+}
+.rgba1 {
+  background-color: rgba(2,121,139, .3);
+}
+.rgba2 {
+  background-color: rgba(197,93,161, .6);
+}
+.rgba3 {
+  background-color: rgba(18,138,125, .9);
+}
+
+/* image */
+.image {
+  width:300px;
+  height: 200px;
+  background-image: url(../images/bj2.jpg);
+}
+.gradient {
+  width:300px;
+  height: 200px;
+  background-image: linear-gradient(90deg,rgba(119,0,225,1)39%,rgba(0,212,255,1) 100%) ;
+}
+
+/* position */
+.position {
+  height: 300px;
+  width: 300px;
+  border: 2px solid purple;
+  border-radius: 5px;
+  background-image: url(../images/star.jpg);
+  background-repeat: no-repeat;
+  background-position: right 80px;
+}
+
+/* 字符串和标识符 */
+.quote {
+  width: 400px;
+  /* background-color: olive; */
+  border: 2px dashed green;
+  border-radius: 5px;
+  padding: 1em;
+}
+.quote::after {
+  content: "这是字符串，因为它被引用了"
+}
+/* 函数 */
+.fun {
+  width: 500px;
+  border:1px double green;
+}
+.calc {
+  width: calc(20% + 100px);
+  border: 2px dotted olive;
+} 

@@ -1,0 +1,100 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+h1 {
+  margin: 20px;
+  border: 10px ridge rgba(211, 220, 50, .6);
+  color: rgb(99 112 35);
+  width: 500px;
+  padding: 0 10px;
+}
+h2 {
+  margin: 20px;
+  border: 10px ridge rgba(211, 220, 50, .6);
+  color: rgb(99 112 35);
+  width: 450px;
+  padding: 0 10px;
+}
+
+/* 调整图像大小 */
+.imgdiv {
+  margin: 10px;
+  border: 5px ridge rgb(143 147 65);
+  padding: 10px;
+  width:1000px;
+  height:600px;
+}
+.imgbox {
+  margin: 10px;
+  padding: 0;
+  border: 3px solid rgb(54, 56, 7);
+  width: 200px;
+  height: 200px;
+  float: left;
+}
+.imgmax {
+  max-width: 100px;
+}
+.cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.contain {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.imgdiv::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+/* 布局中的替换元素 */
+.wrapper {
+  margin: 10px;
+  border: 5px ridge rgb(143 147 65);
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 300px 300px;
+  grid-template-rows: 200px 200px;
+  gap: 20px;
+}
+.wrapper > div {
+  background-color: rebeccapurple;
+  border-radius: 5em;
+}
+.wrapper > img {
+  width:100%;
+  height: 100%;
+}
+
+/* form元素 */
+/* 样式化文本输入元素 */
+form {
+  border: 5px ridge rgb(143 147 65);
+  width: 600px;
+  height: 300px;
+  margin: 10px;
+  padding: 10px;
+}
+input[type="text"],
+input[type="email"] {
+  border: 2px solid #000;
+  margin: 0 0 1em 0;
+  padding: 10px;
+  width: 100%;
+}
+input[type="submit"] {
+  border: 3px solid #333;
+  background-color: #999;
+  border-radius: 5px;
+  padding: 10px 2em;
+  font-weight: bold;
+  color: #fff;
+}
+input[type="submit"]::hover {
+  background-color: #333;
+}

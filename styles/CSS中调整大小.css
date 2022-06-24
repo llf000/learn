@@ -1,0 +1,118 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+h1 {
+  margin: 20px auto;
+  width: 500px;
+  border-radius: 20px;
+  color: white;
+  background-color: slateblue;
+  text-align: center;
+}
+h2 {
+  margin: 20px auto;
+  width: 450px;
+  border-radius: 20px;
+  color: white;
+  background-color: rgb(111, 111, 201);
+  text-align: center;
+}
+/* 未设置尺寸大小的img和div */
+.yuanshi {
+  display: block;
+  margin: 10px auto;
+  border: 2px solid blue;
+}
+.nulldiv {
+  border: 2px solid powderblue;
+}
+/* 设置具体的尺寸 */
+/* 百分数 */
+.percent {
+  margin: 10px auto;
+  width: 200px;
+  border: 2px solid darkblue;
+}
+.percent1 {
+  width: 50%;
+  border: 3px solid black;
+}
+/* 百分数作为内外边距 */
+.percent2 {
+  margin: 10px auto;
+  width: 400px;
+  height: 300px;
+  border: 2px solid darkblue;
+}
+.percent21 {
+  border: 3px solid black;
+  width: 200px;
+  margin: 10%;
+  padding: 10%;
+}
+
+/* min- and max- */
+.min {
+  margin: 10px auto;
+  width: 500px;
+  height: 300px;
+  border: 3px dashed black;
+}
+.minbox {
+  border: 3px solid darkblue;
+  margin: 10px;
+  width: 150px;
+  min-height: 100px;
+  float: left;
+}
+.min::after {
+  content: "";
+  display: bloak;
+  clear: left;
+}
+
+.max {
+  margin: 10px auto;
+  width: 600px;
+  height: 300px;
+  border: 3px dashed black;
+}
+.maxbox {
+  border: 3px solid darkblue;
+  margin: 10px;
+  width: 200px;
+  float: left;
+}
+.minbox1{
+  border: 3px solid darkblue;
+  margin: 10px;
+  width: 50px;
+  float: left;
+}
+.width {
+  width: 100%;
+}
+.maxwidth {
+  max-width:100%;
+}
+.max::after {
+  content: "";
+  display:block;
+  clear: both;
+}
+/* 视口单位 */
+.viewport {
+  margin: 10px auto;
+  width: 60vw;
+  height: 30vh;
+  border: 3px dashed black;
+}
+.viewbox {
+  margin: 10px auto;
+  width: 20vw;
+  height: 20vh;
+  border: 2px ridge darkblue;
+  font-size: 10vh;
+}
+

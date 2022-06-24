@@ -1,0 +1,45 @@
+h2 {
+  width:500px;
+  background-color: olive;
+  border-radius: 10px;
+}
+
+/* overflow */
+.overflow {
+  border: 4px ridge pink;
+  width: 900px;
+  /* height: 200px; */
+  margin: 5px;
+}
+.visible {
+  margin: 5px;
+  border:1px solid black;
+  width:200px;
+  height:100px;
+  overflow:visible;
+  display:inline-block;
+}
+.hidden {
+  margin: 5px;
+  border:1px solid black;
+  width:200px;
+  height:100px;
+  overflow: hidden;
+  display:inline-block;
+}
+.scroll {
+  margin: 5px;
+  border:1px solid black;
+  width:200px;
+  height:100px;
+  overflow: scroll;
+  display:inline-block;
+}
+.auto {
+  margin: 5px;
+  border:1px solid black;
+  width:200px;
+  height:100px;
+  overflow: auto;
+  display:inline-block;
+}

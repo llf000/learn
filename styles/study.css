@@ -1,0 +1,68 @@
+/* body {
+  margin: 0;
+  padding: 0;
+} */
+/* h1 {
+  color: red;
+}
+.ss {
+  color: pink;
+}
+p {
+  color: green;
+}
+
+.miss {
+  color: orange;
+  font-weight: bold;
+}
+li em {
+  color: rgb(126, 6, 247)
+} */
+/* ul li {
+  list-style-type: square;
+  color: pink;
+  border: 1px outset sandybrown;
+} */
+/* h1 + p {
+  font-size: 200%
+}
+a:link {
+  color: black;
+}
+a:visited {
+  color: green;
+}
+a:hover {
+  text-decoration: none;
+} */
+/* body {
+  background-color: rgb(99, 66, 71);
+}
+@media (min-width: 30em) {
+  body {
+    background-color:rgb(237, 196, 210);
+  }
+} */
+/* #outer div ul li .nav a {
+  background-color: blue;
+  padding: 5px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+div div li a {
+  color:yellow;
+} */
+#outer div ul .nav a {
+  background-color: blue;
+  padding: 5px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+div div li a {
+  color: yellow;
+}               
+#outer {
+  background-color: white !important;
+  }      

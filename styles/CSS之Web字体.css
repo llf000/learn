@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "Cicle_Fina";
+  src: url(../fonts/Cicle_Fina.ttf);
+}
+html {
+  font-family: "Cicle_Fina",serif;
+}

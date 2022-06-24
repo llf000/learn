@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/CSS中调整大小.css" type="text/css">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+  <title>在CSS中调整大小</title>
+</head>
+
+<body>
+  <h1>在CSS中调整大小</h1>
+  <h2>原始尺寸/固有尺寸</h2>
+  <img class="yuanshi" src="../images/bj1.jpg" alt="" title="未设置尺寸的图像">
+  <div class="nulldiv"></div>
+  <h2>设置具体的尺寸</h2>
+  <div class="percent">
+    <div class="percent1">宽为父容器的50%</div>
+  </div>
+  <div class="percent2">
+    <div class="percent21">使用百分比作为元素外边距或填充的单位时，将得到一个相同尺寸的外边距或填充</div>
+  </div>
+  <h2>min-和max-尺寸</h2>
+  <div class="min">
+    <div class="minbox"></div>
+    <div class="minbox">两个盒子都有一个最小高度集，这个盒子里面有内容，需要比指定高度更多的空间，所以它从最小值开始增长</div>
+  </div>
+  <div class="max">
+    <p>第一个：图片大小100%，盒子200px<br>
+      第二个：图片大小max-wigth:100%，盒子200px<br>
+      第三个：图片大小max-wigth:100%，盒子50px </p>
+    <div class="maxbox"><img class="width" src="../images/star.jpg"></div>
+    <div class="maxbox"><img class="maxwidth" src="../images/star.jpg"></div>
+    <div class="minbox1"><img class="maxwidth" src="../images/star.jpg"></div>
+  </div>
+  <h2>视口单位</h2>
+  <div class="viewport">
+    <div class="viewbox">A</div>
+  </div>
+
+</body>
+
+</html>

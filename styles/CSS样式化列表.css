@@ -1,0 +1,65 @@
+/* * {
+  margin: 0;
+  padding: 0;
+} */
+html {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 10px;
+}
+h1 {
+  margin: 20px;
+  width: 400px;
+  height:50px;
+  background-color:blanchedalmond;
+  border: 15px ridge rgb(242, 217, 217);
+  text-align:center;
+  color:rgb(216, 128, 20);
+  font-size: 3rem;
+}
+h2 {
+  margin: 20px;
+  width: 350px;
+  height:45px;
+  line-height: 45px;
+  background-color:rgb(137, 123, 105);
+  border: 10px groove rgb(242, 217, 217);
+  text-align:center;
+  color:rgb(216, 128, 20);
+  font-size: 2rem;
+}
+
+/* 处理列表间距 */
+h3 {
+  font-size:2rem;
+}
+
+ul, ol, dl, p {
+  font-size: 1.5rem;
+}
+li, p, dt, dd {
+  line-height: 1.5;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin-bottom: 1.5rem;
+}
+/* 列表特定样式 */
+ol {
+  list-style-type:decimal-leading-zero;
+  list-style-position: inside;
+}
+ul {
+  /* list-style-image: url(../images/star.svg); */  /*用自定义图片做列表序号，不建议用，无法控制图片大小和位置*/
+  padding-left: 2rem;
+  list-style-type: none;
+  /* list-style: square url(../images/star.svg) inside; */
+}
+ul li {
+  padding-left: 2rem;
+  background-image: url(../images/star.svg);  /*把列表序号改成自定义图片*/
+  background-position: 0 0;                   /*定义了所选元素背景中的图像将出现在哪里,设置 0 0:每个列表项的最左上侧*/
+  background-size: 1.6rem 1.6rem;
+  background-repeat: no-repeat;
+}

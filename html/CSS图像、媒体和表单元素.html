@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/CSS图像、媒体和表单元素.css" type="text/css">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+  <title>CSS图像、媒体和表单元素</title>
+</head>
+
+<body>
+  <h1>CSS图像、媒体和表单元素</h1>
+  <h2>替换元素</h2>
+  <p>图像和视频被描述为替换元素。这意味着 CSS 不能影响这些元素的内部布局 - 仅影响它们在页面上于其他元素中的位置。</p>
+  <h2>调整图像大小</h2>
+  <div class="imgdiv">
+    <div class="imgbox"><img src="../images/star.jpg"></div>
+    <div class="imgbox"><img class="imgmax" src="../images/bj1.jpg"></div>
+    <div class="imgbox"><img class="cover" src="../images/bj1.jpg"></div>
+    <div class="imgbox"><img class="contain" src="../images/bj1.jpg"></div>
+    <div class="imgbox"><img src="../images/bj1.jpg"></div>
+  </div>
+  <h2>布局中的替换元素</h2>
+  <div class="wrapper">
+    <img src="../images/star.jpg" title="图像不会被一起拉伸，设置了width:100%;height:100%;会被强制的无条件的拉伸">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <h2>form元素</h2>
+  <h3>样式化文本输入元素</h3>
+  <form>
+    <div>
+      <label for="name">Name</label>
+      <input type="text" id="name">
+    </div>
+    <div>
+      <label for="email"> Email</label>
+      <input type="email" id="email">
+    </div>
+    <div class="buttons">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+</body>
+
+</html>

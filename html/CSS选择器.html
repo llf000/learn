@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/CSS选择器.css" type="text/css">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+  <title>css selctors</title>
+</head>
+
+<body>
+  <h2>属性选择器</h2>
+  <h2>属性存否和值选择器</h2>
+  <ul class="att">
+    <li>11111</li>
+    <li class="a">22222</li>
+    <li class="a b">33333</li>
+    <li class="a,b">44444</li>
+    <li class="aa">55555</li>
+  </ul>
+  <h3>子字符串匹配选择器</h3>
+  <ul class="sub">
+    <li class="abc">11111</li>
+    <li class="abcde">22222</li>
+    <li class="abababcde">33333</li>
+    <li class="ddde">44444</li>
+  </ul>
+  <h3>使用“i”值，以大小写不敏感方式匹配</h3>
+  <ul class="i">
+    <li class="b">11111</li>
+    <li class="B">22222</li>
+    <li class="B">33333</li>
+  </ul>
+  <h2>伪类和伪元素</h2>
+  <h3>:first-child</h3>
+  <article class="fc">
+    <p>11111<span>22222</span><br>33333</p>
+    <p>1111122222</p>
+  </article>
+  <h3>:only-child</h3>
+  <div class="only">
+    <div>
+      <i>I am a lonely only child.</i>
+    </div>
+    <div>
+      <i>I have siblings.</i><br>
+      <b>So do I!</b><br>
+      <span>I also have siblings, <span>but this is an only child.</span></span>
+    </div>
+  </div>
+  <h3>:invalid</h3>
+  <form class="virely">
+    <label for="url_input">Enter a URL:</label>
+    <input type="url" id="url_input" />
+    <br />
+    <br />
+    <label for="email_input">Enter an email address:</label>
+    <input type="email" id="email_input" required />
+  </form>
+  <h2></h2>
+  <h3>用户行为伪类--动态伪类,如“:hover”</h3>
+  <a class="ex" href=#>hover</a>
+  <h3>伪元素</h3>
+  <article class="wys">
+    <p>第一段第一行<span>22222</span><br>33333</p>
+    <p>1111122222</p>
+  </article>
+  <h3>伪类加伪元素</h3>
+  <article class="wlwys">
+    <p>第一段第一行<br>第一段第二行</p>
+    <p>第二段</p>
+  </article>
+  <h3>插入文本字符串</h3>
+  <p class="add">真不错,</p>
+  <h2>关系选择器</h2>
+  <h3>后代选择器</h3>
+  <div class="box">
+    <p>in box</p>
+  </div>
+  <p>not in box</p>
+  <h3>子代关系选择器</h3>
+  <ul class="zd">
+    <li>number one</li>
+    <li>number two
+      <ol>
+        <li>11</li>
+        <li>
+          22
+          <ul>
+            <li>123</li>
+          </ul>
+        </li>
+      </ol>
+    </li>
+  </ul>
+  <h3>邻接兄弟选择器</h3>
+  <article class="bro">
+    <h1>brother</h1>
+    <p>i am your brother</p>
+    <p>i am not</p>
+  </article>
+  <h3>通用兄弟选择器</h3>
+  <article class="bro2">
+    <h1>brohter2</h1>
+    <p> i am your brother</p>
+    <div>i am not</div>
+    <p>i am your brother too</p>
+  </article>
+
+</body>
+
+</html>

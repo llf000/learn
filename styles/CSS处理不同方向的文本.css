@@ -1,0 +1,67 @@
+h2 {
+  background-color: rgb(224, 161, 161);
+  border: 2px solid rgb(224, 161, 161);
+  border-radius: 10px;
+  width: 400px;
+  /* display: inline; */
+}
+/* 书写模式、块级布局和内联布局 */
+.write::after {
+ display: block;
+ content: '';
+ clear: both;
+}
+
+.write1{
+  writing-mode: vertical-rl;
+  float: left;
+  
+}
+.write2{
+  writing-mode: vertical-lr;
+  float: left;
+}
+.write3 {
+  writing-mode: horizontal-tb;
+  float: left;
+}
+/* 逻辑属性和逻辑值 */
+.ljsx {
+  /* width: 150px; */
+  inline-size:700px;
+  border: 1px solid black;
+}
+.ljsx1 {
+  writing-mode: horizontal-tb;
+  border: 1px solid black;
+  float: left;
+  margin: 10px;
+}
+.ljsx2 {
+  writing-mode: vertical-rl;
+  border: 1px solid black;
+  float:left;
+  margin: 10px;
+}
+.ljsx::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+/* 逻辑外边距、边框和内边距属性 */
+.ljwbj {
+ border: 1px solid black;
+ padding: 10px;
+}
+.ljwbj h3 {
+border-block-end: 2px solid black;
+}
+.ljwbj2 {
+  writing-mode :vertical-rl;
+  margin-inline-start: 40px;
+  padding-block: 2em;
+  border-block-start: 10px solid pink;
+  border-block-end: 20px double orange;
+  border-inline-start: 10px dotted purple;
+  border-inline-end: 20px ridge olive;
+}

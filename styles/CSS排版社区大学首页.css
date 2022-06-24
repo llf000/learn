@@ -1,0 +1,147 @@
+/* General setup */
+
+@font-face{
+  font-family:"cicle_fina-webfont";
+  src: url("../fonts/cicle_fina-webfont.ttf");
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  min-width: 1000px;
+  max-width: 1400px;
+}
+
+/* Layout */
+
+section {
+  float: left;
+  width: 50%;
+}
+
+aside {
+  float: left;
+  width: 30%;
+}
+
+nav {
+  float: left;
+  width: 20%;
+}
+
+footer {
+  clear: both;
+}
+
+header, section, aside, nav, footer {
+  padding: 20px;
+}
+
+/* header and footer */
+
+header, footer {
+  border-top: 5px solid #a66;
+  border-bottom: 5px solid #a66;
+}
+
+/* WRITE YOUR CODE BELOW HERE */
+
+/* 设置全站网页 font-size 为 10px */
+html {
+  font-size:10px;
+}
+
+/* 使用相对单位（relative unit）为标题和其他元素的 font-sizes 设置合适的值 */
+h1 {
+  font-size: 3rem;
+}
+h2 {
+  font-size: 2.5rem;
+}
+p {
+  font-size: 2rem;
+}
+ul, ol {
+  font-size: 1.5rem;
+}
+
+/* 为 body 文本设置合适的line-height */
+/* 为 body 文本设置合适的 letter-spacing 和 word-spacing */
+body {
+  line-height: 3rem;
+  letter-spacing: .3px;
+  word-spacing: 2px;
+}
+
+/* 为标题设置 letter-spacing 避免字间太过拥挤 */
+header {
+  letter-spacing:1px;
+}
+
+/* 在<section>元素中，每个标题后的第一段文字设置 20px 的文本缩进 */
+section p:first-child {
+  text-indent: 20px;
+}
+
+/* 设置 link, visited, focus, 和 hover 状态设置颜色，与页面顶部和底部的水平线颜色相匹配。
+设置链接默认带下划线，但 hover 和 focus 时下划线消失。
+取消页面中所有链接 focus 时默认的外边线。
+设置 active 时有显著不同的样式，使其又突出又与整体页面设计和谐。
+在外部链接右侧插入外部链接图标。 */
+a:link {
+  color:red;
+}
+a:visited {
+  color:rgb(22, 21, 19);
+}
+a:hover, a:focus {
+  text-decoration: none;
+  color:rgb(136, 62, 62);
+}
+a:active {
+  text-shadow:1px 1px 1px rgb(53, 20, 20);
+  background-color:aliceblue;
+  color:#a66;
+}
+a[href*="http"] {
+  background: url("../images/link.png") no-repeat 100% 5px;
+  background-size: 16px 16px;
+  padding-right: 19px;
+}
+
+/* 确保列表和列表项与页面整体样式和谐。每个列表项应该有同样的与段落行相同的line-height 。
+每个列表上下间距应该与段落间距相同。
+使用与页面设计匹配的 bullet 列表项符号。
+你可以选择自定义的 bullet 图像或者其他的喜欢的 bullet 符号。 */
+ul {
+  list-style: none;
+  padding-left: 20px;
+}
+ul li {
+  background: url("../images/star.svg") no-repeat 0 0;
+  background-size: 15px;
+  padding-left: 20px;
+}
+
+/* 样式化你的导航栏菜单，使它拥有与页面整体相匹配的外观。 */
+nav ul {
+  list-style: none;
+}
+nav ul li {
+  width:15rem;
+  height: 7rem;
+  line-height:7rem;
+  text-align: center;
+  margin: 2rem 0;
+  border: 2px solid #a66;
+  background: none;
+  padding: 0;
+}
+nav ul li a {
+  font-family:"cicle_fina-webfont";
+  font-size: bold;
+  color:#a66;
+  text-decoration: none;
+}

@@ -1,0 +1,116 @@
+html {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 10px;
+}
+h1 {
+  margin: 20px;
+  width: 400px;
+  height:50px;
+  background-color:rgb(97, 132, 111);
+  border: 15px ridge rgb(97, 147, 117);
+  text-align:center;
+  color:rgb(3, 67, 29);
+  font-size: 3rem;
+}
+h2 {
+  margin: 20px;
+  width: 350px;
+  height:45px;
+  line-height: 45px;
+  background-color:rgb(97, 132, 111);
+  border: 10px groove rgb(92, 152, 116);
+  border-radius:10px;
+  text-align:center;
+  color: rgb(4, 54, 24);
+  font-size: 2rem;
+}
+div {
+  margin: 0 auto;
+  width:600px;
+  border: 1px solid rgb(137, 123, 105);
+}
+p {
+  font-size: 4rem;
+  text-align: center;
+}
+/* 样式是有顺序的，第一个的规则也会在下一个生效，记住顺序：LoVe Fears HAte */
+/* 去掉下划线 */
+.a1 {
+  outline: none;
+  text-decoration: none;
+}
+/* 设置访问前颜色和访问后颜色 */
+.a1:link {
+  color: #265301;
+}
+.a1:visited {
+  color: #437A16;
+}
+/* 聚焦时给一个下边框和背景色 */
+.a1:focus {
+  border-bottom: 1px solid;
+  background: #BAE498;
+}
+.a1:hover {
+  border-bottom: 1px solid;
+  background: #CDFEAA;
+}
+.a1:active {
+  background: #265301;
+  color: #CDFEAA;
+}
+
+.a2 {
+  outline: none;
+  text-decoration: none;
+}
+
+
+.a2:link {
+  color: #265301;
+}
+.a2:visited {
+  color: #437A16;
+}
+
+.a2:hover {
+  border-bottom: 1px solid;
+  background: #CDFEAA;
+}
+/* 使用属性选择器：a[href*="http"],选中拥有href，包含http的<a>元素
+插入背景图片：不重复，右边，距离上方0px的位置
+设置图片大小
+设置padding-right: 19px;，为背景图片留出空间，不和文本重叠 */
+.a2[href*="http"] {
+  background: url("https://mdn.mozillademos.org/files/12982/external-link-52.png") no-repeat 100% 0;
+  background-size: 16px 16px;
+  padding-right: 19px;
+}
+
+ul {
+  font-size:2rem;
+  list-style-type: none;
+}
+li {
+  width:80px;
+  height: 30px;
+  line-height: 30px;
+  margin: 5px;
+  text-align: center;
+  background-color:rgb(97, 132, 111);
+  /* float: left; */
+  display: inline-block;
+}
+/* ul::after {
+  content: "";
+  display: block;
+  clear: both;
+} */
+.a3 {
+  outline: none;
+  color:rgb(4, 54, 24);
+  text-decoration: none;
+}
+li:hover {
+  background-color: #437A16;
+}

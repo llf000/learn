@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 10px;
+}
+h1 {
+  margin: 20px;
+  width: 400px;
+  height:50px;
+  background-color:blanchedalmond;
+  border: 5px inset rgb(242, 217, 217);
+  text-align:center;
+  color:rgb(216, 128, 20);
+  font-size: 3rem;
+}
+h2 {
+  margin: 20px;
+  width: 350px;
+  height:45px;
+  line-height: 45px;
+  background-color:rgb(137, 123, 105);
+  border: 5px inset rgb(242, 217, 217);
+  text-align:center;
+  color:rgb(216, 128, 20);
+  font-size: 2rem;
+}
+article {
+  width: 600px;
+  border: 1px solid black;
+  margin:20px;
+  font-size: 2rem;
+}
+/* 文字阴影，字体粗细（比父元素更粗） */
+.font h3 {
+  text-align: center;
+  text-shadow: -1px -1px 1px gray,
+              1px 1px 1px red,
+              0px 2px 2px purple;
+  font-weight: bolder;
+}
+/* 提供一个字体栈设置字体,字体颜色 */
+.font p {
+  font-family: Arial, "Trebuchet MS", Verdana, sans-serif;
+  color: purple;                             
+}
+/* 设置字体大小，粗细（与父元素相同），文本转换（首字母大写），行高 */
+.font p::first-line {
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-style: italic; 
+  line-height:3;               
+}                                        
+/*文本装饰*/
+.span1 {
+  text-decoration: line-through;
+}                                          
+.span2 {
+  text-decoration: underline;
+}
+.span3 {
+  text-decoration: overline;
+}
+.span4 {
+  text-decoration: underline wavy purple;
+}
+.span5 {
+  font: italic normal bold normal 0.8em/0.5 Helvetica, Arial, sans-serif;
+}/*如果使用 font 的简写形式，在所有这些属性中，只有 font-size 和 font-family 是一定要指定的。
+    font-size 和 line-height 属性之间必须放一个正斜杠。*/
+/* 文本布局 */
+.p1 {
+  text-align: left;
+}
+.p2 {
+  text-align: right;
+}
+.p3 {
+  text-align: center;
+}
+.p4 {
+  text-align: justify;
+}
+.p5 {
+  line-height:3;
+}
+.p6 {
+  letter-spacing: 5px;
+  word-spacing: 10px;
+}

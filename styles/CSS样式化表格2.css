@@ -1,0 +1,31 @@
+table {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 0 20px;
+  border-collapse: collapse;
+}
+/* 把标题和包含数字的列数据右对齐 */
+col:nth-child(2) {
+  text-align: right;
+}
+col:nth-child(3) {
+  text-align: right;
+}
+/* 把标题和包含文本的列数据左对齐 */
+col:nth-child(1) {
+  text-align: left;
+}
+col:nth-child(4) {
+  text-align: left;
+}
+/* 添加顶部和底部边框，以及页脚上方的边框 */
+tbody, tfoot{
+  border-bottom: 1px solid black;
+}
+tbody {
+  border-top: 1px solid black;
+}
+/* 将主表的所有奇数行条纹化 */
+tbody tr:nth-child(odd) {
+  background-color: aliceblue;
+}

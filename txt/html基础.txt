@@ -1,0 +1,45 @@
+今天了解了HTML的一些基础知识和一些元素。
+HTML—hypertext markup language，超文本标记语言，由不同元素组成，元素的开始和结束使用标签来标记。
+块级元素-默认情况下块级元素会另起一行
+  <p>段落</p>
+  <ul><li>无序列表</li></ul>
+  <ol><li>有序列表</li></ol>
+内联元素
+  <em>斜体文字</em>
+  <h>标题，h1到h6</h>
+  <a>锚，超链接</a>
+空元素-只有一个标签，通常用来在此元素所在位置插入/嵌入一些东西
+  <img>-<img src="图片地址">
+元素属性-元素的额外信息
+  <p class="id"><p> 
+  class属性为元素p赋了一个识别的名字
+  <a href="https://www.baidu.com" title="百度网址" target="blank"></a>
+  href属性声明超链接的web地址，title标题属性为超链接声明额外信息，target目标属性指定链接如何呈现，blank将在新标签页中打开
+  <p>欲练<a href="https://www.baidu.com" title="葵花宝典简介" target="_blank">葵花宝典</a>，需引刀自宫</p>
+布尔属性-没有值的属性，只有跟属性名一样的属性值，比如disabled属性，可用来标记表单输入使之变为不可用
+  <input type="text">
+  <input type="text" disabled="disabled">
+  <html>根元素，包裹整个页面</html>
+  <head>在页面中但不想显示的内容</head>
+  <meta charset="">设置字符集
+  <title>页面标题</title>
+<body>页面显示内容</body>
+html的注释-<!--内容-->
+  <head>元素-用来保存页面的一些元数据，不在页面中显示
+    <head>
+    <meta charset="utf-8">
+    <title>我的测试页面</title>
+  </head>
+HTML中应用css
+  <link rel="stylesheet" href="my-css-file.css">
+  <link> 元素经常位于文档的头部。这个 link 元素有 2 个属性，rel="stylesheet" 表明这是文档的样式表，而 href 包含了样式表文件的路径
+HTML中应用js
+  <script src="my-js-file.js" defer></script>
+  src 属性指向需要加载的 JavaScript 文件路径， defer告诉浏览器在解析完成 HTML 后再加载 JavaScript
+为文档设定主语言-<html lang="zh-CN">
+关于超链接-使我们能够将我们的文档链接到任何其他文档（或其他资源），也可以链接到文档的指定部分
+html文字排版
+  <dl><dt><dd>描述列表</dd></dt></dl>
+<sup>上标</sup>
+<sub>下标</sub>
+ <p>我的男朋友<abbr title="pig">可爱</abbr></p>缩略语

@@ -1,0 +1,98 @@
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  background: purple;
+  height: 100px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  line-height: 100px;
+  margin: 0;
+}
+
+article {
+  padding: 10px;
+  margin: 10px;
+  background: aqua;
+}
+
+/* Add your flexbox CSS below here */
+section {
+  display: flex;       /*给section的子元素article设置display，把它变成弹性盒子*/
+  flex-wrap: wrap;    /*当元素内容超过高度会换行，避免发生溢出*/
+  /* flex-direction: column; */  /*默认是行的弹性盒子，column把它变换成列弹性盒子*/
+  /* flex-direction: row-reverse; */   /*变成从右至左的弹性盒子*/
+  /* flex-direction, flex-wrap  可缩写为 flex-flow: row wrap; */
+}
+article {
+  flex: 1 200px;   /*表示每个元素占用空间都是相等的，占用的空间是在设置 padding 和 margin 之后剩余的空间*/
+  /* flex: 1 200px; */    /*每个 flex 项将首先给出 200px 的可用空间，然后，剩余的可用空间将根据分配的比例共享*/
+}
+/* article:nth-of-type(3){   第三个article占两个单位的空间
+  flex: 2;
+} */
+
+/* 水平和垂直对齐 */
+
+.div1 {
+  height: 100px;
+  border: 2px solid black;
+  margin: 20px;
+}
+.div1 button {
+  font-size: 18px;
+  line-height: 1.5;
+  width: 15%;
+}
+
+/* Add your flexbox CSS below here */
+.div1 {                               
+  display: flex;                          /*div的子元素button变成弹性盒子*/
+  align-items: center;                    /*控制flex在交叉轴的位置上居中，垂直居中了*/
+  justify-content: space-around;          /*控制 flex在主轴上的位置居中，水平居中了*/
+}
+.div1 button:first-child {
+  align-self: flex-end;                   /*控制flex在交叉轴的结束位置*/
+}
+/* flex 项排序 */
+.div1 button:first-child {
+  order: 1;                                /*第一个button移到了末尾，设置为“-1”，就会在主轴的最前面*/
+}
+/* flex嵌套，把div2嵌套到第三个article元素中 */   
+/* section - article - div - button
+             article   div   button
+             article         button
+                             button
+                             button */
+/* section {          上面已经设置过
+  display: flex;
+}                      
+article {
+  flex: 1 200px;
+} */
+article:nth-of-type(1) {
+  flex: 3 200px;                     
+  display: flex;                     
+  flex-flow: column;                 /*把第一个article的子元素设置成列方向的弹性盒子*/
+}
+.div2 {
+  flex: 1 100px;                     
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-around;     /*把.div2的子元素设置成行方向会自动换行的弹性盒子，让它的内容水平和垂直方向都居中*/
+}
+.div2 button {                      
+  flex: 1;
+  margin: 5px;
+  font-size: 18px;
+  line-height: 1.5;                  /*给button设置相对单位，margin值，字体大小，行高*/
+}
