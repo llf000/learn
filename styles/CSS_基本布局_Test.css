@@ -1,0 +1,98 @@
+body {
+  background-color: #fff;
+  color: #333;
+  margin: 0;
+  font: 1.2em / 1.2 Arial, Helvetica, sans-serif;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.logo {
+  font-size: 200%;
+  padding: 50px 20px;
+  margin: 0 auto;
+  max-width: 980px;
+}
+
+.grid {
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 980px;
+}
+
+nav {
+  background-color: #000;
+  padding: .5em;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: .5em 1em;
+}
+
+.photos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.feature {
+    width: 200px;
+}
+/* 从这里开始 */
+/* 在一行中显示导航选项，并且选项之间拥有相同的空间 */
+nav ul {
+  display: flex;
+  justify-content: space-between;
+}
+/* 导航条应随着内容一起滚动并且在触碰到视口顶部之后于顶部固定/ */
+nav {
+  position: sticky;
+  top: 0;
+}
+/* 文章内的图片应该被文本包围 */
+.feature {
+  float: left;
+  padding-right: 20px;
+}
+/* <article> 与 <aside> 元素应该为双列布局。
+它们的列尺寸应该是弹性的，以便在浏览器窗口收缩得更小的时候能够变窄 */
+/* .grid {
+  display: grid;
+  grid-template-areas: "article aside";
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid article {
+  grid-area: article;
+}
+.grid aside {
+  grid-area: aside;
+} */
+/* 方法二  多栏式布局*/
+.grid {
+  column-count: 2;
+}
+.grid article {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.grid aside {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+/* 照片应该以有 1px 间隔的两列网格显示出来 */
+.photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1px;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../images/favicon.ico" type="image/icon">
+  <link rel="stylesheet" href="../styles/CSS_媒体查询入门.css" type="text/css">
+  <title>CSS_媒体查询入门</title>
+</head>
+
+<body>
+  <h1>CSS_媒体查询入门</h1>
+  <h2>媒体查询基础</h2>
+  <div class="media1">
+    <p>width: 600px;color: red;</p>
+    <p>媒体类型：all; print; screen; speech;</p>
+    <p>为了建立响应式设计（已经广受浏览器支持），我们一般最常探测的特征是视口宽度，而且我们可以使用min-width、max-width和width媒体特征，在视口宽度大于或者小于某个大小——或者是恰好处于某个大小——的时候，应用
+      CSS。
+
+      这些特征是用来创建响应不同屏幕大小的布局的。例如，要想在视口正好是 600 像素的时候，让 body 的文本变为红色，你可能会使用下面的媒体查询。</p>
+  </div>
+  <div class="media2">
+    <p>朝向：orientation，竖放（portrait mode）和横放（landscape mode）</p>
+    <p>在横向设备时，字体变成紫色</p>
+  </div>
+  <div class="media3">
+    <p>hover,color: purple;</p>
+    <p></p>
+  </div>
+  <div class="media4">
+    <p>媒体查询中的“与”逻辑</p>
+    <p>文本在视口至少为 400 像素宽，且设备横放时变为蓝色</p>
+  </div>
+  <div class="media5">
+    <p>媒体查询中的“或”逻辑</p>
+    <p>文本会在视口至少为 400 像素宽的时候或者设备处于横放状态的时候变为绿色</p>
+  </div>
+  <div class="media6">
+    <p>媒体查询中的“非”逻辑</p>
+    <p>用not操作符让整个媒体查询失效。这就直接反转了整个媒体查询的含义。
+      此例子中，文本只会在朝向为竖着的时候变成橄榄绿”</p>
+  </div>
+</body>
+
+</html>

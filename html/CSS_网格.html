@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatable" content="IE=edge">
-  <meta name="viewport" content="width=device-width, Comptable-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../images/favicon.ico" type="image/icon">
   <link rel="stylesheet" href="../styles/CSS_网格.css" type="text/css">
   <title>CSS_Grid</title>
@@ -14,16 +14,100 @@
 
   <body>
     <h1>Simple grid example</h1>
-
+    <h2>创建网格</h2>
     <div class="container">
-      <div>One</div>
-      <div>Two</div>
-      <div>Three</div>
-      <div>Four</div>
-      <div>Five</div>
-      <div>Six</div>
-      <div>Seven</div>
+      <h3>基本网格</h3>
+      <div class="container1">
+        <div>One</div>
+        <div>Two</div>
+        <div>Three</div>
+        <div>Four</div>
+        <div>Five</div>
+        <div>Six</div>
+        <div>Seven</div>
+      </div>
+      <h3>重复构建行/列</h3>
+      <div class="container2">
+        <div>One</div>
+        <div>Two</div>
+        <div>Three</div>
+        <div>Four</div>
+        <div>Five</div>
+        <div>Six</div>
+        <div>Seven</div>
+      </div>
+      <h3>显式网格与隐式网格/minmax() 函数</h3>
+      <div class="container3">
+        <div>One</div>
+        <div>Two</div>
+        <div>Three</div>
+        <div>Four</div>
+        <div>Five</div>
+        <div>Six</div>
+        <div>Seven</div>
+      </div>
+      <h3>自动使用多列填充</h3>
+      <div class="container4">
+        <div>One</div>
+        <div>Two</div>
+        <div>Three</div>
+        <div>Four</div>
+        <div>Five</div>
+        <div>Six</div>
+        <div>Seven</div>
+      </div>
     </div>
+    <h2>基于线的元素放置</h2>
+    <div class="line">
+      <header>This is my lovely blog</header>
+      <article>
+        <h1>My article</h1>
+        <p>Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus
+          laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra
+          egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam
+          erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis ornare
+          egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis, eget
+          fermentum sapien.</p>
+
+        <p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est,
+          posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante semper consectetur eget aliquam lorem.
+          Vivamus tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus sed lobortis finibus.
+          Vivamus eu urna eget velit cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum
+          sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+      </article>
+      <aside>
+        <h2>Other things</h2>
+        <p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est,
+          posuere sit amet dapibus ut, facilisis sed est.</p>
+      </aside>
+      <footer>Contact me@mysite.com</footer>
+    </div>
+    <h2>使用 grid-template-areas 属性放置元素</h2>
+    <div class="template">
+      <header>This is my lovely blog</header>
+      <article>
+        <h1>My article</h1>
+        <p>Duis felis orci, pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at ultricies tellus
+          laoreet sit amet. Sed auctor cursus massa at porta. Integer ligula ipsum, tristique sit amet orci vel, viverra
+          egestas ligula. Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus. Aliquam
+          erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus sollicitudin eros pharetra congue. Duis ornare
+          egestas augue ut luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis, eget
+          fermentum sapien.</p>
+
+        <p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est,
+          posuere sit amet dapibus ut, facilisis sed est. Nam id risus quis ante semper consectetur eget aliquam lorem.
+          Vivamus tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies lectus sed lobortis finibus.
+          Vivamus eu urna eget velit cursus viverra quis vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum
+          sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+      </article>
+      <aside>
+        <h2>Other things</h2>
+        <p>Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est,
+          posuere sit amet dapibus ut, facilisis sed est.</p>
+      </aside>
+      <footer>Contact me@mysite.com</footer>
+    </div>
+
 
   </body>
 </body>
