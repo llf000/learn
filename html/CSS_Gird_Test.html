@@ -1,0 +1,222 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="icon" href="../images/favicon.ico" type="x-icon">
+  <title>Test your skills: Grid</title>
+
+
+  <style>
+    body {
+      background-color: #fff;
+      color: #333;
+      font: 1.2em / 1.5 Helvetica Neue, Helvetica, Arial, sans-serif;
+      padding: 1em;
+      margin: 0;
+    }
+
+    /* test1 */
+    /* 创建一个网格，要求其中的四个子元素能自动排布。网格内要有三列并且将可用空间等分，列和行的间距均为 20px */
+    .grid1>* {
+      background-color: #4D7298;
+      border: 2px solid #77A6B6;
+      border-radius: 0.5em;
+      color: #fff;
+      padding: 0.5em;
+    }
+
+    /* 从这里开始 */
+    .grid1 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+    }
+
+
+    /* test2 */
+    /* 跨过彼此的网格轨道; 第二个 item 应该在第一个 item 之上 */
+    .grid2>* {
+      border-radius: .5em;
+      color: #fff;
+      padding: .5em;
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 100px 100px 100px;
+      gap: 10px;
+    }
+
+    .item1 {
+      background-color: rgba(74, 102, 112, .7);
+      border: 5px solid rgba(74, 102, 112, 1);
+    }
+
+    .item2 {
+      background-color: rgba(214, 162, 173, .7);
+      border: 5px solid rgba(214, 162, 173, 1);
+    }
+
+    /* 从这里开始 */
+    .item1 {
+      grid-column: 1/4;
+      grid-row: 1/3;
+    }
+
+    .item2 {
+      grid-column: 2/5;
+      grid-row: 2/4;
+    }
+
+    /* test3 */
+    /* grid-area 和 grid-template-areas  */
+    .grid3>* {
+      background-color: #4D7298;
+      border: 2px solid #77A6B6;
+      border-radius: .5em;
+      color: #fff;
+      padding: .5em;
+    }
+
+    .grid3 {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-gap: 10px;
+    }
+
+    /* 从这里开始 */
+    .grid3 {
+      grid-template-areas: "one one"
+        "two three"
+        ". four";
+    }
+
+    .one {
+      grid-area: one;
+    }
+
+    .two {
+      grid-area: two;
+    }
+
+    .three {
+      grid-area: three;
+    }
+
+    .four {
+      grid-area: four;
+    }
+
+    /* test4 */
+    .card {
+      display: grid;
+      grid-template-rows: 200px min-content;
+    }
+
+    .card>img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .tags {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tags>* {
+      background-color: #999;
+      color: #fff;
+      padding: 0.2em 0.8em;
+      border-radius: 0.2em;
+      font-size: 80%;
+      margin: 5px;
+    }
+
+    /* 从这里开始 */
+    .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+    }
+
+    .tags {
+      display: flex;
+      flex-flow: row wrap;
+    }
+  </style>
+
+
+
+</head>
+
+<body>
+  <h1>Test your skills: Grid</h1>
+  <h2>test1</h2>
+  <div class="grid1">
+    <div>One</div>
+    <div>Two</div>
+    <div>Three</div>
+    <div>Four</div>
+  </div>
+  <h2>test2</h2>
+  <div class="grid2">
+    <div class="item1">One</div>
+    <div class="item2">Two</div>
+  </div>
+  <h2>test3</h2>
+  <div class="grid3">
+    <div class="one">One</div>
+    <div class="two">Two</div>
+    <div class="three">Three</div>
+    <div class="four">Four</div>
+  </div>
+  <h2>test4</h2>
+  <div class="container">
+    <div class="card">
+      <img src="../images/1.jpeg" alt="a single red balloon">
+      <ul class="tags">
+        <li>balloon</li>
+        <li>red</li>
+        <li>sky</li>
+        <li>blue</li>
+        <li>Hot air balloon</li>
+      </ul>
+    </div>
+    <div class="card">
+      <img src="../images/2.jpeg" alt="balloons over some houses">
+      <ul class="tags">
+        <li>balloons</li>
+        <li>houses</li>
+        <li>train</li>
+        <li>harborside</li>
+      </ul>
+    </div>
+    <div class="card">
+      <img src="../images/bj3.jpg" alt="close-up of balloons inflating">
+      <ul class="tags">
+        <li>balloons</li>
+        <li>inflating</li>
+        <li>green</li>
+        <li>blue</li>
+      </ul>
+    </div>
+    <div class="card">
+      <img src="../images/bj4.jpg" alt="a balloon in the sun">
+      <ul class="tags">
+        <li>balloon</li>
+        <li>sun</li>
+        <li>sky</li>
+        <li>summer</li>
+        <li>bright</li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+
+</html>

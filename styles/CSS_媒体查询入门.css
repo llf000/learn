@@ -1,0 +1,39 @@
+html {
+  font-size: 20px;
+}
+
+@media screen and (width: 600px) {
+  .media1 {
+    color: red;
+  }
+}
+
+@media(orientation: landscape) {
+  .media2 {
+    color: purple;
+  }
+}
+
+@media (hover: hover) {
+  .media3 {
+      color: purple;
+  }
+}
+
+@media screen and (min-width: 400px) and (orientation: landscape) {
+  .media4 {
+      color: blue;
+  }
+}
+
+@media screen and (min-width: 400px), screen and (orientation: landscape) {
+  .media5 {
+    color: green;
+  }
+}
+
+@media not all and (orientation: landscape) {
+  .media6 {
+    color: olive;
+  }
+}

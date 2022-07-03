@@ -220,19 +220,19 @@ size只能紧跟着position，用“/”分割
 * `writing-mode: horizontal`  块流从上至下，横向文本（默认）
 * `writing-mode: vertical-rl` 块流从右向左，纵向文本
 * `writing-mode: vertical-lr` 块流从左向右，纵向文本
-![水平书写模式](../images/../md/images/writing-mode1.jpg)
-![纵向书写模式](../md/images/writing-mode2.jpg)
+![水平书写模式](images/writing-mode1.jpg)
+![纵向书写模式](images/writing-mode2.jpg)
 ### 逻辑属性和逻辑值
 * 横向书写模式
   * 映射到width的属性被称作内联尺寸（inline-size），内联维度的尺寸
   * 映射height的属性被称为块级尺寸（block-size），块级维度的尺寸
 ### 逻辑外边距、边框和内边距属性
-|书写方式|horizontal       |vertical|
-|:-:    |:-:              |:-:|
-|属性   |width             |inline-size|
-|       |height           |flow|
-|       |border-top/bottom|border-block-start/end|
-|       |border-left/right|border-inline-stsrt/end|
+| 书写方式 |    horizontal     |        vertical         |
+| :------: | :---------------: | :---------------------: |
+|   属性   |       width       |       inline-size       |
+|          |      height       |          flow           |
+|          | border-top/bottom | border-block-start/end  |
+|          | border-left/right | border-inline-stsrt/end |
 ## 溢出的内容
 * overflow控制元素溢出
   * `overflow: visible`  默认值，会显示溢出内容
@@ -242,8 +242,8 @@ size只能紧跟着position，用“/”分割
   * 可以用overflow属性指定 x 轴和 y 轴方向的滚动，同时使用两个值进行传递。如果指定了两个关键字，第一个对overflow-x生效而第二个对overflow-y生效。否则，overflow-x和overflow-y将会被设置成同样的值。例如，overflow: scroll hidden会把overflow-x设置成scroll，而overflow-y则为hidden
   ## css的值与单位
   ### 数字、长度和百分比
-  ![数字](../md/images/numbers.jpg)
-  ![绝对长度单位](../md/images/lengths.jpg)![相对长度单位](../md/images/lengths2.jpg)
+  ![数字](images/numbers.jpg)
+  ![绝对长度单位](images/lengths.jpg)![相对长度单位](images/lengths2.jpg)
   * 百分比作为长度单位，值与父元素相关
   ### 颜色
   * RGB()
@@ -332,9 +332,9 @@ thead th:nth-child(4) {
 * font-family `font-family: arial;`
 * font-size `font-size: 10px;`
 * 网页安全字体
-![网页安全字体](../md/images/web-safe-fonts.jpg)
+![网页安全字体](images/web-safe-fonts.jpg)
 * 默认字体
-![默认字体](../md/images/default-font.jpg)
+![默认字体](images/default-font.jpg)
 * 字体栈：可以给浏览器提供多种字体可以选择，浏览器从列表的第一个开始查看这个字体是否可用，一般在字体栈的最后提供一个合适的通用的字体名称
 ```
 p {
@@ -394,5 +394,428 @@ p {
    ```
      font: italic normal bold normal 3em/1.5 Helvetica, Arial, sans-serif;
    ```
-    
+## 样式化列表
+### 处理列表间距
+* line-height
+     ```
+     line-height: 20px;
+     line-height: 1.5;  (该元素字体大小的1.5)
+     ```
+### 列表特定样式
+* list-style-type: 设置列表的项目符号
+* list-style-position: 设置项目符号位置，默认`outside`，列表项之外
+* list-style-image: 自定义项目符号图片 `list-style-image: url(example.img);`，但控制图片位置、大小难，最好用`background`
+     ```
+     ul {
+       padding-left: 2rem;             ul，li设置相同的padding-left，让整个列表项仍然排列在列表中，
+       list-style-type: none;          但是列表项产生了一些用于背景图像的填充取消项目符号，取消项目符号，
+     }                                 用backfround代替
+
+     ul li {
+       padding-left: 2rem;
+       background-image: url(star.svg);
+       background-position: 0 0;            图片位置是每个列表项的左上（0，0）处
+       background-size: 1.6rem 1.6rem;      图片大小，比为列表项目符号设置的20px稍小，效果较好
+       background-repeat: no-repeat;        背景不复制
+      }
+      ```
+      ```
+      ul {                                       可简写为：
+        list-style-type: square;                ul {
+        list-style-image: url(example.png);      list-style: square url(example.png) inside;
+        list-style-position: inside;            }
+      }                                
+     ```
+### 管理列表计数
+* `start` 从特定值开始计数
+  `<ol start="4"><li>这是从4开始的列表 4567···</li></ol>`
+* `reversed`  从特定值开始，倒数计数
+   `<ol reversed="4"><li>这是从4开始倒数的列表 4321</li></ol>`
+* `value`  设置列表项指定数值
+   ```
+      <ol>
+        <li value="2">这是一个2,4,6,8列表</li>
+        <li value="4">这是一个2,4,6,8列表</li>
+        <li value="6">这是一个2,4,6,8列表</li>
+        <li value="8">这是一个2,4,6,8列表</li>
+      </ol>
+   ```
+## 样式化链接
+### 链接样式
+* a: link：向未被访问的链接添加样式，表⽰链接在正常情况下（即页⾯刚加载完成时）显⽰的颜⾊。
+* a: visited：向已被访问的链接添加样式，表⽰链接被点击后显⽰的颜⾊。
+* a: hover: 当⿏标悬浮在元素上⽅时，向元素添加样式，表⽰⿏标悬停时显⽰的颜⾊。
+* a: focus：向拥有键盘输⼊焦点的元素添加样式，表⽰元素获得光标焦点时使⽤的颜⾊，主要⽤于⽂本框输⼊⽂字时使⽤(鼠标松开时显示的颜色)
+* a:active：向被激活的元素添加样式，表⽰当所指元素处于激活状态（⿏标在元素上按下还没有松开）时所显⽰的颜⾊
+### 在链接中包含按钮
+```
+a[href*="http"] {                                    选中拥有href属性且属性值包含http的<a元素>（外部链接）
+  background: url('example.png') no-repeat 100% 0;   选择要插入的自定义图片，不重复，在右边距离上方0px处
+  background-size: 16px 16px;                        图片大小16*16px
+  padding-right: 19px;                               右边留出19px空间放置图片
+}
+```
+### 样式化链接为按钮
+```
+ul {
+  padding: 0;
+  width: 100%;
+}
+
+li {
+  display: inline;               把li变成内联元素，这样就会显示在一行
+}
+
+a {
+  outline: none;                 
+  text-decoration: none;         把超链接的外部轮廓和下划线关掉
+  display: inline-block;         a默认是内联元素，设置为inline-block可以控制它的大小又不换行
+  width: 19.5%;                  这有5个按钮，要保证大小一样，设置为这个大小的宽度和margin
+  margin-right: 0.625%;
+  text-align: center;            内容水平居中
+  line-height: 3;                内容垂直居中
+  color: black;
+}
+
+li:last-child a {                上面设置的值让5个按钮的width和margin加起来超过100%了，为了不溢出，清除
+  margin-right: 0;                最后一个按钮的margin
+}
+
+a:link, a:visited, a:focus {
+  background: yellow;
+}
+```
+### Web字体
+```
+@font-face {
+  font-family: "myFont";
+  src: url("myFont.ttf");
+}
+
+html {
+  font-family: "myFont", "Bitstream Vera Serif", serif;
+}
+```
+```
+@font-face {
+  font-family: 'ciclefina';
+  src: url('fonts/cicle_fina-webfont.eot');
+  src: url('fonts/cicle_fina-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/cicle_fina-webfont.woff2') format('woff2'),
+         url('fonts/cicle_fina-webfont.woff') format('woff'),
+         url('fonts/cicle_fina-webfont.ttf') format('truetype'),
+         url('fonts/cicle_fina-webfont.svg#ciclefina') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+```
+## 弹性盒子
+### flex模型
+![flex模型](images/flex-model.jpg)
+* 是一种用于按行或按列布局元素的一维布局方法。元素可以膨胀以填充额外的空间，收缩以适应更小的空间
+* 主轴（main axis）是沿着 flex 元素放置的方向延伸的轴（比如页面上的横向的行、纵向的列）。该轴的开始和结束被称为 main start 和 main end
+* 交叉轴（cross axis）是垂直于 flex 元素放置方向的轴。该轴的开始和结束被称为 cross start 和 cross end
+* 设置了``display: flex`的父元素被称之为flex容器（flex container）
+* 在 flex 容器中表现为柔性的盒子的元素被称之为flex项（flex item）
+### 设置主轴
+* flex-direction
+  * flex-direction: row;  默认值，行布局
+  * flex-direction: column;  列布局
+  * flex-direction: row-reverse;  从左向右行布局
+  * flex-direction: column-reverse;  从下至上列布局
+### 换行
+* flex-wrap: wrap 给flex容器设置，当在布局中使用定宽或者定高的时候，任何溢出的元素将被移到下一行
+### flex-flow缩写
+* `flex-direction`和`flex-wrap`缩写为`flex-flow`
+```
+   flex-direction: row;
+   flex-wrap: wrap;
+        ||
+   flex-flow: row wrap;
+```
+### flex的动态尺寸
+```
+section {
+  display: flex;       给section的子元素article设置display，把它变成弹性盒子
+  flex-wrap: wrap;    当元素内容超过高度会换行，避免发生溢出
+
+}
+article {
+  flex: 1 200px;   每个 flex 项将首先给出 200px 的可用空间，然后，剩余的可用空间将根据分配的比例共享
+}
+ article:nth-of-type(3){   第三个article占两个单位的空间
+  flex: 2;
+} 
+```
+### flex:缩写与全写
+* flex-grow/shrink/basis
+### 水平和垂直对齐
+* align-items
+  * align-items: stretch;
+  * align-items: center;
+* justify-content
+  * justify-content: flex-start;     flex项在主轴开始处
+  * justify-content: flex-end;       结尾处
+  * justify-content: center;         居中
+  * justify-content: space-around;   沿主轴均匀分布，在任意一端都留有空间
+  * justify-content: space-between;  同上，但不会留空间
+# flex排序
+```
+button:first-child {         会把第一个button移到末尾
+  order: 1;                  order默认值是 0 ，order越大越靠后，值相同时按源顺序显示，也可设置负值前移元素
+}
+```
+## 网格
+### 了解网格
+![网格模型](images/grid-model.jpg)
+* 是一个用于 web 的二维布局系统。利用网格，你可以把内容按照行与列的格式进行排版。另外，网格还能非常轻松地实现一些复杂的布局
+### 创建网格
+* ```
+    container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  ```
+* 网格间隙
+  * grid-gap
+* 重复构建行/列
+  * ```
+      .container {
+        display: grid;
+        grid-template-columns: repeat(3, 2fr 1fr);       会构建4列：2fr 1fr 2fr 1fr
+        grid-gap: 20px;
+      }
+    ```
+* 显式网格与隐式网格
+  * 显式网格是用grid-template-columns或grid-template-rows属性创建的，隐式网格则是当有内容被放到网格外时才会生成的。
+  * 隐式网格中生成的行/列大小是参数默认是auto，大小会根据放入的内容自动调整。也可以使用grid-auto-rows和grid-auto-columns属性手动设定隐式网格的大小。
+  * 隐式网格就是为了放显式网格放不下的元素，浏览器根据已经定义的显式网格自动生成的网格部分。
+    ```
+      .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: 100px;
+        grid-gap: 20px;
+      }
+* minmax()函数
+  ```
+    .container {
+      display: grid;                            如果所有网格内的内容均小于100px，那么看起来不会有变化，
+      grid-template-columns: repeat(3, 1fr);    但如果在某一项中放入很长的内容或者图片，
+      grid-auto-rows: minmax(100px, auto);      这个格子所在的行的高度变成能刚好容纳内容的高度了
+      grid-gap: 20px;
+    }
+  ```
+* 自动使用多列填充 
+  ```
+    .container {               会有一个包含了许多至少200px宽的列的网格，将容器填满。随着容器宽度的改变，
+      display: grid;       网格会自动根据容器宽度进行调整，每一列的宽度总是大于200px，并且容器总会被列填满。
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-auto-rows: minmax(100px, auto);
+      grid-gap: 20px;
+    }
+  ```
+### 基于线的元素放置
+* grid-column-start; grid-column-end = grid-column
+* grid-row-start; grid-row-end = grid-row
+  ```
+  article {
+    grid-column: 2;
+    grid-row: 2;
+  }  
   
+  aside {
+    grid-column: 1;
+    grid-row: 2;
+  }  
+  
+  footer {
+    grid-column: 1 / 3;
+    grid-row: 3;
+  }
+  ```
+### grid-template-areas放置元素
+```
+   .container {
+      display: grid;
+      grid-template-areas: "header header"
+                           "sidebar content"
+                           "footer footer";
+      grid-template-columns: 1fr 3fr;
+      grid-gap: 20px;
+    }
+    
+    header {
+      grid-area: header;
+    }
+    
+    article {
+      grid-area: content;
+    }
+    
+    aside {
+      grid-area: sidebar;
+    }
+    
+    footer {
+      grid-area: footer;
+    }
+```
+* 对于某个横跨多个格子的元素，重复写上那个元素grid-area属性定义的区域名字
+* 所有名字只能出现在一个连续的区域，不能在不同的位置出现
+* 一个连续的区域必须是一个矩形
+* 使用"."符号，让一个格子留空
+### 浮动
+### 定位
+* 静态定位
+  * position: static;
+  * ```
+      .positioned {             静态定位是每个元素获取的默认值
+        position: static;       positioned背景变黄，其他无变化
+        background: yellow;
+      } 
+* 相对定位
+  * position: relative; 
+  * ```
+      .positioned {             与静态定位非常相似，占据在正常的文档流中
+        position: static;       positioned下移30px，右移30px
+        top: 30px;
+        left: 3opx;
+      } 
+    ```
+* 绝对定位
+  * position: absolute;         绝对定位的元素不再存在于正常文档布局流中，它坐在它自己的层独立于一切
+  * 绝对定位固定元素是相对于 <html> 元素或其最近的定位祖先，一般设置父元素position: relative;
+* z-index
+  * z-index: 1;
+  * z-index值影响定位元素位于该轴上的位置。正值将它们移动到堆栈上方负值将它们向下移动到堆栈中。默认情况下，定位的元素都具有z-index为 auto，实际上为0。
+* 固定定位
+  * position: fixed;
+  * 固定定位固定元素是相对于浏览器视口本身。可以用来创建固定的有用的UI项目,如持久导航菜单
+  ```
+    h1 {
+      position: fixed;          不管怎么滚动，h1标题会保持固定
+      top: 0;
+      width: 500px;
+      margin: 0 auto;
+      background: white;
+      padding: 10px;
+    }
+  ```
+* position- sticky  
+  * 相对位置和固定位置的混合体，被定位的元素会表现得像相对定位一样，直到它滚动到某个阈值点后它就变得固定了。例如，它可用于使导航栏随页面滚动直到特定点，然后粘贴在页面顶部。
+    ```
+      .positioned {
+        position: sticky;       
+        top: 30px;
+        left: 30px;
+      }
+    ```
+  * position: sticky的另一种常用用法：创建一个滚动索引页面，在此页面上，不同的标题会停留在页面顶部。
+## 多列布局
+* ```
+    .container {
+      column-count: 3;                  把container分成三列,宽度由浏览器决定
+      // column-width: 200px;           尽可能多的创建200px宽的列，剩余的空间之后会被现有的列平分。 
+                                        可能无法期望得到你指定宽度，除非容器的宽度刚好可以200px除尽        
+      column-gap: 20px;                 列间间隙20px
+      column-rule: 4px dotted rgb(79, 185, 227);       列与列之间加了4px圆点虚线
+    }
+  ```
+ * 列与内容折断
+   ```
+    .container {
+      column-width: 250px;
+      column-gap: 20px;
+    }  
+  
+    .card {
+      break-inside: avoid;
+      page-break-inside: avoid;           内容不会被分开了
+      background-color: rgb(207, 232, 220);
+      border: 2px solid rgb(79, 185, 227);
+      padding: 10px;
+      margin: 0 0 1em 0;
+    }
+   ```
+ ## 媒体查询
+* 语法组成
+  * media-type媒体类型：告诉浏览器这段代码是用在什么类型的媒体上的（打印机或者屏幕？）
+  * media-feature-rule媒体特征规则：每种媒体类型都具有各自不同的特性，根据其不同的媒体特性设置不同的展示风格
+  * CSS 规则
+    ```
+      @media media-type and (media-feature-rule) {
+        /* CSS rules go here */
+      }
+    ```  
+* 可以指定的媒体类型有
+  * all
+  * print
+  * screen
+  * speech
+* 常用的媒体特性
+  * 宽和高
+    * width
+    ```
+       @media screen and (width: 600px) {
+           body {                                   body的文字在视口为600px宽时显示为红色
+             color: red;
+           }
+       }
+    ```
+    * min-width
+    ```
+       @media screen and (min-width: 400px) {
+         body {                                    body的文字在视口宽度大于400px时显示为黄色
+           color: yellow;
+         }
+       }
+    ```
+    * max-width
+    ```
+       @media screen and (max-width: 400px) {
+         body {
+           color: blue;                           body的文字在视口宽度小于400px宽时显示为蓝色
+         }
+       }
+    ```
+  * 朝向-orientation: portrait mode（竖放）/ landscape mode（横放）
+    ```
+      @media (orientation: landscape) {
+        body {                                   body的文字在屏幕竖放时时显示为紫色
+          color: purple;
+        }  
+      }
+    ```
+  * 悬浮-hover
+    ```
+      @media (hover: hover) {
+        body {                                  body的文字在鼠标悬停时显示为绿色
+          color: green;
+        }
+      }
+    ```
+* 复杂媒体查询--或/与/非逻辑
+  * 或：想要查询时其中的任何一个都可以匹配，使用“，”分开这些查询
+    ```
+      @media screen and (min-width: 400px), screen and (orientation: landscape) {
+        body {                                  body的文字会在视口至少为 400 像素宽的时候或者设备处于横放状态的时候变为蓝色
+          color: blue;
+        }
+      }
+    ```
+  * 与：and
+    ```
+      @media screen and (min-width: 400px) and (orientation: landscape) {
+        body {                                  body的文字会在视口至少为400px宽，且设备横放时变为蓝色。
+          color: blue;
+        }
+      }
+    ```
+  * 非：not,会让整个媒体查询失效，直接反转了整个媒体查询的含义
+    ```
+      @media not all and (orientation: landscape) {
+        body {                                   body的文字只会在朝向为竖着的时候变成蓝色
+          color: blue;
+        }
+      }
