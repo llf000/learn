@@ -42,11 +42,11 @@
       }
       return num;
     }
-    input.onchange = function () {
+    input.oninput = function () {
       var num = input.value;
       if (isNaN(num)) {
         para.textContent = 'You need to enter a number!';
-      } else if (!(num > 0)) {
+      } else if (num < 0) {
         para.textContent = "请输入正整数！";
       } else {
         para.textContent = num + ' squared is ' + squared(num) + '. ' +
