@@ -86,9 +86,109 @@
   * `>`    大于        测试左值是否大于右值     `5>2+3` 
   * `<=`   小于等于    测试左值是否小于等于右值  `5<=2+3` 
   * `>=`   大于等于    测试左值是否大于等于右值  `5>=2+3` 
-* 
+  
 ### 字符串和字符串方法
+* 字符串基础知识
+  * 字符串需要用引号括起来，单引双引都可以，但不可在一个字符串中混用
+    ```
+      let string1 = "how are you";               对
+      let string2 = 'nice to meat you';          对
+      let string3 = "I'm fine";                  对
+      let string4 = 'Tv show "Dark" is good';    对
+      let string5 = 'I'm fine';                  错
+      let string6 = 'hello";                     错
+    ```
+* 连接字符串
+  * “+”操作符连接
+    ```
+      let one = "hello";
+      let two = ",";
+      let three = "how are you";
+      let add = one + two + three;       add的值会是：hello，how are you
+      let response = one + two + "I am fine-" + three    hello,I am fine-how are you
+    ``` 
+  * 数字与字符串
+     * ```
+      let date1 = 'front' + 242;    
+      let date2 = '11' +'22';        date1和date2的类型都是string
+       ```
+     * number()方法，将传递给它的任何类型值都转化为数字
+      ```
+        let myString = '123';
+        let myNum = Number(myString);
+      ```
+    * toString()方法，将传递给它的任何类型值都转化为字符串
+      ```
+      let myString = '123';
+      let myNum = Number(myString);
+      ```
+* 字符串方法
+  * 获取字符串长度：length()
+    ```
+      let string = 'JavaScript';
+      string.length;
+    ``` 
+  * 检索特定字符串字符：变量名末尾带上"[]",方括号内包含要返回的字符的编号
+    ```
+      检索第1个字母：          检索最后一个字母：
+      string[0];              string[string.length-1];
+    ``` 
+  * 在字符串中查找子字符串并提取它
+    * indexOf()：找出一个较小的字符串是否存在于一个较大的字符串
+      ```
+        string.indexOf('ava');     结果会是1，“ava”在“JavaScript”内从第3个字符开始，开始位置是2
+        string.indexOf('avava');   结果会是-1，主字符串中不存在这个
+      ``` 
+    * slice()：知道字符串中子字符串开始和结束的位置，用slice()提取它
+      ```
+        string.slice(0, 3);        返回“Jav”，提取从第一个位置开始，直到但不包括最后一个位置
+        string.slice(4);           返回“script”，没有包含第二个参数，返回的子字符串将是所有剩余字符
+      ```
+  * 转换大小写：toLowerase()/toUpperCase()
+    ```
+      let radData = 'How Are You';
+      radData.toLowerCase();       返回“how are you”
+      radData.toLowerCase();       返回“HOW ARE YOU”
+    ``` 
 ### 数组
+* 数组基础知识
+  * 数组是一个包含了多个值的对象
+  * 创建数组
+    ```
+       let food = ['fish', 'milk', 'noodles'];
+       let sequence = [1, 1, 2, 3, 5, 8];
+       let random = ['tree', 795, [0, 1, 2]];   多维数组
+    ```
+  * 访问和修改数组：与检索特定字符串字符的方法相同，变量名末尾带上"[]",方括号内包含要返回的数组值的编号
+    ```
+      food[0];            fish
+      food[0] = 'egg';    fish变成了egg
+      random[2][2];       2
+    ```
+  * 获取数组长度：length()
+    ```
+      food.length;       3
+    ```
+  * 添加/删除数组项
+    * 在数组末尾操作：push()/pop()
+      ```
+         let food = ['fish', 'milk', 'noodles'];
+         food.push('apple', 'egg');         food = ['fish', 'milk', 'noodles', 'apple', 'egg'];
+
+         let list = [11, 22, 33, 44, 55, 66];
+         let newLength = list.push(77,88);     list = [11, 22, 33, 44, 55, 66, 77, 88];
+         newLength;                            list.length: 8;
+        删除末尾元素与添加同理
+    * 在数组开头操作：unshift()/shift()
+      ```
+         let food = ['fish', 'milk', 'noodles'];
+         food.unshift('apple', 'egg');    food = ['apple', 'egg'， 'fish', 'milk', 'noodles'];
+
+         let list = [11, 22, 33, 44, 55, 66];
+         let removeItem = list.shift();     
+         list;                         list = [22, 33, 44, 55, 66];
+         removeItem;                   removeItem: 11;
+      ```  
 ## JS基础要件
 ### 概述了解
 ### 代码中决策--条件

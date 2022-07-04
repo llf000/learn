@@ -42,7 +42,7 @@
       }
       return num;
     }
-    input.oninput = function () {
+    input.onchange = function () {
       var num = input.value;
       if (isNaN(num)) {
         para.textContent = 'You need to enter a number!';
