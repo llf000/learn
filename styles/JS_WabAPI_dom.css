@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+section {
+  padding: 2%;
+  border: 1px solid black;
+  width: 50%;
+  background-color:#666;
+}
+.highlight {
+  color: white;
+  background-color: rgb(173, 101, 101);
+  padding: 10px;
+  width: 300px;
+  text-align: center;
+}
+
+.div1 {
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  padding: 50px;
+  background-image: url(../images/dom2.png);
+  border: 10px solid white;
+  display: flex;
+  flex: 1;
+}
+
+li {
+  margin-bottom: 10px;
+}
+li button {
+  font-size: 8px;
+  margin-left: 20px;
+  color: #666;
+}

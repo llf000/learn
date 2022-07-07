@@ -380,10 +380,10 @@ p {
   ```
 ### 文本布局
 * 文本对齐
-  *text-align: left;    
-  *text-align: right;
-  *text-align: center;
-  *text-align: justfy     使文本展开，改变单词之间的差距，使所有文本行的宽度相同，谨慎使用
+  * text-align: left;    
+  * text-align: right;
+  * text-align: center;
+  * text-align: justfy     使文本展开，改变单词之间的差距，使所有文本行的宽度相同，谨慎使用
 * 行高`line-height`
 * 字母与单词间距
   * 字母间距`letter-spacing`
