@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+}
+
+@font-face {
+    font-family: 'HeydingsControlsRegular';
+    /* 这里的web字体是图标字体，字母表中的所有字符都是各种常用图标 */
+    src: url('../fonts/heydings_controls-webfont.eot');
+    src: url('../fonts/heydings_controls-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/heydings_controls-webfont.woff') format('woff'),
+         url('../fonts/heydings_controls-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+video {
+  max-width: 100%;
+}
+
+.player {
+  position: absolute;
+}
+
+.controls {
+  visibility: hidden;
+  opacity: 0.5;
+
+  width: 400px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -200px;
+  background-color: black;
+  box-shadow: 3px 3px 5px black;
+  transition: 1s all;
+  display: flex;
+}
+
+button, .controls {
+  background: linear-gradient(to bottom,#222,#666);
+}
+
+.player:hover .controls, player:focus .controls {
+  opacity: 1;
+}
+
+button:before {
+  font-family: HeydingsControlsRegular;
+  font-size: 20px;
+  position: relative;
+  /* 将各情况下要显示的内容设置为data-icon属性的内容，如在播放按钮的情况下，data-icon包含大写的“P” */
+  content: attr(data-icon);
+  color: #aaa;
+  text-shadow: 1px 1px 0px black;
+}
+
+.play:before {
+  font-size: 22px;
+}
+
+
+button, .timer {
+  height: 38px;
+  line-height: 19px;
+  box-shadow: inset 0 -5px 25px rgba(0,0,0,0.3);
+  border-right: 1px solid #333;
+}
+
+button {
+  position: relative;
+  border: 0;
+  flex: 1;
+  outline: none;
+}
+
+.play {
+  border-radius: 10px 0 0 10px;
+}
+
+.fwd {
+  border-radius: 0 10px 10px 0;
+}
+
+.timer {
+  line-height: 38px;
+  font-size: 10px;
+  font-family: monospace;
+  text-shadow: 1px 1px 0px black;
+  color: white;
+  flex: 5;
+  position: relative;
+}
+/* 内部div绝对定位于外部div的顶部，初始宽度为0，因此根本无法看到它，随着视频的播放，JavaScript将动态的增加其宽度 */
+.timer div {
+  position: absolute;
+  background-color: rgba(255,255,255,0.2);
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 38px;
+  z-index: 2;
+}
+/* 还对内部div和span定义适当数值的z-index，使进度条显示在最上层，内部div显示在下层，确保可以看到所有信息 */
+.timer span {
+  position: absolute;
+  z-index: 3;
+  left: 19px;
+}
+
+button:hover,button:focus {
+  box-shadow: inset 1px 1px 2px black;
+}
+
+button:active {
+  box-shadow: inset 3px 3px 2px black;
+}
+
+.active:before {
+  color: red;
+}
