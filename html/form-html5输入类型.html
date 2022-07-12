@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+  <title>html5输入类型</title>
+</head>
+
+<body>
+  <form>
+    <p>
+      <label for="age">数值字段</label>
+      <input type="number" name="age" id="age" min="1" max="10" step="2">
+    </p>
+    <p>
+      <labal for="email">电子邮件</labal>
+      <input type="email" id="email" name="email">
+    </p>
+    <p>
+      <labal for="search">搜索字段</labal>
+      <input type="search" id="search" name="search">
+    </p>
+    <p>
+      <label for="url">网址</label>
+      <input type="url" id="url" name="url">
+    </p>
+    <p>
+      <label for="tel">电话号码</label>
+      <input type="tel" id="tel" name="tel">
+    </p>
+    <p>
+      <label for="myDate">日期选取器</label>
+      <input type="date" name="myDate" min="2013-06-01" max="2013-08-31" id="myDate">
+    </p>
+    <p>
+      <label for="meet">时间选取器-无特定时区信息的时间信息：年/月/日/时/分</label>
+      <input type="datetime-local" name="meet" id="meet">
+    </p>
+    <p>
+      <label for="time">时间值：时/分</label>
+      <input type="time" name="time" id="time">
+    </p>
+    <p>
+      <label for="month">日期选取器：年/月</label>
+      <input type="month" name="month" id="month">
+    </p>
+    <p>
+      <label for="week">日期选取器：周/年</label>
+      <input type="week" name="week" id="week">
+    </p>
+    <p>
+      <label for="myDate">约束日期/时间</label>
+      <input type="date" name="myDate" min="2013-06-01" max="2013-08-31" step="7" id="myDate">
+    </p>
+    <p>
+      <label for="color">颜色选取器</label>
+      <input type="color" name="color" id="color">
+    </p>
+    <p>
+      <label for="price">滑块控件</label>
+      <!-- 创建一个滑块，值的范围可能介于500000和500000之间，该滑块一次递增/递减100，value设置其默认值250000 -->
+      <input type="range" name="price" id="price" min="50000" max="500000" step="100" value="250000">
+      <output class="price-output" for="price"></output>
+    </p>
+    <button type="submit">提 交</button>
+  </form>
+  <script>
+    const price = document.querySelector("#price");
+    const output = document.querySelector(".price-output");
+
+    output.textContent = price.value;
+
+    price.addEventListener("input", function () {
+      output.textContent = price.value;
+    });
+  </script>
+</body>
+
+</html>

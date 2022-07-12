@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/form-支付表单.css" type="text/css">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+  <title>支付表单</title>
+</head>
+
+<body>
+  <form action="../html/web表单提交的信息.html" method="post">
+    <h1>支付表单</h1>
+    <p>
+      带“<strong><abbr title="required">*</abbr></strong>
+      ”的为必填字段
+    </p>
+    <section>
+      <h2>联系信息</h2>
+      <!-- fieldset：用于创建具有相同目的的小部件组的方式 -->
+      <fieldset>
+        <!-- legend：给fieldset>标上标签，legend的文本内容描述了fieldset里所含有部件的用途 -->
+        <legend>Title</legend>
+        <ul>
+          <li>
+            <!-- label：为 HTML表单小部件定义标签的正式方法 -->
+            <!-- label和input通过他们各自的for和id属性相关联 -->
+            <label for="title_1">
+              <input type="radio" id="title_1" name="title" value="K">
+              King
+            </label>
+          </li>
+          <li>
+            <label for="title_2">
+              <input type="radio" id="title_2" name="title" value="Q">
+              Queen
+            </label>
+          </li>
+          <li>
+            <label for="title_3">
+              <input type="radio" id="title_3" name="title" value="J">
+              Joker
+            </label>
+          </li>
+        </ul>
+      </fieldset>
+      <p>
+        <label for="name">
+          <span>姓名: </span>
+          <strong><abbr title="required">*</abbr></strong>
+        </label>
+        <input type="text" id="name" name="username">
+      </p>
+      <p>
+        <label for="mail">
+          <span>邮箱: </span>
+          <strong><abbr title="required">*</abbr></strong>
+        </label>
+        <input type="email" id="mail" name="usermail">
+      </p>
+      <p>
+        <label for="pwd">
+          <span>密码: </span>
+          <strong><abbr title="required">*</abbr></strong>
+        </label>
+        <input type="password" id="pwd" name="password">
+      </p>
+    </section>
+    <section>
+      <h2>支付信息</h2>
+      <p>
+        <label for="card">
+          <span>支付卡类型:</span>
+        </label>
+        <select id="card" name="usercard">
+          <option value="visa">Visa</option>
+          <option value="mc">Mastercard</option>
+          <option value="amex">American Express</option>
+        </select>
+      </p>
+      <p>
+        <label for="number">
+          <span>支付卡号码:</span>
+          <strong><abbr title="required">*</abbr></strong>
+        </label>
+        <input type="number" id="number" name="cardnumber">
+      </p>
+      <p>
+        <label for="date">
+          <span>截止日期:</span>
+          <strong><abbr title="required">*</abbr></strong>
+          <em>格式为：mm/yy</em>
+        </label>
+        <input type="date" id="date" name="expiration">
+      </p>
+    </section>
+    <p><button type="submit">验证付款</button></p>
+  </form>
+</body>
+
+</html>

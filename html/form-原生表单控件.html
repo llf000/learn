@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/form-原生表单控件.css" type="text/css">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+  <title>原生表单控件</title>
+</head>
+
+<body>
+  <h1>原生表单控件</h1>
+  <h2>文本输入框</h2>
+  <form>
+    <h3>单行文本框</h3>
+    <p>
+      <label for="comment">Add a comment here:</label>
+      <input type="text" id="comment" name="comment" value="I'm a text field">
+    </p>
+    <p>
+      <label for="email">Enter your email address:</label>
+      <input type="email" id="email" name="email" multiple>
+    </p>
+    <p>
+      <label for="pwd">Enter your password:</label>
+      <input type="password" id="pwd" name="pwd">
+    </p>
+    <p>
+      <label for="search">Search:</label>
+      <input type="search" id="search" name="search">
+    </p>
+    <p>
+      <label for="tel">Enter your number:</label>
+      <input type="tel" id="tel" name="tel">
+    </p>
+    <p>
+      <label for="url">Web address:</label>
+      <input type="url" id="url" name="url">
+    </p>
+    <p>
+      <button type="submit">Submit me!</button>
+    </p>
+  </form>
+
+  <p>
+    <label for="age">What is your age?</label>
+    <input type="number" name="age" id="age" min="1" max="10" step="2">
+  </p>
+  <p>
+    <label for="beans">How many beans can you eat?</label>
+    <input type="range" name="beans" id="beans" min="0" max="500" step="10">
+    <span class="beancount"></span>
+  </p>
+  <p>
+    <label for="myDate">When are you available this summer?</label>
+    <input type="date" name="myDate" min="2013-06-01" max="2013-08-31" id="myDate">
+  </p>
+  <p>
+    <label for="meet">When shall we have the meeting?</label>
+    <input type="datetime-local" name="meet" id="meet">
+  </p>
+  <p>
+    <label for="month">What month is your favorite?</label>
+    <input type="month" name="month" id="month">
+  </p>
+  <p>
+    <label for="time">Set the time for your wifi fridge</label>
+    <input type="time" name="time" id="time">
+  </p>
+  <p>
+    <label for="color">What is your favourite color?</label>
+    <input type="color" name="color" id="color">
+  </p>
+  <form>
+    <p>
+      <button type="submit">
+        This a <br><strong>submit button</strong>
+      </button>
+    </p>
+    <p>
+      <input type="submit" value="This is a submit button">
+    </p>
+    <p>
+      <button type="reset">This a <br><strong>reset button</strong></button>
+    </p>
+    <p>
+      <input type="reset" value="This is a reset button">
+    </p>
+    <p>
+      <button type="button">
+        This an <br><strong>anonymous button</strong>
+      </button>
+    </p>
+    <p>
+      <input type="button" value="This is an anonymous button">
+    </p>
+  </form>
+  <form>
+    <fieldset>
+      <legend>Choose all the vegetables you like to eat</legend>
+      <ul>
+        <li>
+          <label for="carrots">Carrots</label>
+          <input type="checkbox" checked id="carrots" name="vegetable" value="carrots">
+        </li>
+        <li>
+          <label for="peas">Peas</label>
+          <input type="checkbox" id="peas" name="vegetable" value="peas">
+        </li>
+        <li>
+          <label for="cabbage">Cabbage</label>
+          <input type="checkbox" id="cabbage" name="vegetable" value="cabbage">
+        </li>
+        <li>
+          <label for="cauli">Cauliflower</label>
+          <input type="checkbox" id="cauli" name="vegetable" value="cauli">
+        </li>
+        <li>
+          <label for="broc">Broccoli</label>
+          <input type="checkbox" id="broc" name="vegetable" value="broc">
+        </li>
+      </ul>
+    </fieldset>
+    <fieldset>
+      <legend>What is your favorite meal?</legend>
+      <ul>
+        <li>
+          <label for="soup">Soup</label>
+          <input type="radio" checked id="soup" name="meal" value="soup">
+        </li>
+        <li>
+          <label for="curry">Curry</label>
+          <input type="radio" id="curry" name="meal" value="curry">
+        </li>
+        <li>
+          <label for="pizza">Pizza</label>
+          <input type="radio" id="pizza" name="meal" value="pizza">
+        </li>
+        <li>
+          <label for="tacos">Tacos</label>
+          <input type="radio" id="tacos" name="meal" value="tacos">
+        </li>
+        <li>
+          <label for="bolognaise">Bolognaise</label>
+          <input type="radio" id="bolognaise" name="meal" value="bolognaise">
+        </li>
+      </ul>
+    </fieldset>
+  </form>
+  <form>
+    <p>
+      <label for="simple">A simple select box:</label>
+      <select id="simple" name="simple">
+        <option>Banana</option>
+        <option>Cherry</option>
+        <option>Lemon</option>
+      </select>
+    </p>
+    <p>
+      <label for="groups">Select box with option groups:</label>
+      <select id="groups" name="groups">
+        <optgroup label="fruits">
+          <option>Banana</option>
+          <option selected>Cherry</option>
+          <option>Lemon</option>
+        </optgroup>
+        <optgroup label="vegetables">
+          <option>Carrot</option>
+          <option>Eggplant</option>
+          <option>Potato</option>
+        </optgroup>
+      </select>
+    </p>
+    <p>
+      <label for="multi">Select box allowing multiple selections:</label>
+      <select multiple id="multi" name="multi">
+        <option>Banana</option>
+        <option>Cherry</option>
+        <option>Lemon</option>
+      </select>
+    </p>
+    <p>
+      <label for="myFruit">What's your favorite fruit?</label>
+      <input type="text" name="myFruit" id="myFruit" list="mySuggestion">
+      <datalist id="mySuggestion">
+        <option>Apple</option>
+        <option>Banana</option>
+        <option>Blackberry</option>
+        <option>Blueberry</option>
+        <option>Lemon</option>
+        <option>Lychee</option>
+        <option>Peach</option>
+        <option>Pear</option>
+      </datalist>
+    </p>
+    <p>
+      <label for="myFruit">What is your favorite fruit? (With fallback)</label>
+      <input type="text" id="myFruit" name="fruit" list="fruitList">
+      <datalist id="fruitList">
+        <label for="suggestion">or pick a fruit</label>
+        <select id="suggestion" name="altFruit">
+          <option>Apple</option>
+          <option>Banana</option>
+          <option>Blackberry</option>
+          <option>Blueberry</option>
+          <option>Lemon</option>
+          <option>Lychee</option>
+          <option>Peach</option>
+          <option>Pear</option>
+        </select>
+      </datalist>
+    </p>
+    <p>
+      <button type="submit">Submit me!</button>
+    </p>
+  </form>
+  <form>
+    <p>
+      <label for="comment">Add a comment here:</label>
+      <textarea cols="30" rows="10">
+This is my default content.
+        </textarea>
+    </p>
+    <p>
+      <button type="submit">Submit me!</button>
+    </p>
+  </form>
+  <form>
+    <fieldset>
+      <legend>Choose all the vegetables you like to eat</legend>
+      <ul>
+        <li>
+          <label for="carrots">Carrots</label>
+          <input type="checkbox" checked id="carrots" name="carrots" value="carrots">
+        </li>
+        <li>
+          <label for="peas">Peas</label>
+          <input type="checkbox" id="peas" name="peas" value="peas">
+        </li>
+        <li>
+          <label for="cabbage">Cabbage</label>
+          <input type="checkbox" id="cabbage" name="cabbage" value="cabbage">
+        </li>
+        <li>
+          <label for="cauli">Cauliflower</label>
+          <input type="checkbox" id="cauli" name="cauli" value="cauli">
+        </li>
+        <li>
+          <label for="broc">Broccoli</label>
+          <input type="checkbox" id="broc" name="broc" value="broc">
+        </li>
+      </ul>
+    </fieldset>
+    <fieldset>
+      <legend>What is your favorite meal?</legend>
+      <ul>
+        <li>
+          <label for="soup">Soup</label>
+          <input type="radio" checked id="soup" name="meal" value="soup">
+        </li>
+        <li>
+          <label for="curry">Curry</label>
+          <input type="radio" id="curry" name="meal" value="curry">
+        </li>
+        <li>
+          <label for="pizza">Pizza</label>
+          <input type="radio" id="pizza" name="meal" value="pizza">
+        </li>
+        <li>
+          <label for="tacos">Tacos</label>
+          <input type="radio" id="tacos" name="meal" value="tacos">
+        </li>
+        <li>
+          <label for="bolognaise">Bolognaise</label>
+          <input type="radio" id="bolognaise" name="meal" value="bolognaise">
+        </li>
+      </ul>
+    </fieldset>
+  </form>
+</body>
+
+</html>

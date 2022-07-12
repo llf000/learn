@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 20px;
+}
+
+form {
+  margin: 20px;
+  width: 400px;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 1em;               
+}
+
+p {
+  margin: 10px 0;
+}
+
+fieldset {
+  width: 250px;
+  box-sizing: border-box;
+  margin-left: 20px;
+  border: 1px solid #999;
+}
+
+legend {
+  text-align: center;
+}
+
+ul {
+  margin: 0;
+  padding-left: 10px;
+  list-style: none;
+}
+
+/* input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  border: none;
+} */
+
+input:focus,
+textarea:focus {
+  border-color: #000;
+}

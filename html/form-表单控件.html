@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/form-表单控件.css" type="text/css">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+  <title>表单控件</title>
+</head>
+
+<body>
+  <h1>表单控件</h1>
+  <h2>原生表单控件</h2>
+  <form>
+    <h3>文本输入框input</h3>
+    <p>
+      <label for="comment">在这里填写信息</label>
+      <input type="text" id="comment" name="comment" placeholder="这是placeholder" value="I'm a text field">
+    </p>
+    <p>
+      <label for="email">邮件地址:</label>
+      <input type="email" id="email" name="email" multiple>
+    </p>
+    <p>
+      <label for="pwd">密码</label>
+      <input type="password" id="pwd" name="pwd">
+    </p>
+    <p>
+      <label for="tel">电话:</label>
+      <input type="tel" id="tel" name="tel">
+    </p>
+    <p>
+      <label for="url">web地址:</label>
+      <input type="url" id="url" name="url">
+    </p>
+    <p>
+      <button type="submit">提交</button>
+    </p>
+  </form>
+
+  <form>
+    <h3>复选框checkbox和单选框radio</h3>
+    <fieldset>
+      <legend>选择所有喜欢的蔬菜</legend>
+      <ul>
+        <li>
+          <label for="carrots">萝卜</label>
+          <input type="checkbox" checked id="carrots" name="vegetable" value="carrots">
+        </li>
+        <li>
+          <label for="peas">豌豆</label>
+          <input type="checkbox" id="peas" name="vegetable" value="peas">
+        </li>
+        <li>
+          <label for="cabbage">卷心菜</label>
+          <input type="checkbox" id="cabbage" name="vegetable" value="cabbage">
+        </li>
+        <li>
+          <label for="cauli">菜花</label>
+          <input type="checkbox" id="cauli" name="vegetable" value="cauli">
+        </li>
+        <li>
+          <label for="broc">西兰花</label>
+          <input type="checkbox" id="broc" name="vegetable" value="broc">
+        </li>
+      </ul>
+    </fieldset>
+    <fieldset>
+      <legend>选择最喜欢的食物</legend>
+      <ul>
+        <li>
+          <label for="soup">汤</label>
+          <input type="radio" checked id="soup" name="meal" value="soup">
+        </li>
+        <li>
+          <label for="curry">咖喱</label>
+          <input type="radio" id="curry" name="meal" value="curry">
+        </li>
+        <li>
+          <label for="pizza">披萨</label>
+          <input type="radio" id="pizza" name="meal" value="pizza">
+        </li>
+        <li>
+          <label for="fried-chicken">炸鸡</label>
+          <input type="radio" id="fried-chicken" name="meal" value="fried-chicken">
+        </li>
+        <li>
+          <label for="hamburger">汉堡</label>
+          <input type="radio" id="hamburger" name="meal" value="hamburger">
+        </li>
+      </ul>
+    </fieldset>
+  </form>
+
+  <form>
+    <h3>按钮submit</h3>
+    <p>
+      <button type="submit">这是<br><strong>submit按钮</strong></button>
+    </p>
+    <p>
+      <input type="submit" value="这是submit按钮">
+    </p>
+    <p>
+      <button type="reset">这是 <br><strong>reset按钮</strong></button>
+    </p>
+    <p>
+      <input type="reset" value="这是reset按钮">
+    </p>
+    <p>
+      <button type="button">这是<br><strong>anonymous按钮</strong></button>
+    </p>
+    <p>
+      <input type="button" value="这是anonymous按钮">
+    </p>
+  </form>
+
+  <form>
+    <h3>文件选择器file</h3>
+    <p>
+      <label for="file">选择一个图片文件</label>
+      <input type="file" name="file" id="file" accept="image/*" multiple>
+    </p>
+    <div>
+      <input type="hidden" id="timestamp" name="timestamp" value="1286705410">
+    </div>
+    <p>
+      <input type="image" name="pos" alt="" src="map.png">
+    </p>
+    <p>
+      <progress max="100" value="75">75/100</progress>
+    </p>
+    <p>
+      <meter min="0" max="100" value="75" low="33" high="66" optimum="50">
+        75
+      </meter>
+    </p>
+  </form>
+
+  <h2>其他表单控件</h2>
+  <form>
+    <h3>多行文本textarea</h3>
+    <p>
+      <label for="msg">Message:</label>
+      <textarea id="msg" name="user_message" cols="30" rows="4"></textarea>
+    </p>
+  </form>
+
+  <form>
+    <h3>下拉菜单select</h3>
+    <p>
+      <label for="simple">选择项：水果</label>
+      <select id="simple" name="simple">
+        <option>香蕉</option>
+        <option>樱桃</option>
+        <option>柠檬</option>
+      </select>
+    </p>
+    <p>
+      <label for="groups">选择组</label>
+      <select id="groups" name="groups">
+        <optgroup label="fruits">
+          <option>香蕉</option>
+          <option selected>樱桃</option>
+          <option>柠檬</option>
+        </optgroup>
+        <optgroup label="vegetables">
+          <option>萝卜</option>
+          <option>茄子</option>
+          <option>土豆</option>
+        </optgroup>
+      </select>
+    </p>
+    <p>
+      <label for="multi">多选框</label>
+      <select multiple id="multi" name="multi">
+        <option>香蕉</option>
+        <option>樱桃</option>
+        <option>柠檬</option>
+      </select>
+    </p>
+    <p>
+      <label for="myFruit">自动完成单选框</label>
+      <input type="text" name="myFruit" id="myFruit" list="mySuggestion">
+      <datalist id="mySuggestion">
+        <option>苹果</option>
+        <option>香蕉</option>
+        <option>西瓜</option>
+        <option>蓝莓</option>
+        <option>柠檬</option>
+        <option>荔枝</option>
+        <option>桃子</option>
+        <option>梨</option>
+      </datalist>
+    </p>
+    <p>
+      <label for="myFruit">回退功能</label>
+      <input type="text" id="myFruit" name="fruit" list="fruitList">
+      <datalist id="fruitList">
+        <label for="suggestion">or pick a fruit</label>
+        <select id="suggestion" name="altFruit">
+          <option>苹果</option>
+          <option>香蕉</option>
+          <option>西瓜</option>
+          <option>蓝莓</option>
+          <option>柠檬</option>
+          <option>荔枝</option>
+          <option>桃子</option>
+          <option>梨</option>
+        </select>
+      </datalist>
+    </p>
+    <p>
+      <button type="submit">提 交</button>
+    </p>
+  </form>
+
+  <h2>其他表单控件</h2>
+  <form>
+    <h3>进度条progress和分数值meter</h3>
+    <p>
+      <progress max="100" value="75">75/100</progress>
+    </p>
+    <p>
+      <meter min="0" max="100" value="75" low="33" high="66" optimum="50">
+        75
+      </meter>
+    </p>
+  </form>
+</body>
+
+</html>
