@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/form-发送表单数据.css" type="text/css">
+  <link rel="icon" href="../images/favicon.ico" type="image/icon">
+  <title>发送表单数据</title>
+</head>
+
+<body>
+  <!-- action: 定义了发送数据要去的位置,值必须是一个有效的URL -->
+  method属性
+  <!-- method: 定义了如何发送数据,最常见GET/POST方法 -->
+  <!-- get -->
+  <form action="http://foo.com" method="get">
+    <div>
+      <label for="food">想吃什么呢</label>
+      <input name="food" id="food" value="苹果">
+    </div>
+    <div>
+      <label for="count">吃几个呢</label>
+      <input name="count" value="1">
+    </div>
+    <div>
+      <button>我的选择</button>
+    </div>
+  </form>
+
+  <!-- post -->
+  <form action="http://foo.com" method="post">
+    <div>
+      <label for="food">想吃什么呢</label>
+      <input name="food" id="food" value="苹果">
+    </div>
+    <div>
+      <label for="count">吃几个呢</label>
+      <input name="count" value="1">
+    </div>
+    <div>
+      <button>我的选择</button>
+    </div>
+  </form>
+
+  <form method="post" enctype="multipart/form-data">
+    <p>
+      <label for="file">发送文件：选择一个文件</label>
+      <input type="file" id="file" name="myFile">
+    </p>
+    <p>
+      <button>发送文件</button>
+    </p>
+  </form>
+</body>
+
+</html>

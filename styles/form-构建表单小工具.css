@@ -1,0 +1,117 @@
+/* 要么将body的class设置为"widget"，隐藏真实的<select>元素
+     要么body的class还是"no-widget",class为"select"的元素需要被隐藏 */
+.widget select,
+.no-widget .select {
+  position: absolute;
+  left: -5000em;
+  height: 0;
+  overflow: hidden;
+}
+
+.select {
+  /* 为选项列表创建一个上下文定位 */
+  position: relative;
+  /* 组件成为文本流的一部分，同时又可以调整大小 */
+  display: inline-block;
+}
+
+.select .active,
+.select:focus {
+  outline: none;
+  box-shadow: 0 0 3px 1px #227755;
+}
+
+.select .optList {
+  /* 确保选项列表将会显示在值的下面，并且会处在HTML流之外*/
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+.select {
+  font-size: 0.625em;
+  font-family: Verdana, Arial, sans-serif;
+
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  /* 为将要添加的向下箭头准备一些额外的空间 */
+  padding: 0.1em 2.5em 0.2em 0.5em; /* 1px 25px 2px 5px */
+  width: 10em; /* 100px */
+
+  border: 0.2em solid #000; /* 2px */
+  border-radius: 0.4em; /* 4px */
+  box-shadow: 0 0.1em 0.2em rgba(0, 0, 0, 0.45); /* 0 1px 2px */
+  background: #f0f0f0;
+  background: -webkit-linear-gradient(90deg, #e3e3e3, #fcfcfc 50%, #f0f0f0);
+  background: linear-gradient(0deg, #e3e3e3, #fcfcfc 50%, #f0f0f0);
+}
+
+.select .value {
+  /* 因为值的宽度可能超过组件的宽度，需要确保他不会改变组件的宽度 */
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+
+  vertical-align: top;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.select:after {
+  /* 使用了unicode编码的字符,详情http://www.utf8-chartable.de */
+  content: "▼";
+  position: absolute;
+  /* 防止箭头覆盖选项列表 */
+  z-index: 1;
+  top: 0;
+  right: 0;
+
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  height: 100%;
+  width: 2em; /* 20px */
+  padding-top: 0.1em; /* 1px */
+
+  border-left: 0.2em solid #000; /* 2px */
+  border-radius: 0 0.1em 0.1em 0; /* 0 1px 1px 0 */
+
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+}
+
+.select .optList {
+  z-index: 2; /* 我们明确的表示选项列表会始终与向下箭头重叠 */
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+
+  /* 确保即使数值比组件小，选项列表仍能变得跟组件自身一样大*/
+  min-width: 100%;
+
+  max-height: 10em; /* 100px */
+  /* 假如列表太长，垂直方向会自动添加一个竖向滚动条，水平方向不会 */
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  border: 0.2em solid #000; /* 2px */
+  border-top-width: 0.1em; /* 1px */
+  border-radius: 0 0 0.4em 0.4em; /* 0 0 4px 4px */
+
+  box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.4); /* 0 2px 4px */
+  background: #f0f0f0;
+}
+
+.select .option {
+  padding: 0.2em 0.3em; /* 2px 3px */
+}
+
+.select .highlight {
+  background: #000;
+  color: #ffffff;
+}

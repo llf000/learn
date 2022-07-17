@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/form-表单数据校验.css" type="text/css">
+  <link rel="icon" href="../images/favicon.ico" type="image/icon">
+  <title>form-表单数据校验</title>
+</head>
+
+<body>
+  <h1>使用内置表单数据校验</h1>
+  <h2>input元素校验约束</h2>
+  <form>
+    <h3>required属性</h3>
+    <label for="input">必填项</label>
+    <input id="input" name="required" required>
+    <button type="submit">提 交</button>
+  </form>
+
+  <form>
+    <h3>正则表达式校验</h3>
+    <label for="input">必填项：选择香蕉还是樱桃呢？</label>
+    <input id="input" name="choose" required pattern="香蕉|樱桃">
+    <button type="submit">提 交</button>
+  </form>
+
+  <form>
+    <h3>限制输入的长度</h3>
+    <div>
+      <label for="choose">喜欢苹果还是香蕉（只能输入两个字符）</label>
+      <input id="choose" name="i_like" required minlength="2" maxlength="2">
+    </div>
+    <div>
+      <label for="number">想要几个呢（1~10）</label>
+      <input type="number" id="number" name="amount" value="1" min="1" max="10">
+    </div>
+    <div>
+      <button type="submit">提 交</button>
+    </div>
+  </form>
+
+  <h2>使用JavaScript校验表单</h2>
+  <!-- novalidate：关闭浏览器的自动校验 -->
+  <form class="formJs" novalidate>
+    <p>
+      <label for="mail">
+        <span>请留下电子邮件地址：</span>
+        <input type="email" id="mail" name="mail">
+        <span class="error" aria-live="polite"></span>
+      </label>
+    </p>
+    <button type="submit">提 交</button>
+  </form>
+
+  <script>
+    var form = document.querySelector(".formJs");
+    var email = document.getElementById("mail");
+    var error = document.querySelector(".error");
+
+    email.addEventListener(
+      "input",
+      function (event) {
+        // 当用户输入信息时，校验 email字段
+        if (email.validity.valid) {
+          // 如果校验通过，清除已显示的错误消息
+          error.innerHTML = ""; // 重置消息的内容
+          error.className = "error"; // 重置消息的显示状态
+        }
+      },
+      false
+    );
+    form.addEventListener(
+      "submit",
+      function (event) {
+        // 当用户提交表单时，校验email字段
+        if (!email.validity.valid) {
+          // 如果校验失败，显示一个自定义错误
+          error.innerHTML = "我需要一个电子邮件地址！";
+          error.className = "error active";
+          // 还需要阻止表单提交事件，以取消数据传送
+          event.preventDefault();
+        }
+      },
+      false
+    );
+  </script>
+</body>
+
+</html>

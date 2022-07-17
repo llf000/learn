@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/form-构建表单小工具.css" type="text/css">
+  <link rel="icon" href="../images/favicon.ico" type="image/icon">
+  <title>构建表单小工具</title>
+</head>
+
+<body class="no-widget">
+  <form>
+    <select name="myFruit">
+      <option>Cherry</option>
+      <option>Lemon</option>
+      <option>Banana</option>
+      <option>Strawberry</option>
+      <option>Apple</option>
+    </select>
+
+    <!-- tabindex: 让用户聚焦在小部件上,最好通过JavaScript来设定它的值 -->
+    <!-- role: 接受一个值，该值定义了一个元素的用途 -->
+    <!-- 把role="listbox"属性添加到顶部元素 -->
+    <div class="select" tabindex="0" role="listbox">
+      <!-- 用来显示组件现在的值 -->
+      <span class="value">Cherry</span>
+      <!-- 包含我们的组件的所有可用选项-->
+      <!-- 把role="presentation" 加到ul元素中 -->
+      <ul class="optList" role="presentation">
+        <!-- 每个选项只包含用来显示的值-->
+        <!-- 把role="option"属性添加到所有li元素里 -->
+        <li role="option" class="option">Cherry</li>
+        <li role="option" class="option">Lemon</li>
+        <li role="option" class="option">Banana</li>
+        <li role="option" class="option">Strawberry</li>
+        <li role="option" class="option">Apple</li>
+      </ul>
+    </div>
+  </form>
+
+  <script src="../scripts/form-构建表单小工具.js"></script>
+</body>
+
+</html>
