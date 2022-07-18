@@ -390,15 +390,276 @@
   * 函数默认返回值是undefined
   * 在函数体中使用return关键字，函数将会停止执行；如果指定一个值，会返回这个值
 ## JS 对象
+### 对象基础
+* 关于对象
+  * 对象是一个包含相关数据和方法的集合，通常由一些变量和函数组成，也就是对象里面的属性和方法
+  ```
+    创建person对象：
+      var person = {
+        name : ['Bob', 'Smith'],
+        age : 32,
+        gender : 'male',
+        interests : ['music', 'skiing'],
+        greeting: function() {
+        alert('Hi! I\'m ' + this.name[0] + '.');
+      }
+  ```
+* 访问对象的属性和方法
+  * 点表示法 `person.age`,`person.interests[1]`,`person.greeting()`
+  * 括号表示法 `person['age']`,`person['name']['first']`
+  * 点表示法只能接受字面量（觉得是常量）的成员的名字，不接受变量作为名字
+  * 括号表示法不仅可以动态的去设置对象成员的值，还可以动态的去设置成员的名字
+* 设置对象成员:声明要设置的成员，还可以创建新成员
+  ```
+    person.age = 22;
+    person['name']['first'] = 'Haha'
+  ```
+  ```
+    person.hair = 'short hair'
+    person.farewell = function() { alert("Bye everybody!") }
+  ```
+* 关键字"this"："this"指向当前代码运行时的对象
+  ```
+    var person1 = {
+      name : 'Chris',
+      greeting: function() {
+        alert('Hi! I\'m ' + this.name + '.');
+      }
+    }
 
-### 对象基础概念
-
+    var person2 = {
+      name : 'Brian',
+      greeting: function() {
+        alert('Hi! I\'m ' + this.name + '.');
+      }
+    }
+    person1.greeting() 会输出："Hi! I'm Chris."
+    person2.greeting() 会输出："Hi! I'm Brain."
+  ```
 ### 对象原型
+* 一些概念
+  * 原型链(prototype chain)：JavaScrip是一种被称为基于原型的语言 (prototype-based language)，对象有原型对象，从原型继承方法和属性，原型对象也有原型，也从中继承方法属性，这样一层套一层的关系就是原型链，它解释了为何一个对象会拥有定义在其他对象中的属性和方法
+* 理解原型对象
+  * 无论什么时候，只要创建了一个新函数，就会根据一组特定的规则为该函数创建一个prototype属性，这个属性指向函数的原型对象。
+  * 在默认情况下，所有原型对象会自动获得一个constructor属性，这个属性指向prototype属性所在函数的指针。
+  * 当用构造函数创建一个新实例后，该实例的内部包含一个属性（__proto __），指向该构造函数的原型对象
+### 面向对象编程-Object Oriented Programming
+* 解释：面向对象编程是关于将系统建模为对象的集合，其中每个对象代表系统的某个特定方面。对象同时包含函数（或方法）和数据。对象为想要使用它的其他代码提供公共接口，但维护自己的私有内部状态;系统的其他部分不必关心对象内部发生了什么
+* JS面向对象三大特性：继承、封装、多态
+* 类和实例对象
+  * 当根据OOP中的对象对问题进行建模时，会创建抽象的定义，表示希望在系统中拥有的对象类型。
+  如示例，对一所学校进行建模，希望有代表教授的对象，每个教授都有一些共同点：都有一个名字和一个教授的科目；每个教授都可以做某些事情，如：都可以为一篇论文评分，都向学生介绍自己
+  所以教授可以是系统中的一个类，类的定义列出了每个教授所拥有的数据和方法：
+    ```
+      class Professor                     定义了一个类Professor
+        properties                           两个数据属性
+          name                                  姓名
+          teaches                               教什么
+        methods                              两种方法
+          grade(paper)                          评分
+          introduceSelf()                       自我介绍
+    ```
+  * 类不执行任何操作，它是一种用于创建该类型的具体对象的模板。例子中创建的每个具体教授都被称为教授类的一个实例，创建实例的过程由特殊函数`构造函数`执行，将要在新实例中初始化的任何内部状态的值传递给构造函数。通常，构造函数作为类定义的一部分写出来，且通常与类本身具有相同的名称：
+    ```
+      class Professor
+        properties
+          name
+          teaches
+        constructor                        构造函数有两个属性name、teachers，可以在创建新的具体
+          Professor(name, teaches)         Professor时初始化其name和teachers
+        methods
+          grade(paper)
+          introduceSelf()
+    ```
+  * 有构造函数之后，可以创建Professor并且初始化其name和teachers属性
+    ```
+      walsh = new Professor('Walsh', 'Psychology')   创建两个对象，都是Professor的实例
+      lillian = new Professor('Lillian', 'Poetry')
 
-###
+      walsh.teaches                   // 'Psychology'
+      walsh.introduceSelf()           // 'My name is Professor Walsh and I will be your 
+                                          Psychology professor.'
+      lillian.teaches  
+      lillian.introduceSelf() 
+    ```
+* 继承
+  * 一个对象可以使用另一个对象的属性和方法（子类可使用父类的属性和方法）
+  示例：有一个新类`学生`，学生不能给论文打分，不教特定的科目，属于特定的年份；但学生也有一个名字，也自我介绍，这样可以通过定义一个新类Person来对此进行建模，Person中定义了人的常见属性：姓名、自我介绍，Professor Student都可以从Person派生，并添加它们的额外属性：：
+    ```
+      class Person               Person是Professor和Student的超类（或父类）
+        properties               Professor和Student是Person的子类
+          name
+        constructor
+          Person(name)
+        methods
+          introduceSelf()
 
-###
+      class Professor : extends Person
+        properties
+          teaches
+        constructor
+          Professor(name, teaches)
+        methods
+          grade(paper)
+          introduceSelf()
 
+      class Student : extends Person
+        properties
+          year
+        constructor
+          Student(name, year)
+        methods
+          introduceSelf()
+    ```
+* 多态
+  * 同一操作对不同对象有不同结果，把“想做什么”跟“谁去做”分开，有重写跟重载
+  * 重写（覆盖）：子类继承父类中的方法后有一定的修改，并不是原封不动继承，这就需要采用方法的重写
+  * 重载：函数或者方法有相同的名称，但是参数列表不相同的情形，这样的同名不同参数的函数或者方法之间，互相称之为重载函数或者方法
+  示例： 三个类都有introduceSelf()，但实现方法不同，就是重写
+    ```
+    对于教授和学生：
+      walsh = new Professor('Walsh', 'Psychology')
+      walsh.introduceSelf()  // 'My name is Professor Walsh and I will be your Psychology professor.'
+      summers = new Student('Summers', 1)
+      summers.introduceSelf() // 'My name is Summers and I'm in the first year.'
+    对于不是教授和学生的人，默认实现introduceSelf()
+      pratt = new Person('Pratt')
+      pratt.introduceSelf() // 'My name is Pratt.'
+    ```
+* 封装
+  * 把事物（属性和方法）封装在类（对象）中，隐藏事物的属性和方法的实现细节，仅对外公开接口。对象的内部状态保持私有，它只能通过对象自己的方法访问，而不能从其他对象访问，并且通常在它的公共接口和它的私有内部状态之间做出明确的划分，这称为封装
+  示例：学生在第二年或以上时可以学习射箭，可以通过公开学生的属性来实现这一点，其他代码可以检查它以决定学生是否可以参加课程
+  ```
+    class Student : extends Person
+      properties
+         year
+      constructor
+        Student(name, year)
+      methods
+        introduceSelf()
+        canStudyArchery() { return this.year > 1 }
+    if (student.canStudyArchery()) {
+      // allow the student into the class
+    }
+  ```
+  * 私有属性：将某些属性标记为`private`，对象外部的代码不可访问它们
+  ```
+    class Student : extends Person
+      properties
+        private year
+      constructor
+        Student(name, year)
+      methods
+        introduceSelf()
+        canStudyArchery() { return this.year > 1 }
+
+    student = new Student('Weber', 1)
+    student.year                 // error: 'year' is a private property of Student
+### JS中的类-class
+* 定义类：类声明和类表达式
+  ```
+    class Person {};     类声明
+    class Animal = class {};    类表达式
+    类表达式与函数表达式类似，在求值前也不能引用
+  ```
+* 构造函数：使用构造函数关键字`constructor`定义，它将：
+  * 创建一个新对象
+  * 将`this`绑定到新对象，因此可以在构造函数代码中引用this
+  * 在构造函数中运行代码
+  * 返回新对象
+  ```
+    class Person {                  一个Person类，带有属性name
+      name;                       
+  
+      constructor(name) {           一个构造函数，带有一个name参数，用于初始化新对象的name属性
+        this.name = name;
+      }
+  
+      introduceSelf() {            一个可以使用this引用对象属性的introductionSelf()方法
+        console.log(`Hi! I'm ${this.name}`);
+      }
+    }
+  ```
+* 省略构造函数
+  * 若不需要做任何特殊的初始化，可以省略构造函数，生成一个默认的构造函数
+  ```
+    class Animal {
+  
+      sleep() {
+        console.log('zzzzzzz');
+      }
+  
+    }
+  
+    const spot = new Animal();
+    spot.sleep(); // 'zzzzzzz'
+  ```
+* 继承
+  ```
+    class Person{}                        
+    class Professor extends Person {       使用extends关键字表示Professor继承自Person
+      teaches;                             Professor增加了一个新属性teachers，声明它
+      constructor(name, teaches) {         定义一个构造函数，将name、teachers作为参数
+        super(name);                       用super调用父类构造函数并传递参数
+        this.teaches = teaches;            父类构造函数负责设置name之后构造函数设置属性teachers
+      }          
+  
+      introduceSelf() {
+        console.log(`My name is ${this.name}, and I will be your ${this.teaches} professor.`);
+      }
+  
+      grade(paper) {                      添加了一个新方法grade()来给论文评分
+        const grade = Math.floor(Math.random() * (5 - 1) + 1);   随机评分啊
+        console.log(grade);
+      }
+    }
+    ***如果子类有任何自己的初始化要做，就必须先使用super()调用超类构造函数，传递超类构造函数期望的任何参数
+
+    声明之后可以创建并使用类Professor
+    const walsh = new Professor('Walsh', 'Psychology');
+    walsh.introduceSelf();  // 'My name is Walsh, and I will be your Psychology professor'
+    walsh.grade('my paper'); // 一个随机评分
+  ```
+* 封装 
+  ```
+    class Student extends Person {
+      #year;                                            #year是私有数据属性
+      constructor(name, year) {                         
+        super(name);
+        this.#year = year;
+    }
+  
+    introduceSelf() {
+      console.log(`Hi! I'm ${this.name}, and I'm in year ${this.#year}.`);
+    }
+  
+    canStudyArchery() {
+      return this.#year > 1;
+      }
+    }
+  
+    const summers = new Student('Summers', 2);
+    summers.introduceSelf();                          Hi! I'm Summers, and I'm in year 2.
+    summers.canStudyArchery();                        true
+    summers.#year;                                    SyntaxError
+  私有数据属性必须在类声明中声明，并且其名称以 开头。#
+  ```
+  * 私有方法以及私有数据属性：名字以`#`开头，只能被对象自己的方法调用
+  ```
+    class Example {
+      somePublicMethod() {
+      this.#somePrivateMethod();
+      }
+  
+      #somePrivateMethod() {
+        console.log('You called me?');
+      }
+    }
+    
+    const myExample = new Example();
+    myExample.somePublicMethod(); // 'You called me?'
+    myExample.#somePrivateMethod(); // SyntaxError
+  ```
 ### 使用 JSON
 
 ### 对象构建
