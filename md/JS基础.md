@@ -609,7 +609,7 @@
       var arr = multiply(2, 1, 2, 3);
       console.log(arr);                // [2, 4, 6]
 ### 箭头函数
-* es6 新增,使用胖箭头（=>）语法定义函数表达式的能力，很大程度上，箭头函数实例化的函数对象与正式的函数表达式创建的函数对象行为是相同的。任何可以使用函数表达式的地方，都可以使用箭头函数
+* ES6 新增,使用胖箭头（=>）语法定义函数表达式的能力，很大程度上，箭头函数实例化的函数对象与正式的函数表达式创建的函数对象行为是相同的。任何可以使用函数表达式的地方，都可以使用箭头函数
   ```
     普通函数                               箭头函数
     let sum = function(a, b) {            let sun = (a, b)=>{
@@ -634,7 +634,7 @@
     }
     var p = new Person();
     
-    在 ECMAScript 3/5 里，通过把this的值赋值给一个变量可以修复这个问题。
+    在 ES6之前通过把this的值赋值给一个变量修复这个问题
 
     function Person() {
       var self = this; 
@@ -777,6 +777,106 @@
     var args = [0, 1, 2];
     f(...args);
   ```
+## 数字和日期
+### 数字
+* JS中数字均为双精度浮点类型，除了能够表示浮点数，数字类型也还能表示三种符号值：+Infinity（正无穷）、-Infinity（负无穷）和 NaN (not-a-number，非数字)。新添加了BigInt，能够用于表示极大的数字。使用 BigInt 的时候有一些注意事项，如不能让BigInt和Number直接进行运算，也不能用Math对象去操作BigInt数字
+* 数字对象
+  * 内置的Number对象有一些有关数字的常量属性，如最大值、不是一个数字和无穷大的等，这些属性只能使用不能改变
+  ```
+    var biggestNum = Number.MAX_VALUE;
+    var smallestNum = Number.MIN_VALUE;
+    var infiniteNum = Number.POSITIVE_INFINITY;
+    var negInfiniteNum = Number.NEGATIVE_INFINITY;
+    var notANum = Number.NaN;
+  ```
+  * 数字的属性
+    * 
+    * Number.MAX_VALUE	        可表示的最大值
+    * Number.MIN_VALUE	        可表示的最小值
+    * Number.NaN	              特指“非数字”
+    * Number.NEGATIVE_INFINITY	特指“负无穷”;在溢出时返回
+    * Number.POSITIVE_INFINITY	特指“正无穷”;在溢出时返回
+    * Number.EPSILON	          表示1和比最接近1且大于1的最小Number之间的差别
+    * Number.MIN_SAFE_INTEGER	  JavaScript 最小安全整数
+    * Number.MAX_SAFE_INTEGER	  JavaScript 最大安全整数
+  * 数字的方法
+    * Number.parseFloat()	      把字符串参数解析成浮点数，和全局方法parseFloat()作用一致
+    * Number.parseInt()	        把字符串解析成特定基数对应的整型数字，和全局方法parseInt()作用一致 
+    * Number.isFinite()	        判断传递的值是否为有限数字
+    * Number.isInteger()	      判断传递的值是否为整数
+    * Number.isNaN()	          判断传递的值是否为NaN，并且检查其类型是否为 Number
+    * Number.isSafeInteger()	  判断传递的值是否为安全整数
+  * 数字类型原型上的一些方法
+    * toExponential()	          返回一个数字的指数形式的字符串，如：1.23e+2
+    * toFixed()	                返回指定小数位数的表示形式，var a=123,b=a.toFixed(2)//b="123.00"
+    * toPrecision()	            返回一个指定精度的数字
+* 数学对象（Math）
+  * Math的方法
+    * abs()                   	         绝对值
+    * sin(), cos(), tan()	               标准三角函数;参数为弧度
+    * asin(), acos(), atan(), atan2()	   反三角函数; 返回值为弧度
+    * sinh(), cosh(), tanh()	           双曲三角函数; 参数为弧度
+    * asinh(), acosh(), atanh()	         反双曲三角函数;返回值为弧度
+    * pow(), exp(), expm1(), log10(), log1p(), log2()  指数与对数函数
+    * floor(), ceil()	                   返回小于等于参数的最大整数；返回大于等于参数的最小整数
+    * min(), max()                       返回一个以逗号间隔的数字参数列表中的较小或较大值 (分别地)
+    * 
+    * random()	                         返回0到1之间的随机数
+    * round(), fround(), trunc()       	 四舍五入和截断函数
+    * sqrt(), cbrt(), hypot()	           平方根，立方根，所有参数平方和的平方根
+    * sign()	                           数字的符号，说明数字是否为正、负、零。
+    * clz32(),imul()	                   在32位2进制表示中，开头的0的数量
+    * imul()                             将两个参数分别转换为32位整数，相乘后返回32位结果，类似 C 语言的32位整数相乘
+    * 和其他对象不同，Math对象不能自己创建，只能使用内置的Math对象
+* 日期对象
+  * JS没有日期数据类型，但可以使用Date对象和其方法来处理日期和时间。Date 对象有大量的设置、获取和操作日期的方法，它并不含有任何属性
+  * JS处理日期数据类似于Java，Date 对象的范围是相对距离UTC1970年1月1日的前后 100 000 000 天
+  * 创建一个日期对象
+  ```
+    var dateObjectName = new Date([parameters]);
+  ```
+    * dateObjectName对象是所创建的Date对象的一个名字，它可以成为一个新的对象或者已存在的其他对象的一个属性
+    * 不使用 new 关键字来调用 Date 对象将返回当前时间和日期的字符串
+    * 前边的语法中的参数（parameters）可以是一下任何一种
+      * 无参数 : 创建今天的日期和时间，例如： today = new Date();.
+       * 一个符合以下格式的表示日期的字符串: "月 日，年 时：分:秒." 例如： var Xmas95 = new Date; ("December 25, 1995 13:30:00")。如果省略时、分、秒，其值将被设置为 0
+       * 一个年，月，日的整型值的集合，例如： var Xmas95 = new Date(1995, 11, 25);
+       * 一个年，月，日，时，分，秒的集合，例如： var Xmas95 = new Date(1995, 11, 25, 9, 30, 0);
+  * Date 对象的方法
+    * `set`         用于设置 Date 对象的日期和时间的值
+    * `get`         用于获取 Date 对象的日期和时间的值
+    * `to`          用于返回 Date 对象的字符串格式的值
+    * `parse`和`UTC`用于解析 Date 字符串
+    * 通过`get`和`set`方法，可以分别设置和获取秒，分，时，日，星期，月份，年。getDay 方法可以返回星期，但是没有相应的 setDay 方法用来设置星期，因为星期是自动设置的
+    ```
+      var Xmas95 = new Date("December 25, 1995");
+      Xmas95.getMonth() 返回 11    Xmas95.getFullYear() 返回 1995
+    ```
+    ```
+    展示今年剩下的天数：
+      var today = new Date();
+      var endYear = new Date(1995, 11, 31, 23, 59, 59, 999);         // 设置日和月，注意，月份是 0-11
+      endYear.setFullYear(today.getFullYear());                      // 把年设置为今年
+      var msPerDay = 24 * 60 * 60 * 1000;                            // 每天的毫秒数
+      var daysLeft = (endYear.getTime() - today.getTime()) / msPerDay;
+      var daysLeft = Math.round(daysLeft);                           //返回今年剩下的天数
+    ```
+    ```
+    返回用数字时钟格式的时间：
+      function JSClock() {                                // JSClock函数首先创建了一个叫做time的新的Date对象
+        var time = new Date();                            // 因为没有参数，所以time代表了当前日期和时间
+        var hour = time.getHours();                       // 调用了getHours方法把当前的时赋值给hour
+        var minute = time.getMinutes();                   // 赋值分
+        var second = time.getSeconds();                   // 赋值秒
+        var temp = "" + ((hour > 12) ? hour - 12 : hour); // 在time的基础上创建了一个字符串，创建了一个变量temp
+        if (hour == 0)
+          temp = "12";
+        temp += ((minute < 10) ? ":0" : ":") + minute;    // 拼接了minute的值到temp后
+        temp += ((second < 10) ? ":0" : ":") + second;    // 拼接秒
+        temp += (hour >= 12) ? " P.M." : " A.M.";         // hour>=12，在temp后拼接"P.M."，否则拼接"A.M."
+        return temp;
+      }
+    ```
 ### 对象基础
 * 关于对象
   * 对象是一个包含相关数据和方法的集合，通常由一些变量和函数组成，也就是对象里面的属性和方法
