@@ -528,57 +528,59 @@
   * 用来跳过当前循环，执行下一个循环
   * 当使用不带label的continue时，终止当前 while，do-while，或者 for 语句到结尾的这次的循环并且继续执行下一次循环
   * 当使用带label的continue时，它会应用被 label 标识的循环语句
-### 函数
-* 浏览器内置函数
+## 函数
+### 定义函数
+* 定义函数有三种方式，函数声明，函数表达式，构造函数
+  * 函数声明
+    一个函数定义（也称为函数声明，或函数语句）包含
+    * 函数的名称
+    * 函数参数列表，包围在括号中并由逗号分隔
+    * 定义函数的 JavaScript 语句，用大括号{}括起来。
+    ```
+      function square(number) {             函数：square
+        return number * number;             参数：number
+      }                                     语句：参数自乘后返回
+    ```
+  * 函数表达式
+    函数被当做值来使用的时候，就是一个函数表达式
+    ```
+      const square = function(number) { return number * number; };
+      
+      const factorial = function fac(n) {return n<2 ? 1 : n*fac(n-1)};
+      函数表达式需要在函数体末尾加“;”，表示赋值语句结束
+    ```
+  * Function()构造函数
+    ```
+      var myFunction = new Function("a", "b", "return a * b") ;
+      var x = myFunction(4, 3);                
+    ```
+  * 函数声明与函数表达式的不同
+    * 函数声明必须始终带有一个标识符（Identifier），也就是函数名，而函数表达式则可以省略
+    * 函数声明可以被提升，但是函数表达式不能被提升。所以在任何位置定义函数声明，都可以被使用；如果是函数表达式，只能在函数表达式声明之后调用它，如果在之前调用会报错
+    * 函数声明不是一个完整的语句，所以不能出现在if-else等语句块中，这时应使用函数表达式
+### 调用函数
+* 通过`函数名()`调用，匿名函数可在函数体尾部通过`()`调用
   ```
-    function random(number) {
-      return Math.floor(Math.random()*number);
-    }
+  square(5);
+  通过提供参数 5 来调用函数。函数执行完它的语句会返回值 25
   ```
-* 自定义函数
-  * 自定义名称后跟了“()”
+* 函数可以被递归，即函数可以调用其本身
   ```
-    function myFunction() {
-      alert('hello');
-    }
+    function factorial(n){
+      if ((n == 0) || (n == 1))
+        return 1;
+      else
+        return (n * factorial(n - 1));
+      }
 
-    myFunction()
-  ```
-* 调用函数
-  * 将函数名包含在代码某个地方，后跟"()"，如上面的`myFunction()`调用了myFunction函数
-* 匿名函数
-  * 没有函数名，它不会自己做任何事情
-  * 通常将匿名函数与事件处理程序一起使用，还可以将函数分配为变量的值
-  * 匿名函数也称为函数表达式，但函数表达式与函数声明有一些区别；函数声明会进行声明提升（declaration hoisting），而函数表达式不会
-  ```
-    var myButton = document.querySelector('button');
+      var a, b, c, d, e;
 
-    myButton.onclick = function() {
-      alert('hello');
-    }
-  ```
-  ```
-    var myGreeting = function() {
-      alert('hello');
-    }
-    myGreeting();
-  ```
-* 函数参数
-  * 一些函数需要在调用它们时指定参数，参数值需要放在函数括号内
-  ```
-    var myText = 'I am a string';
-    var newString = myText.replace('string', 'sausage');
-    replace()函数就需要两个参数，两个参数用“,”分割
-  ```
-  * 有时参数不是必须的，如果没有，该功能一般会采用某种默认行为
-  ```
-    var myArray = ['I', 'love', 'chocolate', 'frogs'];
-    var madeAString = myArray.join(' ');
-    // returns 'I love chocolate frogs'
-    var madeAString = myArray.join();
-    // returns 'I,love,chocolate,frogs'
-    第二个join()函数中没有指定参数-分隔符，默认使用逗号了
-  ```
+      a = factorial(1);   // 1 赋值给 a
+      b = factorial(2);   // 2 赋值给 b
+      c = factorial(3);   // 6 赋值给 c
+      d = factorial(4);   // 24 赋值给 d
+      e = factorial(5);   // 120 赋值给 e
+### 函数作用域
 * 函数作用域和冲突
   * 所有函数的最外层被称为全局作用域，在全局作用域内定义的值可以在任意地方访问
   * 函数内定义的变量和值都在它自己的单独的范围内，只能在函数内部被访问，外部不可访问，但内部函数可以访问全局作用域的值
@@ -616,11 +618,86 @@
     a();
    
   ```
-* 函数返回值
-  * 函数默认返回值是undefined
-  * 在函数体中使用return关键字，函数将会停止执行；如果指定一个值，会返回这个值
-* 函数提升
-  * 只有函数声明会被提升到顶部，而函数表达式不会被提升
+### 闭包
+* 闭包指的是那些引用了另一个函数作用域中变量的函数，通常是在嵌套函数中实现的
+### 使用 arguments 对象
+* 函数的实际参数会被保存在一个类似数组的arguments对象中。在函数内，你可以用`arguments[i]`找出传入的参数，i是参数的序数编号，从0开始
+* 使用arguments对象可以处理比声明的更多的参数来调用函数。在事先不知道会需要将多少参数传递给函数时十分有用，可以用arguments.length来获得实际传递给函数的参数的数量，然后用arguments对象来取得每个参数
+* arguments变量只是 “类数组对象”，并不是一个真正的数组。称其为类数组对象是说它有一个索引编号和length属性。尽管如此，它并不拥有全部的 Array对象的操作方法
+### 函数参数
+* ES6新增参数：默认参数，剩余参数
+  * 默认参数：JS中函数参数的默认值是undefined。然而，在某些情况下设置不同的默认值是有用的，这时默认参数可以提供帮助
+    ```
+      function multiply(a, b = 1) {
+        return a*b;
+      }
+    ```
+  * 剩余参数：允许将不确定数量的参数表示为数组
+    ```
+      function multiply(multiplier, ...theArgs) {
+        return theArgs.map(x => multiplier * x);
+      }
+
+      var arr = multiply(2, 1, 2, 3);
+      console.log(arr);                // [2, 4, 6]
+### 箭头函数
+* es6 新增,使用胖箭头（=>）语法定义函数表达式的能力，很大程度上，箭头函数实例化的函数对象与正式的函数表达式创建的函数对象行为是相同的。任何可以使用函数表达式的地方，都可以使用箭头函数
+  ```
+    普通函数                               箭头函数
+    let sum = function(a, b) {            let sun = (a, b)=>{
+      return a + b;                         return a + b;
+    }                                     }
+
+
+
+    let y = function (x) {                let y = x => x * x ;
+      return x * x;              
+    }
+  ```
+  * 如果只有一个参数:（）可以省
+  * 如果只有一个return: {}和return都可以省
+* this：箭头函数看上去是匿名函数的一种简写，但实际上，箭头函数和匿名函数有个明显的区别：箭头函数内部的this是词法作用域，由上下文确定
+  ```
+    function Person() {                       构造函数 Person() 将`this`定义为自身
+      this.age = 0;
+      setInterval(function growUp() {         在非严格模式下，growUp() 函数将`this`定义为“全局对象”，与Person定义的不同
+      this.age++;
+      }, 1000);
+    }
+    var p = new Person();
+    
+    在 ECMAScript 3/5 里，通过把this的值赋值给一个变量可以修复这个问题。
+
+    function Person() {
+      var self = this; 
+      self.age = 0;
+    
+      setInterval(function growUp() {
+        self.age++;
+      }, 1000);
+    }
+
+    箭头函数完全修复了this的指向，this总是指向词法作用域，也就是外层调用者Person
+
+    function Person(){
+      this.age = 0;
+    
+      setInterval(() => {
+        this.age++;                           这里的`this`正确地指向 person 对象
+      }, 1000);
+    }
+    
+    var p = new Person();
+  ```
+### 预定义函数：javascript引擎中可供随时调用的内建函数
+* parseInt()：将收到的任何输入值转换成整数类型输出，如果转换失败，返回NaN
+* parseFloat()：功能基本与parseInt()相同，只不过他只支持十进制，并且支持小数和指数形式。
+* isNaN()：确定某个输入值是否是一个可以参与算术运算的数字
+* isFinite()：用来检查输入是否一个既非infinity也非NaN的数字。
+* encodeURI()：返回一个可用的URL
+* decodeURI()：encodeURI()反转意函数
+* encodeURIComponent()：传递的仅仅是URL的一部分
+* decodeURIComponent()：对先前经过encodeURIComponent函数或者其他类似方法编码过的字符串进行解码。
 ## JS 对象
 ### 对象基础
 * 关于对象
