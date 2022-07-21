@@ -316,6 +316,217 @@
   * 可以嵌套一个或多个try ... catch语句。如果一个内部try ... catch语句没有catch块，它需要有一个finally块，并且封闭的try ... catch语句的catch块被检查匹配
 * 使用Error对象
   * 根据错误类型，也可以用'name'和'message'获取更精炼的信息：'name'提供了常规的错误类（如'DOMException'或'Error'），而'message'通常提供了一条从错误对象转换成字符串的简明信息
+## 运算符与表达式
+### 运算符
+* 算数运算符
+  * `+`加
+  * `*`减
+  * `*`乘
+  * `/`除
+  * `%`取余
+  * `**`幂
+  * 一元负值符`-` 返回操作数的负值
+  * 一元正值符`+` 如果操作数在之前不是number，试图将其转换为number
+  * 自增/自减运算符
+    * `num++/num**`
+    * 是为变量赋予一个新的更新值，不是对该值操作
+    ```
+      let num = 4;
+      num++;
+    ```
+* 赋值运算符
+  * `=`            将右边的值赋给左边    `x = y`
+  * `+=`           加法赋值             `x = x + y;`
+  * `*=`           减法赋值             `x = x - y;`          
+  * `*=`           乘法赋值             `x = x * y;`
+  * `/=`           除法赋值             `x = x / y;`
+  * `%=`           求余赋值             `x = x % y;`
+  * `**=`          求幂赋值             `x = x ** y;`
+  * ` x<<= y`      左移位赋值           `x = x << y;`
+  * `x >>= y`      右移位赋值           `x = x >> y;`
+  * `x >>>= y`     无符号右移位赋值      `x = x >>> y;`
+  * `x &= y`       按位与赋值           `x = x & y;`
+  * `x ^= y`       按位异或赋值         `x = x ^ y;`
+  * `x |= y`       按位或赋值           `x = x | y;`
+* 解构赋值
+  * 解构赋值语法是一种js表达式。通过解构赋值，可以将属性/值从对象/数组中取出，赋值给其他变量
+  ```
+    var a, b, rest;
+    [a, b] = [10, 20];
+    console.log(a);            // 10
+    console.log(b);            // 20
+    
+    [a, b, ...rest] = [10, 20, 30, 40, 50];
+    console.log(a);            // 10
+    console.log(b);            // 20
+    console.log(rest); // [30, 40, 50]
+    
+    ({ a, b } = { a: 10, b: 20 });
+    console.log(a);           // 10
+    console.log(b);           // 20
+  ```
+* 比较运算符  
+  * `==`      等于 测试左右值操作数是否相同                 `5 == 2+3`
+  * `!=`      不等于 测试左右值操作数是否不相同             `5 != 3+3`
+  * `===`     严格等于 测试左右值操作数和类型是否相同        `5 === 2+3`
+  * `！==`    严格不等于 测试左右值操作数或类型是否不相同         `5 !== '5'`
+  * `<`       小于 测试左值是否小于右值 `5<2+3`
+  * `>`       大于 测试左值是否大于右值 `5>2+3`
+  * `<=`      小于等于 测试左值是否小于等于右值 `5<=2+3`
+  * `>=`      大于等于 测试左值是否大于等于右值 `5>=2+3`
+* 位运算符
+  * 位运算符是在二进制表示上执行运算，但是返回结果是标准的JavaScript数值
+  * 按位与	     a & b	    在 a,b 的位表示中，每一个对应的位都为 1 则返回 1， 否则返回 0.
+  * 按位或       a | b	    在 a,b 的位表示中，每一个对应的位，只要有一个为 1 则返回 1， 否则返回 0.
+  * 按位异或   	va ^ b	    在 a,b 的位表示中，每一个对应的位，两个不相同则返回 1，相同则返回 0.
+  * 按位非     	~ a	        反转被操作数的位。
+  * 左移      	a << b	    将 a 的二进制串向左移动 b 位，右边移入 0.
+  * 算术右移	  a >> b	    把 a 的二进制表示向右移动 b 位，丢弃被移出的所有位,左边空出的位是根据最高位是 0 和 1 来进行填充
+  * 无符号右移  a >>> b 	  把 a 的二进制表示向右移动 b 位，丢弃被移出的所有位，并把左边空出的位都填充0
+* 逻辑运算符
+   * `&&`：“与”，当两个或更多表达式的每一个都返回true时，整个表达式才会返回true
+   * `||`：当两个或更多表达式当中的任何一个返回 true 则整个表达式将会返回 true
+   * `!`：对一个布尔值取反，非true返回false，非false返回true
+* 关系运算符
+  * 关系运算符对操作数进行比较，根据比较结果真或假，返回相应的布尔值
+  * in： 如果所指定的属性确实存在于所指定的对象中，则会返回true
+  * instanceof：如果所判别的对象确实是所指定的类型，则返回true
+### 表达式
+* 表达式是一组代码的集合，它返回一个值。每一个合法的表达式都能计算成某个值，但从概念上讲，有两种类型的表达式：有副作用的（比如赋值x =  7）和单纯计算求值的（3 + 4）
+* JS中的表达式类型
+  * 算数：得出一个数字，例如 3.14159（通常使用算数运算符）
+  * 字符串：得出一个字符串，例如，"Fred" 或 "234"（通常使用字符串运算符）
+  * 逻辑值：得出 true 或者 false（经常涉及到逻辑运算符）
+  * 基本表达式: javascript 中基本的关键字和一般表达式
+  * 左值表达式：分配给左值。
+* 基本表达式
+  * this：this关键字被用于指代当前的对象，通常，this指代的是方法中正在被调用的对象
+  ```
+    this["propertyName"]
+    this.propertyName
+  ```
+  * 分组操作符:分组操作符（）控制了表达式中计算的优先级。可以改变先乘除后加减的顺序，转而先计算加法
+* 左值表达式：左值可以作为赋值的目标
+  * new：可以使用new operator创建一个自定义类型或者是预置类型的对象实例
+  ```
+    var objectName = new objectType([param1, param2, ..., paramN]);
+  ```
+  * super：super关键字可以用来调用一个对象父类的函数，它在用来调用一个类的父类的构造函数时非常有用
+  ```
+    super([arguments]); // calls the parent constructor. super.functionOnParent([arguments]);
+  ```
+* 扩展语句
+  * 扩展语句符允许一个表达式在原地展开， 当需要多个参数 (比如函数调用时) 或者多个值 (比如字面量数组) 
+  如：现有一个数组，想创建一个新数组，并将刚才那个数组作为新数组的一部分，用 array 的字面语法是不够的，但是用spread syntax 就没问题了：
+  ```
+    var parts = ['shoulder', 'knees'];
+    var lyrics = ['head', ...parts, 'and', 'toes'];
+    类似的，扩展语句也可以用在函数调用的时候：
+    
+    function f(x, y, z) { }
+    var args = [0, 1, 2];
+    f(...args);
+  ```
+## 数字和日期
+### 数字
+* JS中数字均为双精度浮点类型，除了能够表示浮点数，数字类型也还能表示三种符号值：+Infinity（正无穷）、-Infinity（负无穷）和 NaN (not-a-number，非数字)。新添加了BigInt，能够用于表示极大的数字。使用 BigInt 的时候有一些注意事项，如不能让BigInt和Number直接进行运算，也不能用Math对象去操作BigInt数字
+* 数字对象
+  * 内置的Number对象有一些有关数字的常量属性，如最大值、不是一个数字和无穷大的等，这些属性只能使用不能改变
+  ```
+    var biggestNum = Number.MAX_VALUE;
+    var smallestNum = Number.MIN_VALUE;
+    var infiniteNum = Number.POSITIVE_INFINITY;
+    var negInfiniteNum = Number.NEGATIVE_INFINITY;
+    var notANum = Number.NaN;
+  ```
+  * 数字的属性
+    * 
+    * Number.MAX_VALUE	        可表示的最大值
+    * Number.MIN_VALUE	        可表示的最小值
+    * Number.NaN	              特指“非数字”
+    * Number.NEGATIVE_INFINITY	特指“负无穷”;在溢出时返回
+    * Number.POSITIVE_INFINITY	特指“正无穷”;在溢出时返回
+    * Number.EPSILON	          表示1和比最接近1且大于1的最小Number之间的差别
+    * Number.MIN_SAFE_INTEGER	  JavaScript 最小安全整数
+    * Number.MAX_SAFE_INTEGER	  JavaScript 最大安全整数
+  * 数字的方法
+    * Number.parseFloat()	      把字符串参数解析成浮点数，和全局方法parseFloat()作用一致
+    * Number.parseInt()	        把字符串解析成特定基数对应的整型数字，和全局方法parseInt()作用一致 
+    * Number.isFinite()	        判断传递的值是否为有限数字
+    * Number.isInteger()	      判断传递的值是否为整数
+    * Number.isNaN()	          判断传递的值是否为NaN，并且检查其类型是否为 Number
+    * Number.isSafeInteger()	  判断传递的值是否为安全整数
+  * 数字类型原型上的一些方法
+    * toExponential()	          返回一个数字的指数形式的字符串，如：1.23e+2
+    * toFixed()	                返回指定小数位数的表示形式，var a=123,b=a.toFixed(2)//b="123.00"
+    * toPrecision()	            返回一个指定精度的数字
+* 数学对象（Math）
+  * Math的方法
+    * abs()                   	         绝对值
+    * sin(), cos(), tan()	               标准三角函数;参数为弧度
+    * asin(), acos(), atan(), atan2()	   反三角函数; 返回值为弧度
+    * sinh(), cosh(), tanh()	           双曲三角函数; 参数为弧度
+    * asinh(), acosh(), atanh()	         反双曲三角函数;返回值为弧度
+    * pow(), exp(), expm1(), log10(), log1p(), log2()  指数与对数函数
+    * floor(), ceil()	                   返回小于等于参数的最大整数；返回大于等于参数的最小整数
+    * min(), max()                       返回一个以逗号间隔的数字参数列表中的较小或较大值 (分别地)
+    * 
+    * random()	                         返回0到1之间的随机数
+    * round(), fround(), trunc()       	 四舍五入和截断函数
+    * sqrt(), cbrt(), hypot()	           平方根，立方根，所有参数平方和的平方根
+    * sign()	                           数字的符号，说明数字是否为正、负、零。
+    * clz32(),imul()	                   在32位2进制表示中，开头的0的数量
+    * imul()                             将两个参数分别转换为32位整数，相乘后返回32位结果，类似 C 语言的32位整数相乘
+    * 和其他对象不同，Math对象不能自己创建，只能使用内置的Math对象
+* 日期对象
+  * JS没有日期数据类型，但可以使用Date对象和其方法来处理日期和时间。Date 对象有大量的设置、获取和操作日期的方法，它并不含有任何属性
+  * JS处理日期数据类似于Java，Date 对象的范围是相对距离UTC1970年1月1日的前后 100 000 000 天
+  * 创建一个日期对象
+  ```
+    var dateObjectName = new Date([parameters]);
+  ```
+    * dateObjectName对象是所创建的Date对象的一个名字，它可以成为一个新的对象或者已存在的其他对象的一个属性
+    * 不使用 new 关键字来调用 Date 对象将返回当前时间和日期的字符串
+    * 前边的语法中的参数（parameters）可以是一下任何一种
+      * 无参数 : 创建今天的日期和时间，例如： today = new Date();.
+       * 一个符合以下格式的表示日期的字符串: "月 日，年 时：分:秒." 例如： var Xmas95 = new Date; ("December 25, 1995 13:30:00")。如果省略时、分、秒，其值将被设置为 0
+       * 一个年，月，日的整型值的集合，例如： var Xmas95 = new Date(1995, 11, 25);
+       * 一个年，月，日，时，分，秒的集合，例如： var Xmas95 = new Date(1995, 11, 25, 9, 30, 0);
+  * Date 对象的方法
+    * `set`         用于设置 Date 对象的日期和时间的值
+    * `get`         用于获取 Date 对象的日期和时间的值
+    * `to`          用于返回 Date 对象的字符串格式的值
+    * `parse`和`UTC`用于解析 Date 字符串
+    * 通过`get`和`set`方法，可以分别设置和获取秒，分，时，日，星期，月份，年。getDay 方法可以返回星期，但是没有相应的 setDay 方法用来设置星期，因为星期是自动设置的
+    ```
+      var Xmas95 = new Date("December 25, 1995");
+      Xmas95.getMonth() 返回 11    Xmas95.getFullYear() 返回 1995
+    ```
+    ```
+    展示今年剩下的天数：
+      var today = new Date();
+      var endYear = new Date(1995, 11, 31, 23, 59, 59, 999);         // 设置日和月，注意，月份是 0-11
+      endYear.setFullYear(today.getFullYear());                      // 把年设置为今年
+      var msPerDay = 24 * 60 * 60 * 1000;                            // 每天的毫秒数
+      var daysLeft = (endYear.getTime() - today.getTime()) / msPerDay;
+      var daysLeft = Math.round(daysLeft);                           //返回今年剩下的天数
+    ```
+    ```
+    返回用数字时钟格式的时间：
+      function JSClock() {                                // JSClock函数首先创建了一个叫做time的新的Date对象
+        var time = new Date();                            // 因为没有参数，所以time代表了当前日期和时间
+        var hour = time.getHours();                       // 调用了getHours方法把当前的时赋值给hour
+        var minute = time.getMinutes();                   // 赋值分
+        var second = time.getSeconds();                   // 赋值秒
+        var temp = "" + ((hour > 12) ? hour - 12 : hour); // 在time的基础上创建了一个字符串，创建了一个变量temp
+        if (hour == 0)
+          temp = "12";
+        temp += ((minute < 10) ? ":0" : ":") + minute;    // 拼接了minute的值到temp后
+        temp += ((second < 10) ? ":0" : ":") + second;    // 拼接秒
+        temp += (hour >= 12) ? " P.M." : " A.M.";         // hour>=12，在temp后拼接"P.M."，否则拼接"A.M."
+        return temp;
+      }
+    ```
 ## 循环与迭代
 ### 代码循环 
 * 循环需要的条件
@@ -666,217 +877,186 @@
 * decodeURI()：encodeURI()反转意函数
 * encodeURIComponent()：传递的仅仅是URL的一部分
 * decodeURIComponent()：对先前经过encodeURIComponent函数或者其他类似方法编码过的字符串进行解码
-## 运算符与表达式
-### 运算符
-* 算数运算符
-  * `+`加
-  * `*`减
-  * `*`乘
-  * `/`除
-  * `%`取余
-  * `**`幂
-  * 一元负值符`-` 返回操作数的负值
-  * 一元正值符`+` 如果操作数在之前不是number，试图将其转换为number
-  * 自增/自减运算符
-    * `num++/num**`
-    * 是为变量赋予一个新的更新值，不是对该值操作
-    ```
-      let num = 4;
-      num++;
-    ```
-* 赋值运算符
-  * `=`            将右边的值赋给左边    `x = y`
-  * `+=`           加法赋值             `x = x + y;`
-  * `*=`           减法赋值             `x = x - y;`          
-  * `*=`           乘法赋值             `x = x * y;`
-  * `/=`           除法赋值             `x = x / y;`
-  * `%=`           求余赋值             `x = x % y;`
-  * `**=`          求幂赋值             `x = x ** y;`
-  * ` x<<= y`      左移位赋值           `x = x << y;`
-  * `x >>= y`      右移位赋值           `x = x >> y;`
-  * `x >>>= y`     无符号右移位赋值      `x = x >>> y;`
-  * `x &= y`       按位与赋值           `x = x & y;`
-  * `x ^= y`       按位异或赋值         `x = x ^ y;`
-  * `x |= y`       按位或赋值           `x = x | y;`
-* 解构赋值
-  * 解构赋值语法是一种js表达式。通过解构赋值，可以将属性/值从对象/数组中取出，赋值给其他变量
-  ```
-    var a, b, rest;
-    [a, b] = [10, 20];
-    console.log(a);            // 10
-    console.log(b);            // 20
-    
-    [a, b, ...rest] = [10, 20, 30, 40, 50];
-    console.log(a);            // 10
-    console.log(b);            // 20
-    console.log(rest); // [30, 40, 50]
-    
-    ({ a, b } = { a: 10, b: 20 });
-    console.log(a);           // 10
-    console.log(b);           // 20
-  ```
-* 比较运算符  
-  * `==`      等于 测试左右值操作数是否相同                 `5 == 2+3`
-  * `!=`      不等于 测试左右值操作数是否不相同             `5 != 3+3`
-  * `===`     严格等于 测试左右值操作数和类型是否相同        `5 === 2+3`
-  * `！==`    严格不等于 测试左右值操作数或类型是否不相同         `5 !== '5'`
-  * `<`       小于 测试左值是否小于右值 `5<2+3`
-  * `>`       大于 测试左值是否大于右值 `5>2+3`
-  * `<=`      小于等于 测试左值是否小于等于右值 `5<=2+3`
-  * `>=`      大于等于 测试左值是否大于等于右值 `5>=2+3`
-* 位运算符
-  * 位运算符是在二进制表示上执行运算，但是返回结果是标准的JavaScript数值
-  * 按位与	     a & b	    在 a,b 的位表示中，每一个对应的位都为 1 则返回 1， 否则返回 0.
-  * 按位或       a | b	    在 a,b 的位表示中，每一个对应的位，只要有一个为 1 则返回 1， 否则返回 0.
-  * 按位异或   	va ^ b	    在 a,b 的位表示中，每一个对应的位，两个不相同则返回 1，相同则返回 0.
-  * 按位非     	~ a	        反转被操作数的位。
-  * 左移      	a << b	    将 a 的二进制串向左移动 b 位，右边移入 0.
-  * 算术右移	  a >> b	    把 a 的二进制表示向右移动 b 位，丢弃被移出的所有位,左边空出的位是根据最高位是 0 和 1 来进行填充
-  * 无符号右移  a >>> b 	  把 a 的二进制表示向右移动 b 位，丢弃被移出的所有位，并把左边空出的位都填充0
-* 逻辑运算符
-   * `&&`：“与”，当两个或更多表达式的每一个都返回true时，整个表达式才会返回true
-   * `||`：当两个或更多表达式当中的任何一个返回 true 则整个表达式将会返回 true
-   * `!`：对一个布尔值取反，非true返回false，非false返回true
-* 关系运算符
-  * 关系运算符对操作数进行比较，根据比较结果真或假，返回相应的布尔值
-  * in： 如果所指定的属性确实存在于所指定的对象中，则会返回true
-  * instanceof：如果所判别的对象确实是所指定的类型，则返回true
-### 表达式
-* 表达式是一组代码的集合，它返回一个值。每一个合法的表达式都能计算成某个值，但从概念上讲，有两种类型的表达式：有副作用的（比如赋值x =  7）和单纯计算求值的（3 + 4）
-* JS中的表达式类型
-  * 算数：得出一个数字，例如 3.14159（通常使用算数运算符）
-  * 字符串：得出一个字符串，例如，"Fred" 或 "234"（通常使用字符串运算符）
-  * 逻辑值：得出 true 或者 false（经常涉及到逻辑运算符）
-  * 基本表达式: javascript 中基本的关键字和一般表达式
-  * 左值表达式：分配给左值。
-* 基本表达式
-  * this：this关键字被用于指代当前的对象，通常，this指代的是方法中正在被调用的对象
-  ```
-    this["propertyName"]
-    this.propertyName
-  ```
-  * 分组操作符:分组操作符（）控制了表达式中计算的优先级。可以改变先乘除后加减的顺序，转而先计算加法
-* 左值表达式：左值可以作为赋值的目标
-  * new：可以使用new operator创建一个自定义类型或者是预置类型的对象实例
-  ```
-    var objectName = new objectType([param1, param2, ..., paramN]);
-  ```
-  * super：super关键字可以用来调用一个对象父类的函数，它在用来调用一个类的父类的构造函数时非常有用
-  ```
-    super([arguments]); // calls the parent constructor. super.functionOnParent([arguments]);
-  ```
-* 扩展语句
-  * 扩展语句符允许一个表达式在原地展开， 当需要多个参数 (比如函数调用时) 或者多个值 (比如字面量数组) 
-  如：现有一个数组，想创建一个新数组，并将刚才那个数组作为新数组的一部分，用 array 的字面语法是不够的，但是用spread syntax 就没问题了：
-  ```
-    var parts = ['shoulder', 'knees'];
-    var lyrics = ['head', ...parts, 'and', 'toes'];
-    类似的，扩展语句也可以用在函数调用的时候：
-    
-    function f(x, y, z) { }
-    var args = [0, 1, 2];
-    f(...args);
-  ```
-## 数字和日期
-### 数字
-* JS中数字均为双精度浮点类型，除了能够表示浮点数，数字类型也还能表示三种符号值：+Infinity（正无穷）、-Infinity（负无穷）和 NaN (not-a-number，非数字)。新添加了BigInt，能够用于表示极大的数字。使用 BigInt 的时候有一些注意事项，如不能让BigInt和Number直接进行运算，也不能用Math对象去操作BigInt数字
-* 数字对象
-  * 内置的Number对象有一些有关数字的常量属性，如最大值、不是一个数字和无穷大的等，这些属性只能使用不能改变
-  ```
-    var biggestNum = Number.MAX_VALUE;
-    var smallestNum = Number.MIN_VALUE;
-    var infiniteNum = Number.POSITIVE_INFINITY;
-    var negInfiniteNum = Number.NEGATIVE_INFINITY;
-    var notANum = Number.NaN;
-  ```
-  * 数字的属性
-    * 
-    * Number.MAX_VALUE	        可表示的最大值
-    * Number.MIN_VALUE	        可表示的最小值
-    * Number.NaN	              特指“非数字”
-    * Number.NEGATIVE_INFINITY	特指“负无穷”;在溢出时返回
-    * Number.POSITIVE_INFINITY	特指“正无穷”;在溢出时返回
-    * Number.EPSILON	          表示1和比最接近1且大于1的最小Number之间的差别
-    * Number.MIN_SAFE_INTEGER	  JavaScript 最小安全整数
-    * Number.MAX_SAFE_INTEGER	  JavaScript 最大安全整数
-  * 数字的方法
-    * Number.parseFloat()	      把字符串参数解析成浮点数，和全局方法parseFloat()作用一致
-    * Number.parseInt()	        把字符串解析成特定基数对应的整型数字，和全局方法parseInt()作用一致 
-    * Number.isFinite()	        判断传递的值是否为有限数字
-    * Number.isInteger()	      判断传递的值是否为整数
-    * Number.isNaN()	          判断传递的值是否为NaN，并且检查其类型是否为 Number
-    * Number.isSafeInteger()	  判断传递的值是否为安全整数
-  * 数字类型原型上的一些方法
-    * toExponential()	          返回一个数字的指数形式的字符串，如：1.23e+2
-    * toFixed()	                返回指定小数位数的表示形式，var a=123,b=a.toFixed(2)//b="123.00"
-    * toPrecision()	            返回一个指定精度的数字
-* 数学对象（Math）
-  * Math的方法
-    * abs()                   	         绝对值
-    * sin(), cos(), tan()	               标准三角函数;参数为弧度
-    * asin(), acos(), atan(), atan2()	   反三角函数; 返回值为弧度
-    * sinh(), cosh(), tanh()	           双曲三角函数; 参数为弧度
-    * asinh(), acosh(), atanh()	         反双曲三角函数;返回值为弧度
-    * pow(), exp(), expm1(), log10(), log1p(), log2()  指数与对数函数
-    * floor(), ceil()	                   返回小于等于参数的最大整数；返回大于等于参数的最小整数
-    * min(), max()                       返回一个以逗号间隔的数字参数列表中的较小或较大值 (分别地)
-    * 
-    * random()	                         返回0到1之间的随机数
-    * round(), fround(), trunc()       	 四舍五入和截断函数
-    * sqrt(), cbrt(), hypot()	           平方根，立方根，所有参数平方和的平方根
-    * sign()	                           数字的符号，说明数字是否为正、负、零。
-    * clz32(),imul()	                   在32位2进制表示中，开头的0的数量
-    * imul()                             将两个参数分别转换为32位整数，相乘后返回32位结果，类似 C 语言的32位整数相乘
-    * 和其他对象不同，Math对象不能自己创建，只能使用内置的Math对象
-* 日期对象
-  * JS没有日期数据类型，但可以使用Date对象和其方法来处理日期和时间。Date 对象有大量的设置、获取和操作日期的方法，它并不含有任何属性
-  * JS处理日期数据类似于Java，Date 对象的范围是相对距离UTC1970年1月1日的前后 100 000 000 天
-  * 创建一个日期对象
-  ```
-    var dateObjectName = new Date([parameters]);
-  ```
-    * dateObjectName对象是所创建的Date对象的一个名字，它可以成为一个新的对象或者已存在的其他对象的一个属性
-    * 不使用 new 关键字来调用 Date 对象将返回当前时间和日期的字符串
-    * 前边的语法中的参数（parameters）可以是一下任何一种
-      * 无参数 : 创建今天的日期和时间，例如： today = new Date();.
-       * 一个符合以下格式的表示日期的字符串: "月 日，年 时：分:秒." 例如： var Xmas95 = new Date; ("December 25, 1995 13:30:00")。如果省略时、分、秒，其值将被设置为 0
-       * 一个年，月，日的整型值的集合，例如： var Xmas95 = new Date(1995, 11, 25);
-       * 一个年，月，日，时，分，秒的集合，例如： var Xmas95 = new Date(1995, 11, 25, 9, 30, 0);
-  * Date 对象的方法
-    * `set`         用于设置 Date 对象的日期和时间的值
-    * `get`         用于获取 Date 对象的日期和时间的值
-    * `to`          用于返回 Date 对象的字符串格式的值
-    * `parse`和`UTC`用于解析 Date 字符串
-    * 通过`get`和`set`方法，可以分别设置和获取秒，分，时，日，星期，月份，年。getDay 方法可以返回星期，但是没有相应的 setDay 方法用来设置星期，因为星期是自动设置的
-    ```
-      var Xmas95 = new Date("December 25, 1995");
-      Xmas95.getMonth() 返回 11    Xmas95.getFullYear() 返回 1995
-    ```
-    ```
-    展示今年剩下的天数：
-      var today = new Date();
-      var endYear = new Date(1995, 11, 31, 23, 59, 59, 999);         // 设置日和月，注意，月份是 0-11
-      endYear.setFullYear(today.getFullYear());                      // 把年设置为今年
-      var msPerDay = 24 * 60 * 60 * 1000;                            // 每天的毫秒数
-      var daysLeft = (endYear.getTime() - today.getTime()) / msPerDay;
-      var daysLeft = Math.round(daysLeft);                           //返回今年剩下的天数
-    ```
-    ```
-    返回用数字时钟格式的时间：
-      function JSClock() {                                // JSClock函数首先创建了一个叫做time的新的Date对象
-        var time = new Date();                            // 因为没有参数，所以time代表了当前日期和时间
-        var hour = time.getHours();                       // 调用了getHours方法把当前的时赋值给hour
-        var minute = time.getMinutes();                   // 赋值分
-        var second = time.getSeconds();                   // 赋值秒
-        var temp = "" + ((hour > 12) ? hour - 12 : hour); // 在time的基础上创建了一个字符串，创建了一个变量temp
-        if (hour == 0)
-          temp = "12";
-        temp += ((minute < 10) ? ":0" : ":") + minute;    // 拼接了minute的值到temp后
-        temp += ((second < 10) ? ":0" : ":") + second;    // 拼接秒
-        temp += (hour >= 12) ? " P.M." : " A.M.";         // hour>=12，在temp后拼接"P.M."，否则拼接"A.M."
-        return temp;
-      }
-    ```
+##  迭代器（Iterator）和生成器（Generator）
+### 迭代协议
+迭代协议分为可迭代协议和迭代器协议
+* 可迭代协议
+  * 可迭代协议允许 JavaScript 对象定义或定制它们的迭代行为。
+  * 成为可迭代对象的条件
+    * 实现了@@iterator方法
+  * 怎么迭代
+    * 当一个对象需要被迭代的时候，会首先不带参数调用其@@iterator方法，然后使用此方法返回的迭代器获得要迭代的值
+    * @@iterator方法是被当作可迭代对象的方法进行调用的，其函数内部的this值指向可迭代对象
+    * 此函数可以是普通函数，也可以是生成器函数
+    * 实际操作不需要显示调用@@iterator方法来生成迭代器。以下这些接收可迭代对象的原生语言特性会在后台调用提供的可迭代对象的@@iterator方法来创建一个迭代器：
+      * for-of 循环
+      * 数组解构
+      * 扩展操作符
+      * Array.from()
+      * 创建集合
+      * 创建映射
+      * Promise.all() 接收由promise组成的可迭代对象
+      * promise.race() 接收由promise组成的可迭代对象
+      * yield* 操作符，在生成器中使用
+* 迭代器协议
+  * 迭代器协议定义了产生一系列值（无论是有限个还是无限个）的标准方式。当值为有限个时，所有的值都被迭代完毕后，则会返回一个默认返回值
+
+  * 成为迭代器的条件
+    * 实现了一个拥有以下语义（semantic）的next()方法
+
+      * next： 一个无参数的或者可以接受一个参数的函数，返回一个应当拥有以下两个属性的对象：
+        * done（boolean）：
+          * 如果迭代器可以产生序列中的下一个值，则为 false（这等价于没有指定 done 这个属性。）
+          * 如果迭代器已将序列迭代完毕，则为 true。这种情况下，value 是可选的，如果它依然存在，即为迭代结束之后的默认返回值
+        * value：迭代器返回的任何 JavaScript 值。done 为 true 时可省略
+          * next() 方法必须返回一个对象，该对象应当有两个属性： done 和 value
+          * 如果返回了一个非对象值（比如 false 或 undefined），则会抛出一个 TypeError 异常（“iterator.next() returned a non-object value”）
+### 迭代器
+* 迭代器是一个对象，它定义一个序列，并在终止时可能返回一个返回值
+* 迭代器是通过使用next()方法实现Iterator protocol的任何一个对象，该方法返回具有两个属性的对象： value，序列中的next值；done ，如果已经迭代到序列中的最后一个值时它为true，如果value和done一起存在，则它是迭代器的返回值
+* 迭代器一旦创建，迭代器对象可以通过重复调用 next（）显式地迭代。 迭代一个迭代器被称为消耗了这个迭代器，因为它通常只能执行一次。 在产生终止值之后，对 next（）的额外调用应该继续返回{done：true}
+* JS最常见的迭代器是 Array 迭代器，它只是按顺序返回关联数组中的每个值
+```
+一个简单的范围迭代器，定义了从开始到结束间隔步长的整数序列,最终返回值是它创建的序列的大小，由变量iterationCount跟踪
+
+  function makeRangeIterator(start = 0, end = Infinity, step = 1) {
+      let nextIndex = start;
+      let iterationCount = 0;
+  
+      const rangeIterator = {
+         next: function() {
+             let result;
+             if (nextIndex < end) {
+                 result = { value: nextIndex, done: false }
+                 nextIndex += step;
+                 iterationCount++;
+                 return result;
+             }
+             return { value: iterationCount, done: true }
+         }
+      };
+      return rangeIterator;
+  }
+  
+  使用这个迭代器：
+  
+  let it = makeRangeIterator(1, 10, 2);
+  
+  let result = it.next();
+  while (!result.done) {
+   console.log(result.value); // 1 3 5 7 9
+   result = it.next();
+  }
+  
+  console.log("Iterated over sequence of size: ", result.value); // 5
+```
+### 生成器
+* 生成器对象（Generator）
+  * 由一个生成器函数返回的迭代器，并且符合可迭代协议和迭代器协议
+* Generator的原型上包含以下三种方法：
+  * Generator.prototype.next()：next() 方法返回一个包含属性done和value的对象，该方法也可以通过接受一个参数用以向生成器传值
+    * 语法：gen.next(value) 
+      * value：可选，向生成器传递的值（如果传递了该参数，那么这个参数会传给上一条执行的 yield语句左边的变量）
+      * 返回值：返回的对象包含两个属性:
+        * done (布尔类型)
+          * 如果迭代器超过迭代序列的末尾，则值为true，此时value可选地指定迭代器的返回值
+          * 如果迭代器能够生成序列中的下一个值，则值为false，相当于没有完全指定done属性
+        * value迭代器返回的任意的Javascript值。当done值为true时可以忽略该值
+  * Generator.prototype.return()：return()方法返回给定的值并结束生成器
+    * 语法：gen.return(value) 
+      * value: 需要返回的值
+      * 返回值：返回该函数参数中给定的值
+  * Generator.prototype.throw()：throw()方法用来向生成器抛出异常并恢复生成器的执行，返回带有done 及value两个属性的对象
+    * 语法：gen.throw(exception) 
+      * exception：用于抛出的异常
+      * 返回值：带有两个属性的`对象
+* yield 关键字 和 yield* 表达式
+  * yield用来暂停和恢复一个生成器函数
+  * yield* 表达式用于委托给另一个generator 或可迭代对象
+### 生成器函数
+* 自定义的迭代器需要显式地维护其内部状态，因此需要谨慎地创建。生成器函数提供了一个强大的选择：允许定义一个包含自有迭代算法的函数，同时它可以自动维护自己的状态。
+* function* name([param[, param[, ... param]]]) { statements }
+* 调用一个生成器函数并不会马上执行它里面的语句，而是返回一个这个生成器的迭代器（ iterator ）对象
+* 当这个迭代器的next() 方法被首次（后续）调用时，其内的语句会执行到第一个出现yield的位置为止，yield 后紧跟迭代器要返回的值。或者如果用的是 yield*，则表示将执行权移交给另一个生成器函数（当前生成器暂停执行）
+* next()方法返回一个对象，这个对象包含两个属性：value和done，value属性表示本次yield表达式的返回值，done属性为布尔类型，表示生成器后续是否还有 yield 语句，即生成器函数是否已经执行完毕并返回
+* 调用next()方法时，如果传入了参数，那么这个参数会传给上一条执行的yield语句左边的变量
+* 当在生成器函数中显式return时，会导致生成器立即变为完成状态，即调用next()方法返回的对象的done为true。如果return后面跟了一个值，那么这个值会作为当前调用next()方法返回的value值
+```
+  function *gen(){
+    yield 10;
+    x=yield 'foo';
+    yield x;
+  }
+
+  var gen_obj=gen();
+  console.log(gen_obj.next());                    // 执行 yield 10，返回 10
+  console.log(gen_obj.next());                    // 执行 yield 'foo'，返回 'foo'
+  console.log(gen_obj.next(100));                 // 将 100 赋给上一条 yield 'foo' 的左值，即执行 x=100，返回 100
+  console.log(gen_obj.next());                    // 执行完毕，value 为 undefined，done 为 true
+```
+```
+  生成器也可以接收参数：
+  function* idMaker(){
+      var index = arguments[0] || 0;
+      while(true)
+          yield index++;
+  }
+  
+  var gen = idMaker(5);
+  console.log(gen.next().value);                 // 5
+  console.log(gen.next().value);                 // 6
+```
+```
+  yield*的示例:
+  function* anotherGenerator(i) {
+    yield i + 1;
+    yield i + 2;
+    yield i + 3;
+  }
+  
+  function* generator(i){
+    yield i;
+    yield* anotherGenerator(i);                // 移交执行权
+    yield i + 10;
+  }
+  
+  var gen = generator(10);
+  
+  console.log(gen.next().value);              // 10
+  console.log(gen.next().value);              // 11
+  console.log(gen.next().value);              // 12
+  console.log(gen.next().value);              // 13
+  console.log(gen.next().value);              // 20
+```
+```
+  传递参数
+  function *createIterator() {
+      let first = yield 1;
+      let second = yield first + 2;          // 4 + 2
+                                             // first = 4 是 next(4) 将参数赋给上一条的
+      yield second + 3;                      // 5 + 3
+  }
+  
+  let iterator = createIterator();
+  
+  console.log(iterator.next());             // "{ value: 1, done: false }"
+  console.log(iterator.next(4));            // "{ value: 6, done: false }"
+  console.log(iterator.next(5));            // "{ value: 8, done: false }"
+  console.log(iterator.next());             // "{ value: undefined, done: true }"
+```
+```
+  显式返回
+  function* yieldAndReturn() {
+    yield "Y";
+    return "R";                            //显式返回处，可以观察到 done 也立即变为了 true
+    yield "unreachable";                  // 不会被执行了
+  }
+  
+  var gen = yieldAndReturn()
+  console.log(gen.next()); // { value: "Y", done: false }
+  console.log(gen.next()); // { value: "R", done: true }
+  console.log(gen.next()); // { value: undefined, done: true }
+```
 ## Keyed collections
 ### 映射
 * Map对象
