@@ -1358,19 +1358,200 @@
   * 回调函数也算是异步编程
 ### Promise
 * 一些解释
-  * Promise是现代JavaScript中异步编程的基础，是一个由异步函数返回的可以向我们指示当前操作所处的状态的对象。在Promise返回给调用者的时候，操作往往还没有完成，但Promise对象可以让我们操作最终完成时对其进行处理（无论成功还是失败）
-  * 利用Promise可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。此外Promise对象提供统一的接口，使得控制异步操作更加容易
+  * Promise是一个对象，它代表了一个异步操作的最终完成或者失败
+  * 本质上Promise是一个函数返回的对象，可以在它上面绑定回调函数，这样就不需要在一开始把回调函数作为参数传入这个函数了。此外Promise对象提供统一的接口，使得控制异步操作更加容易
   * promise无法取消，一旦建立就会立即执行，无法中途取消。而且，如果不设置回调函数，promise内部抛出的错误不会反映到外部。当处于Pending状态时，无法得知进展到哪一个阶段
+```
+现有一个createAudioFileAsync()函数，它接收一些配置和两个回调函数，然后异步地生成音频文件。一个回调函数在文件成功创建时被调用，另一个则在出现异常时被调用
+使用createAudioFileAsync()的示例：
+
+  // 成功的回调函数
+  function successCallback(result) {
+    console.log("音频文件创建成功: " + result);
+  }
+  
+  // 失败的回调函数
+  function failureCallback(error) {
+    console.log("音频文件创建失败: " + error);
+  }
+  
+  createAudioFileAsync(audioSettings, successCallback, failureCallback)
+  
+  如果函数 createAudioFileAsync() 被重写为返回Promise的形式，可以这样调用：
+  const promise = createAudioFileAsync(audioSettings);
+  promise.then(successCallback, failureCallback);
+  
+  或简写为：
+  createAudioFileAsync(audioSettings).then(successCallback, failureCallback);    // 异步函数调用
+```
 * promise三个状态：
   * pending：待定，初始状态，既没有被兑现也没有被拒绝
   * fufilled：已兑现，操作成功完成
   * rejected：已拒绝，操作失败
-###
+* 使用Promise的约定
+  * 在本轮 事件循环 运行完成之前，回调函数不会被调用
+  * 即使异步操作已经完成（成功或失败），在这之后通过 then() 添加的回调函数也会被调用
+  * 通过多次调用 then() 可以添加多个回调函数，它们会按照插入顺序进行执行
+* 链式调用
+  * 通过创造一个Promise链来实现：连续执行两个或者多个异步操作，在上一个操作执行成功之后，开始下一个的操作，并带着上一步操作所返回的结果
+```
+  const promise = doSomething();
+  const promise2 = promise.then(successCallback, failureCallback)
 
-###
+  promise2 不仅表示 doSomething() 函数的完成，也代表了传入的successCallback或者failureCallback的完成，这两个函数也可以返回一个 Promise 对象，从而形成另一个异步操作，这样的话，在promise2上新增的回调函数会排在这个 Promise 对象的后面
+  基本上，每一个 Promise 都代表了链中另一个异步过程的完成
 
-###
+  在过去，要想做多重的异步操作，会导致经典的回调地狱：
 
+  doSomething(function(result) {
+    doSomethingElse(result, function(newResult) {
+      doThirdThing(newResult, function(finalResult) {
+        console.log('Got the final result: ' + finalResult);
+      }, failureCallback);
+    }, failureCallback);
+  }, failureCallback);
+  
+  现在，可以把回调绑定到返回的Promise上，形成一个Promise链：
+  
+  doSomething().then(function(result) {
+    return doSomethingElse(result);
+  })
+  .then(function(newResult) {
+    return doThirdThing(newResult);
+  })
+  .then(function(finalResult) {
+    console.log('Got the final result: ' + finalResult);
+  })
+  .catch(failureCallback);
+
+  then里的参数是可选的，catch(failureCallback)是then(null, failureCallback)的缩略形式
+  一定要有返回值，否则，callback 将无法获取上一个 Promise 的结果
+```
+* Catch 的后续链式操作
+  * 有可能会在一个回调失败之后继续使用链式操作，即，使用一个 catch，这对于在链式操作中抛出一个失败之后，再次进行新的操作会很有用
+```
+  new Promise((resolve, reject) => {
+      console.log('初始化');
+  
+      resolve();
+  })
+  .then(() => {
+      throw new Error('有哪里不对了');
+  
+      console.log('执行「这个」”');
+  })
+  .catch(() => {
+      console.log('执行「那个」');
+  })
+  .then(() => {
+      console.log('执行「这个」，无论前面发生了什么');
+  });
+  
+  输出结果：
+  初始化
+  执行“那个”
+  执行“这个”，无论前面发生了什么
+  因为抛出了错误 有哪里不对了，所以前一个 执行「这个」 没有被输出
+```
+* Promise 拒绝事件
+  * rejectionhandled：当 Promise 被拒绝，并且在reject函数处理该rejection之后会派发此事件
+  * unhandledrejection：当Promise被拒绝，但没有提供reject函数来处理该rejection时，会派发此事件
+  * 这两种情况中，PromiseRejectionEvent事件都有两个属性：promise属性，指向被驳回的 Promise；reason属性，用来说明 Promise 被驳回的原因。因此，可以通过以上事件为Promise失败时提供补偿处理，也有利于调试Promise相关的问题。在每一个上下文中，该处理都是全局的，因此不管源码如何，所有的错误都会在同一个处理函数中被捕捉并处理
+* 组合
+  * Promise.resolve() 和 Promise.reject() 是手动创建一个已经 resolve 或者 reject 的 Promise 快捷方法
+  * Promise.all() 和 Promise.race() 是并行运行异步操作的两个组合式工具
+```
+  可以发起并行操作，然后等多个操作全部结束后进行下一步操作：
+    Promise.all([func1(), func2(), func3()])
+    .then(([result1, result2, result3]) => { /* use result1, result2 and result3 */ });
+
+  可以使用一些聪明的 JavaScript 写法实现时序组合：
+    [func1, func2, func3].reduce((p, f) => p.then(f), Promise.resolve())
+    .then(result3 => { /* use result3 */ });
+
+  通常递归调用一个由异步函数组成的数组时，相当于一个 Promise 链：
+    Promise.resolve().then(func1).then(func2).then(func3);
+
+  也可以写成可复用的函数形式：
+    const applyAsync = (acc,val) => acc.then(val);
+    const composeAsync = (...funcs) => x => funcs.reduce(applyAsync, Promise.resolve(x));
+    composeAsync() 函数将会接受任意数量的函数作为其参数，并返回一个新的函数，该函数接受一个通过 composition pipeline 传入的初始值
+
+  即为任一函数可以是异步或同步的，它们能被保证按顺序执行：
+    const transformData = composeAsync(func1, func2, func3);
+    const result3 = transformData(data);
+
+  时序组合可以通过使用 async/await 而变得更简单：
+
+    let result;
+    for (const f of [func1, func2, func3]) {
+      result = await f(result);
+    }
+    /* use last result (i.e. result3) */
+```
+* 时序
+  * 为了避免意外，即使是一个已经变成 resolve 状态的 Promise，传递给 then() 的函数也总是会被异步调用：
+  ```
+    Promise.resolve().then(() => console.log(2));
+    console.log(1); // 1, 2
+
+    传递到 then() 中的函数被置入到一个微任务队列中，而不是立即执行，这意味着它是在 JavaScript 事件队列的所有运行时结束了，且事件队列被清空之后，才开始执行：
+    
+    const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+    wait().then(() => console.log(4));
+    Promise.resolve().then(() => console.log(2)).then(() => console.log(3));
+    console.log(1); // 1, 2, 3, 4
+  ```
+* 嵌套
+  * 简便的Promise链式编程最好保持扁平化，不要嵌套 Promise
+  * 嵌套 Promise 是一种可以限制 catch 语句的作用域的控制结构写法。明确来说，嵌套的 catch 仅捕捉在其之前同时还必须是其作用域的 failureres，而捕捉不到在其链式以外或者其嵌套域以外的 error。如果使用正确，那么可以实现高精度的错误修复
+  ```
+    doSomethingCritical()
+    .then(result => doSomethingOptional()
+      .then(optionalResult => doSomethingExtraNice(optionalResult))
+      .catch(e => {console.log(e.message)}))                       // 即使有异常也会忽略，继续运行;(最后会输出)
+    .then(() => moreCriticalStuff())
+    .catch(e => console.log("Critical failure: " + e.message));    // 没有输出
+
+    有些代码步骤是嵌套的，而不是一个简单的纯链式，这些语句前与后都被括号 () 包裹着
+    
+    这个内部的 catch 语句仅能捕获到 doSomethingOptional() 和 doSomethingExtraNice() 的失败，之后就恢复到 moreCriticalStuff() 的运行。如果 doSomethingCritical() 失败，这个错误仅会被最后的（外部）catch 语句捕获到
+  ```
+* 常见错误
+```
+
+  // 错误示例，包含 3 个问题
+  
+  doSomething().then(function(result) {
+    doSomethingElse(result) // 没有返回 Promise 以及没有必要的嵌套 Promise
+    .then(newResult => doThirdThing(newResult));
+  }).then(() => doFourthThing());
+
+  第一个错误是没有正确地将事物相连接。当创建新 Promise 但忘记返回它时，会发生这种情况。这意味着 doFourthThing() 不会等待 doSomethingElse() 或 doThirdThing() 完成，并且将与它们并行运行，可能是无意的。单独的链也有单独的错误处理，导致未捕获的错误
+  
+  第二个错误是不必要地嵌套，实现第一个错误。嵌套还限制了内部错误处理程序的范围，如果是非预期的，可能会导致未捕获的错误。其中一个变体是 Promise 构造函数反模式，它结合了 Promise 构造函数的多余使用和嵌套。
+  
+  第三个错误是忘记用 catch 终止链。这导致在大多数浏览器中不能终止的 Promise 链里的 rejection。
+  
+  一个好的经验法则是总是返回或终止 Promise 链，并且一旦得到一个新的 Promise，返回它
+
+  // 修改后的平面化的代码：
+  doSomething()
+  .then(function(result) {
+    return doSomethingElse(result);
+  })
+  .then(newResult => doThirdThing(newResult))
+  .then(() => doFourthThing())
+  .catch(error => console.log(error));
+
+  使用 async/await 可以解决以上大多数错误，使用 async/await 时，最常见的语法错误就是忘记了 await 关键字
+```
+###
+  
+###
+  
+###
+  
 ## 客户端网页 API
 
 ### 客户端网页 API
