@@ -9,7 +9,7 @@
   * 内部 is
     ```
       <script>
-         // 在此编写 JavaScript 代码
+         // 在此编写 JS 代码
       </script>
     ```
   * 外部 js
@@ -48,15 +48,15 @@
 * 全局变量
   * 全局变量是全局对象的属性，在网页中全局对象是window，可以用如 window. variable的语法来设置和访问全局变量，可以通过指定window或frame的名字，在当前window或frame访问另一个window或 rame 中声明的变量
 * 变量提升
-  * 可以先使用变量稍后再声明变量，这一概念称为变量提升；JavaScript变量感觉上是被“提升”或移到了函数或语句的最前面。但提升后的变量将返回undefined值。因此在使用或引用某个变量之后进行声明和初始化操作，这个被提升的变量仍将返回undefined值
+  * 可以先使用变量稍后再声明变量，这一概念称为变量提升；JS变量感觉上是被“提升”或移到了函数或语句的最前面。但提升后的变量将返回undefined值。因此在使用或引用某个变量之后进行声明和初始化操作，这个被提升的变量仍将返回undefined值
   * 由于存在变量提升，一个函数中所有的var语句都应尽可能放在接近函数顶部的地方
 * 变量命名规则
-  * 变量名不要以下划线开头—— 以下划线开头的被某些JavaScript设计为特殊的含义，因此可能让人迷惑
+  * 变量名不要以下划线开头—— 以下划线开头的被某些JS设计为特殊的含义，因此可能让人迷惑
   * 变量名不要以数字开头
   * "小写驼峰命名法"：小写整个命名的第一个字母然后大写剩下单词的首字符
   * 变量名直观，描述所包含的数据。不要只使用单一的字母/数字或者长句
   * 变量名大小写敏感——因此 myage 与 myAge 是不同的变量
-  * 避免使用 JavaScript 的保留字给变量命名，如 var,function,let、for 等
+  * 避免使用 JS 的保留字给变量命名，如 var,function,let、for 等
 * 常量 (Constants)
   * 关键字const创建一个只读常量
   * 常量标识符的命名规则和变量相同
@@ -82,7 +82,7 @@
       let dog = { name : 'Spot', breed : 'Dalmatian' };
     ```
 * 数据类型的转换
-  * javaScript 是一种“动态类型语言”，不需要指定变量将包含什么数据类型（例如 number 或 string），例如声明一个变量并给它一个带引号的值，浏览器就会知道它是一个字符串
+  * JS 是一种“动态类型语言”，不需要指定变量将包含什么数据类型（例如 number 或 string），例如声明一个变量并给它一个带引号的值，浏览器就会知道它是一个字符串
   * 数字转换为字符串: `+`
     ``` 
       x = "The answer is " + 42 // "The answer is 42"
@@ -102,7 +102,7 @@
   * 字面量是由语法表达式定义的常量，一般除去表达式，给变量赋值时，等号右边都可以认为是字面量
   * 数组字面量 (Array literals)
     * 一个封闭在方括号对([])中的包含有零个或多个表达式的列表，其中每个表达式代表数组的一个元素。当使用数组字面值创建一个数组时，该数组将会以指定的值作为其元素进行初始化，而其长度被设定为元素的个数
-    * 若在全局脚本里用字面值创建数组，JavaScript语言将会在每次对包含该数组字面值的表达式求值时解释该数组。另一方面，在函数中使用的数组，将在每次调用函数时都会被创建一次
+    * 若在全局脚本里用字面值创建数组，JS语言将会在每次对包含该数组字面值的表达式求值时解释该数组。另一方面，在函数中使用的数组，将在每次调用函数时都会被创建一次
     * 数组字面值同时也是数组对象
     * 数组字面值中的多余逗号：在同一行中连写两个逗号（,），数组中就会产生一个没有被指定的元素，其初始值是undefined;在数组尾部添加了一个逗号，将会被忽略；在头部添加一个逗号也会产生一个未赋值元素
       ```
@@ -299,7 +299,7 @@
   * `( condition ) ? run code1 : run code2 instead`条件为true时运行code1，为false时运行code2
 ### 异常处理语句
 * 异常类型
-  * JavaScript可以抛出任意对象，但不是所有对象能产生相同的结果。抛出数值或者字母串作为错误信息十分常见，但用下列异常类型来创建目标更为高效：
+  * JS可以抛出任意对象，但不是所有对象能产生相同的结果。抛出数值或者字母串作为错误信息十分常见，但用下列异常类型来创建目标更为高效：
     * ECMAScript exceptions
     * DOMException and DOMError
 * throw语句
@@ -375,7 +375,7 @@
   * `<=`      小于等于 测试左值是否小于等于右值 `5<=2+3`
   * `>=`      大于等于 测试左值是否大于等于右值 `5>=2+3`
 * 位运算符
-  * 位运算符是在二进制表示上执行运算，但是返回结果是标准的JavaScript数值
+  * 位运算符是在二进制表示上执行运算，但是返回结果是标准的JS数值
   * 按位与	     a & b	    在 a,b 的位表示中，每一个对应的位都为 1 则返回 1， 否则返回 0.
   * 按位或       a | b	    在 a,b 的位表示中，每一个对应的位，只要有一个为 1 则返回 1， 否则返回 0.
   * 按位异或   	va ^ b	    在 a,b 的位表示中，每一个对应的位，两个不相同则返回 1，相同则返回 0.
@@ -447,8 +447,8 @@
     * Number.NEGATIVE_INFINITY	特指“负无穷”;在溢出时返回
     * Number.POSITIVE_INFINITY	特指“正无穷”;在溢出时返回
     * Number.EPSILON	          表示1和比最接近1且大于1的最小Number之间的差别
-    * Number.MIN_SAFE_INTEGER	  JavaScript 最小安全整数
-    * Number.MAX_SAFE_INTEGER	  JavaScript 最大安全整数
+    * Number.MIN_SAFE_INTEGER	  JS 最小安全整数
+    * Number.MAX_SAFE_INTEGER	  JS 最大安全整数
   * 数字的方法
     * Number.parseFloat()	      把字符串参数解析成浮点数，和全局方法parseFloat()作用一致
     * Number.parseInt()	        把字符串解析成特定基数对应的整型数字，和全局方法parseInt()作用一致 
@@ -626,7 +626,7 @@
     label :
       statement
   ```
-    * label的值可以是任何的非保留字的JavaScript标识符，statement可以是任意想要标识的语句或语句块
+    * label的值可以是任何的非保留字的JS标识符，statement可以是任意想要标识的语句或语句块
   ```
     未添加 Label：
 
@@ -677,6 +677,7 @@
     break [label];
     被[]包裹的内容是可省略的,若省略，则终止当前所在的循环或switch；若不省略，则终止指定的 label 语句
   ```
+  ```
   终止一个循环：循环数组里的元素，直到找到一个等于 theValue 的值
     
     for (i = 0; i < a.length; i++) {
@@ -714,7 +715,7 @@
     一个函数定义（也称为函数声明，或函数语句）包含
     * 函数的名称
     * 函数参数列表，包围在括号中并由逗号分隔
-    * 定义函数的 JavaScript 语句，用大括号{}括起来。
+    * 定义函数的 JS 语句，用大括号{}括起来。
     ```
       function square(number) {             函数：square
         return number * number;             参数：number
@@ -868,7 +869,7 @@
     
     var p = new Person();
   ```
-### 预定义函数：javascript引擎中可供随时调用的内建函数
+### 预定义函数：JS引擎中可供随时调用的内建函数
 * parseInt()：将收到的任何输入值转换成整数类型输出，如果转换失败，返回NaN
 * parseFloat()：功能基本与parseInt()相同，只不过他只支持十进制，并且支持小数和指数形式
 * isNaN()：确定某个输入值是否是一个可以参与算术运算的数字
@@ -881,7 +882,7 @@
 ### 迭代协议
 迭代协议分为可迭代协议和迭代器协议
 * 可迭代协议
-  * 可迭代协议允许 JavaScript 对象定义或定制它们的迭代行为。
+  * 可迭代协议允许 JS 对象定义或定制它们的迭代行为。
   * 成为可迭代对象的条件
     * 实现了@@iterator方法
   * 怎么迭代
@@ -908,7 +909,7 @@
         * done（boolean）：
           * 如果迭代器可以产生序列中的下一个值，则为 false（这等价于没有指定 done 这个属性。）
           * 如果迭代器已将序列迭代完毕，则为 true。这种情况下，value 是可选的，如果它依然存在，即为迭代结束之后的默认返回值
-        * value：迭代器返回的任何 JavaScript 值。done 为 true 时可省略
+        * value：迭代器返回的任何 JS 值。done 为 true 时可省略
           * next() 方法必须返回一个对象，该对象应当有两个属性： done 和 value
           * 如果返回了一个非对象值（比如 false 或 undefined），则会抛出一个 TypeError 异常（“iterator.next() returned a non-object value”）
 ### 迭代器
@@ -961,7 +962,7 @@
         * done (布尔类型)
           * 如果迭代器超过迭代序列的末尾，则值为true，此时value可选地指定迭代器的返回值
           * 如果迭代器能够生成序列中的下一个值，则值为false，相当于没有完全指定done属性
-        * value迭代器返回的任意的Javascript值。当done值为true时可以忽略该值
+        * value迭代器返回的任意的JS值。当done值为true时可以忽略该值
   * Generator.prototype.return()：return()方法返回给定的值并结束生成器
     * 语法：gen.return(value) 
       * value: 需要返回的值
@@ -1375,11 +1376,11 @@
   ```
 ### 使用 JSON
 * 什么是JSON
-  * JSON是一种按照JavaScript对象语法的`数据格式`。它基于JavaScript语法，但独立于JavaScript。类似于XML，但比XML更小、更快、更易解析
+  * JSON是一种按照JS对象语法的`数据格式`。它基于JS语法，但独立于JS。类似于XML，但比XML更小、更快、更易解析
   * JSON可以作为一个对象或者字符串存在，前者用于解读JSON中的数据，后者用于通过网络传输JSON 数据。 
   * 一个JSON对象可以被储存在它自己的文件中，`.json`文本文件
 * JSON语法
-  * JSON 语法是JavaScript对象表示法语法的子集
+  * JSON 语法是JS对象表示法语法的子集
     * 数据在名称/值对中
     * 数据由逗号分隔
     * 花括号保存对象
@@ -1425,7 +1426,7 @@
         // json字符串可以直接传给JSON.parse()，得到相应的JavaScript值，如果给JSON.parse()传入的JSON字符串无效，会抛出错误
       ``` 
   * 序列化选项
-    * JSON.Stringify()方法除了要序列化的对象，还可以接收两个参数，用于指定其他序列化JavaScript对象的方式：
+    * JSON.Stringify()方法除了要序列化的对象，还可以接收两个参数，用于指定其他序列化JS对象的方式：
       * 过滤器：可以是数组或函数
         * 如第二个参数是数组：JSON.stringify()返回的结果只会包含该数组中列出的对象属性
           ```
@@ -1536,6 +1537,43 @@
   * 所有的定时器都是异步编程 setTimeout(function(){},1000)
   * AJAX中一般都使用异步编程处理
   * 回调函数也算是异步编程
+### 从服务器获取数据
+* XMLHttpRequest
+  ```
+    function success(text) {
+        var textarea = document.getElementById('test-response-text');
+        textarea.value = text;
+    }
+    
+    function fail(code) {
+        var textarea = document.getElementById('test-response-text');
+        textarea.value = 'Error code: ' + code;
+    }
+     // 新建XMLHttpRequest对象
+    var request = new XMLHttpRequest();                   
+    // 状态发生变化时，函数被回调
+    request.onreadystatechange = function () { 
+        // 成功完成
+        if (request.readyState === 4) { 
+            // 判断响应结果:
+            if (request.status === 200) {
+                // 成功，通过responseText拿到响应的文本:
+                return success(request.responseText);
+            } else {
+                // 失败，根据响应码判断失败原因:
+                return fail(request.status);
+            }
+        } else {
+            // HTTP请求还在继续...
+        }
+    }
+    
+    // 发送请求:
+    request.open('GET', '/api/categories');
+    request.send();
+    
+    alert('请求已发送，请等待响应...');
+  ```
 ### Promise
 * 一些解释
   * Promise是一个对象，它代表了一个异步操作的最终完成或者失败
@@ -1726,26 +1764,253 @@
 
   使用 async/await 可以解决以上大多数错误，使用 async/await 时，最常见的语法错误就是忘记了 await 关键字
 ```
-###
-  
-###
-  
-###
-  
-## 客户端网页 API
-
-### 客户端网页 API
-
-### 网页 API 介绍
-
-### 操纵文档
-
-### 从服务器获取数据
-
-### 第三方 API
-
+## 客户端 API
+### API介绍
+* 什么是 API
+  * API：应用程序接口（Application Programming Interface），是基于编程语言构建的结构，使开发人员更容易地创建复杂的功能。它们抽象了复杂的代码，并提供一些简单的接口规则可直接使用
+* 客户端JavaScript中的API
+  * 客户端JavaScript中有很多可用的API，他们本身并不是JS语言的一部分，却建立在JS语言核心的顶部，为使用JS代码提供额外的超强能力。通常分为两类：
+    * 浏览器API：内置于Web浏览器中，能从浏览器和电脑周边环境中提取数据，并用来做复杂的事情
+    * 第三方API：缺省情况下不会内置于浏览器中，通常必须在Web中的某个地方获取代码和信息
+* JS、API和其他JS工具之间的关系
+  * JS：一种内置于浏览器的高级脚本语言，可以用来实现Web页面/应用中的功能
+  * 客户端API：内置于浏览器的结构程序，位于JS语言顶部，可以更容易的实现功能
+  * 第三方API：置于第三方普通的结构程序（如Twitter，Facebook），可以在自己的Web页面中使用那些平台的某些功能
+  * JS库：通常是包含具有特定功能的一个或多个JS文件，把这些文件关联到Web页以快速编写常见的功能
+  * JS框架：从库开始的下一步，JS框架视图把HTML、CSS、JS和其他安装的技术打包在一起，然后用来从头编写一个完整的Web应用
+* API 可以做什么
+  * 常见浏览器API
+    * 操作文档的API：内置于浏览器中。最明显的例子是DOM（文档对象模型）API，它允许操作HTML和CSS，动态地将新样式应用到页面等。每当看到一个弹出窗口出现在一个页面上，或者显示一些新的内容时，这都是DOM的行为 
+    * 从服务器获取数据的API：用来更新网页的一小部分十分便捷
+    * 用于绘制和操作图形的API：目前已被浏览器广泛支持，最流行的是允许以编程方式更新包含在HTML <canvas> 元素中的像素数据以创建2D和3D场景的Canvas和WebGL
+    * 音频和视频API：例如HTMLMediaElement，Web Audio API和WebRTC，允许使用多媒体来做一些非常有趣的事情，如创建用于播放音频和视频的自定义UI控件，显示字幕字幕和视频，从网络摄像机抓取视频，通过画布操纵，添加效果到音轨（如增益，失真，平移等）等 
+    * 设备API：基本上是以对网络应用程序有用的方式操作和检索现代设备硬件中的数据的API
+    * 客户端存储API：在Web浏览器中的使用变得越来越普遍，如果想创建一个应用程序来保存页面加载之间的状态，甚至让设备在处于脱机状态时可用，那么在客户端存储数据将会是非常有用的
+* API 如何工作
+  * 它们是基于对象的
+     * API使用一个或多个JS objects在代码中进行交互，这些对象用作API使用的数据（包含在对象属性中）的容器以及API提供的功能（包含在对象方法中）。
+  * 它们有可识别的入口点
+    * 使用API时，应确保知道API入口点的位置。如文档对象模型(DOM) API，它的功能往往被挂在Document对象，或任何想影响的HTML元素的实例上；其他API具有稍微复杂的入口点，通常为要编写的API代码创建特定的上下文
+  * 它们使用事件来处理状态的变化
+    * 一些Web API不包含事件，有些包含一些事件。当事件触发时，允许运行函数的处理程序属性
+  * 它们在适当的地方有额外的安全机制
+### 操纵文档（DOM）
+* 什么是DOM
+  * DOM：document object model文档对象模型，是HTML和XML文档的编程接口。它提供了对文档的结构化的表述，并定义一种方式可以从程序中对该结构进行访问，从而改变文档的结构、样式和内容。DOM将文档解析为一个由节点和对象（包含属性和方法的对象）组成的结构集合
+  * DOM就是一种想象的树形结构，它的作用是将网页转为一个 JavaScript 对象，从而可以用脚本进行各种操作（比如增删内容）
+  ![文档树形结构](images/dom-model.jpg)
+  * 通过DOM模型将上述结构一一映射成节点（通过构造函数把页面中的节点变成实例对象，dom就是这样把文档变成对象的），这些节点就又构成了节点树，也就是DOM Tree
+  * DOM树有3种层级结构：
+    * 父节点关系(parentNode)：直接的上级节点
+    * 子节点关系(childNodes)：直接的下级节点
+    * 兄弟关系(sibling)：拥有同一个父节点的同级节点
+    * 根节点(Document)没有父节点，
+* 节点Node
+  * DOM的最小组成单位，各种不同类型的节点组成文档的树形结构DOM树
+  * 节点主要有7种类型
+    * Document：整个文档树的根节点
+    * Document：doctype标签节点，如<!DOCTYPE html>
+    * Element：网页的各种Html标签，比如<body><div>等
+    * Attribute：网页元素的属性
+    * Text：标签之间或者标签包含的文本
+    * Comment：注释
+    * DocunmentFragment：文
+  * JS中，所有节点类型都继承Node类型，因此所有类型都共享相同的基本属性和方法
+  * 每个节点都有nodeType属性，表示该节点的类型，节点类型由定义在Node类型上的12个数值常量表示
+* 12种node类型  
+  * Node.ELEMENT_NODE（1）
+  * Node.ATTRIBUTE_NODE（2）             属性节点
+  * Node.TEXT_NODE（3）                  文本节点
+  * Node.CDATA_SECTION_NODE（4）         cdata节点
+  * Node.ENTITY_REFERENCE_NODE（5）      实体引用名称节点
+  * Node.ENTITY_NODE（6）                实体名称节点
+  * Node.PROCESSING_INSTRUCTION_NODE（7）处理指令节点
+  * Node.COMMENT_NODE（8）               注释节点
+  * Node.DOCUMENT_NODE（9）              文档节点
+  * Node.DOCUMENT_TYPE_NODE（10）        文档类型节点
+  * Node.DOCUMENT_FRAGMENT_NODE（11）    文档片段节点
+  * Node.NOTATION_NODE（12）             DTD声明节点
+* 操作节点
+  * 修改节点信息
+    * 拿到一个DOM节可以直接修改节点的文本，方法有两种
+      * 修改innerHTML属性，这个方式非常强大，不但可以修改一个DOM节点的文本内容，还可以直接通过HTML片段修改DOM节点内部的子树
+      ```
+        var p = document.getElementById('p-id');           // 获取<p id="p-id">...</p>
+        p.innerHTML = 'ABC';                               // 设置文本为ABC
+        p.innerHTML = 'ABC <span style="color:red">RED</span> XYZ';    // 设置HTML:
+      ```
+        * 用innerHTML时要注意，是否需要写入HTML。如果写入的字符串是通过网络拿到的，要注意对字符编码来避免XSS攻击。
+      * 修改innerText或textContent属性，这样可以自动对字符串进行HTML编码，保证无法设置任何HTML标签
+      ```
+        var p = document.getElementById('p-id');
+        p.innerText = '<script>alert("Hi")</script>'; // 设置文本:
+        // HTML被自动编码，无法设置一个<script>节点:
+        // <p id="p-id">&lt;script&gt;alert("Hi")&lt;/script&gt;</p>
+      ```
+      * 区别：读取属性时，innerText不返回隐藏元素的文本，而textContent返回所有文本，IE<9不支持textContent
+    * 修改CSS：DOM节点的style属性对应所有的CSS，可以直接获取或设置。因为CSS允许font-size这样的名称，但它并非JavaScript有效的属性名，所以需要在JavaScript中改写为驼峰式命名fontSize
+    ```
+       var p = document.getElementById('p-id');
+       // 设置CSS:
+       p.style.color = '#ff0000';
+       p.style.fontSize = '20px';
+       p.style.paddingTop = '2em';
+    ```
+  * 新增节点
+    * 如果这个DOM节点是空的，如<div></div>：直接使用`innerHTML = '<span>child</span>'`
+    * 如果这个DOM节点不是空的，那就不能这么做，因为innerHTML会直接替换掉原来的所有子节点
+      * 使用appendChild，把一个子节点添加到父节点的最后一个子节点
+      ```
+        let div = document.querySelector('div');     // 获取div（div也可以动态创建）
+        let p = document.createElement('p');         // 动态创建一个p元素
+        div.appendChild(p);                          // p是div的子节点
+      ```
+      * insertBefore：需要要把子节点插入到指定的位置`parentElement.insertBefore(newElement, referenceElement);`子节点会插入到referenceElement之前
+      ```
+      假设div里已经有子节点ul，新建p，插入到ul上方
+        let div = document.querySelector('div');
+        let ul = document.querySelector('ul');
+        let p = document.createElement('p');        
+        div.appendChild(p);     
+        div.insertBefore(p,ul)                     
+      ```
+      * 使用insertBefore重点是要拿到一个“参考子节点”的引用。很多时候，需要循环一个父节点的所有子节点，可以通过迭代children属性实现
+      ```
+        var
+            i, c,
+            list = document.getElementById('list');
+        for (i = 0; i < list.children.length; i++) {
+            c = list.children[i];            // 拿到第i个子节点
+        }
+      ```
+  * 删除节点
+    * 通过绑定的父节点删除`ul.removeChild(div);`
+    * 删除基于自身引用的节点`div.parentNode.removeChild(div);`
+    * 当遍历一个父节点的子节点并进行删除操作时要注意，children属性是一个只读属性，并且它在子节点变化时会实时更新
+    ```
+      var parent = document.getElementById('parent');
+      parent.removeChild(parent.children[0]);
+      parent.removeChild(parent.children[1]); // <-- 浏览器报错
+      浏览器报错：parent.children[1]不是一个有效的节点。原因就在于，当<p>First</p>节点被删除后，parent.children的节点数量已经从2变为了1，索引[1]已经不存在了因此，删除多个节点时，要注意children属性时刻都在变化。
+    ```
 ### 画图
-
-### 视频与音频 API
-
-### 客户端存储
+* 测试浏览器是否支持canvas`getContext`
+  ```
+    var canvas = document.getElementById('test-canvas');
+    if (canvas.getContext) {
+      console.log('你的浏览器支持Canvas!');
+    } else {
+      console.log('你的浏览器不支持Canvas!');
+    }
+  ```
+* 一个Canvas定义了一个指定尺寸的矩形框，在这个范围内可以随意绘制
+  `<canvas id="myCanvas" width="300" height="300"></canvas>`
+* Canvas的坐标以左上角为原点，水平向右为X轴，垂直向下为Y轴，以像素为单位，所以每个点都是非负整数
+* 绘制形状
+  ```
+  设置画布
+    const canvas = document.querySelector('.myCanvas');
+    const ctx = canvas.getContext('2d');          2D画图方法
+    ctx.fillStyle = 'rgba(0,0,0, .5)';            设置颜色
+    ctx.fillRect(0,0,300,300);                    (0, 0)坐标开始，长300px宽300px大小涂色
+  ```
+  * 矩形`fillRect`
+  ```
+    // 画个红色矩形
+    ctx.fillStyle = 'rgb(255, 0, 0)';
+    ctx.fillRect(45, 45, 130, 150);
+    // 画个绿色矩形
+  ```
+  * 轮廓`strokeRect`
+  ```
+    // stroke来描边，画个矩形轮廓，它的默认宽度是1px
+    ctx.strokeStyle = 'rgb(255, 255, 255)';
+    ctx.strokeRect(35, 35, 175, 175);
+    // 画个5px宽的
+    ctx.strokeStyle = 'green';
+    // lineWidth要放在strokeStyle和strokeRect之间才能生效
+    ctx.lineWidth = 5;
+    ctx.strokeRect(25, 25, 200, 200);
+  ```
+  * 绘制尖角朝下的等边三角形
+  ```
+    // 辅助函数，它可以将角度换算为弧度（JS基本上只接受弧度值）
+    function degToRad(degrees) {
+      return degrees * Math.PI / 180;
+    };
+    // 设置颜色，准备绘制，把笔移动至（50，300）处
+    ctx.fillStyle = 'rgb(255, 0, 0)';
+    ctx.beginPath();
+    ctx.moveTo(50, 300);
+    // 绘制一条直线，终点坐标为 (150, 300)，路径会沿x轴向右行走100像素
+    ctx.lineTo(150, 300);
+    /* 第二条线，要利用三角函数来计算等边三角形的高再来绘制，为计算高的值将三角形从正中心分割为两个直角三角形，
+    通过基本三角函数可得：临边长度乘以角的正切等于对边长度，三角形的高为 50 * Math.tan(degToRad(60))，
+    Math.tan()接受数值的单位为弧度，我们用刚才的degToRad()函数将60°算为弧度*/
+    var triHeight = 50 * Math.tan(degToRad(60));
+    ctx.lineTo(100, 300+triHeight);
+    // 第三条线，回到起点
+    ctx.lineTo(50, 300);
+    // ctx.fill()终止路径，并为图形填充颜色
+    ctx.fill();
+  ```
+  * 画圆
+  ```
+    // arc()，通过连续的点来绘制整个圆或者弧（弧就是局部的圆啊）
+    /* arc()函数有六个参数：
+    圆心的x/y坐标
+    圆的半径
+    弧的起/止角度（给定0°和360°就能绘制一个完整的圆，0°设定为水平向右）
+    绘制方向（false顺时针，true是逆时针）*/
+    // 画个（100，450）处开始，r=50的圆
+    ctx.fillStyle = 'rgb(0, 0, 255)';
+    ctx.beginPath();
+    ctx.arc(100, 450, 50, degToRad(0), degToRad(360), false);
+    ctx.fill();
+  ```
+  * 画弧
+  ```
+    // arc()的最后一个参数为true：弧将逆时针绘制，会得到区域外的一条270°的弧；为false：顺时针，将得到 90° 的弧
+    ctx.fillStyle = 'yellow';
+    ctx.beginPath();
+    ctx.arc(100, 600, 50, degToRad(-45), degToRad(45), true);
+    // 一条终点为圆心的直线，渲染出一个吃豆人模型；如果删除这条线只有一个起止点间被砍掉一块的圆了
+    ctx.lineTo(100, 600);
+    ctx.fill();
+    // false的
+    ctx.fillStyle = 'yellow';
+    ctx.beginPath();
+    ctx.arc(100, 700, 50, degToRad(-45), degToRad(45), false);
+    ctx.lineTo(100, 700);
+    ctx.fill();
+  ```
+  * 文本
+  ```
+    // strokeText()：绘制文本外边框，描个边，空心文本
+    ctx.strokeStyle = 'white';
+    ctx.lineWidth = 1;
+    ctx.font = '36px arial';
+    ctx.strokeText('Canvas text', 50, 800);
+    // fillText() ：绘制有填充色的文本，实心文本
+    ctx.fillStyle = 'red';
+    ctx.font = '48px georgia';
+    ctx.fillText('Canvas text', 50, 900);
+  ```
+  * 图片
+  ```
+    // 将图片源嵌入画布中
+    var image = new Image();
+    image.src = '../images/bj1.jpg';
+    // 用drawImage()函数来嵌入图片，为确保图片先载入完毕，使用onload事件处理器来保证图片调用完毕后才会调用
+    image.onload = function() {
+      // ctx.drawImage(image, 50, 1000);
+      ctx.drawImage(image, 20, 20, 200,200, 300, 50, 185, 175);
+    }
+    /* 裁切图片的一部分来显示
+    第一个参数不变，为图片引用。
+    参数 2、3：裁切部分左上顶点的坐标，参考原点为原图片本身左上角的坐标。原图片在该坐标左、上的部分均不会绘制出来。
+    参数 4、5：裁切部分的长、宽。
+    参数 6、7：裁切部分左上顶点在画布中的位置坐标，参考原点为画布左上顶点。
+    参数 8、9：裁切部分在画布中绘制的长、宽
+    */
+  ```
